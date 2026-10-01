@@ -1,0 +1,21 @@
+# waseda-inspection.com — GitHub 正本（会社ページ）
+
+## 社長確定（触るな）
+
+- **ドメイン**: `waseda-inspection.com` のみ。**名称変更・.tokyo 統一の対象にしない**
+- **中身**: 早稲田インスペクション **会社のページ**（リニューアル中デザイン）。tandemair / aicode 用に差し替えない
+
+## 公開（Git のみ）
+
+```bash
+cd "/Users/kiyoshisekine/Desktop/保存/AirQuick_Final_3"
+./scripts/publish_homepages_to_github.sh
+```
+
+push 前に、このフォルダへ **本番と同じ画像** を置く（無いと GitHub 側で画像 404）:
+
+- gearwall2.jpg
+- flyer_page1.png
+- flyer_page2.png
+
+WordPress / ロリポップ FTP は使わない。DNS: `SITES_GITHUB_PAGES.md`

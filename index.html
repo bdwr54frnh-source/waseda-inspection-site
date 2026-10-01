@@ -1,117 +1,502 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
+<html lang="ja"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>早稲田インスペクション｜住宅診断・建築相談・アプリサポート</title>
-  <meta name="description" content="早稲田インスペクションの住宅診断、太陽光関連、舗装工事、リフォーム、クロス、見積もり相談とアプリサポート。">
+  <title>Tandem AIR System｜リニューアル中</title>
+  <meta name="description" content="Tandem AIR System は、電話番号ではなくクイックアイコンでつながる新しい通話体験を準備中です。">
+  <!-- Google tag (gtag.js) -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WXF127P26H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WXF127P26H');
+  </script>
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f7f5f1;
-      --ink: #1a1714;
-      --muted: #5c564e;
-      --line: #ddd6cc;
-      --card: #ffffff;
-      --accent: #6b4a1e;
+      color-scheme: dark;
+      --bg-deep: #0c0a09;
+      --bg-warm: #17120f;
+      --card: rgba(24, 20, 17, 0.86);
+      --text: #faf6f1;
+      --muted: rgba(250, 246, 241, 0.72);
+      --line: rgba(232, 215, 200, 0.20);
+      --accent: #d8c4a8;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-      line-height: 1.7;
+      background: #0a0c10;
+      color: var(--text);
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", serif;
+      line-height: 1.75;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: url("gearwall2.jpg") center / cover no-repeat;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 78% 58% at 12% 0%, rgba(216, 196, 168, 0.16), transparent 56%),
+        radial-gradient(ellipse 58% 48% at 94% 88%, rgba(190, 160, 138, 0.13), transparent 54%),
+        linear-gradient(165deg, rgba(37,34,32,0.24) 0%, rgba(23,18,15,0.28) 48%, rgba(12,10,9,0.34) 100%);
+    }
+
     main {
-      width: min(720px, calc(100% - 32px));
+      position: relative;
+      width: min(920px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 40px 0 72px;
+      padding: 56px 0 72px;
     }
+
+    .top-hero {
+      position: relative;
+      padding: 48px 24px 40px;
+      border-radius: 28px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(20, 24, 31, 0.28);
+    }
+    .top-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.16) 100%);
+    }
+    .top-hero > * { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: #6b4a1e;
+      background: rgba(255,255,255,0.92);
+      padding: 6px 14px;
+      border-radius: 999px;
+    }
+
+    .renewal {
+      margin: 18px 0 6px;
+      font-size: clamp(18px, 3vw, 28px);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
     h1 {
-      margin: 0 0 8px;
-      font-size: clamp(22px, 4vw, 32px);
-      letter-spacing: 0.04em;
+      margin: 0;
+      font-size: clamp(24px, 4.2vw, 38px);
+      line-height: 1.28;
+      letter-spacing: 0.02em;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
-    .lead {
-      margin: 0 0 28px;
+
+    .top-tagline {
+      margin: 14px 0 0;
+      font-size: clamp(15px, 2.4vw, 21px);
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      line-height: 1.55;
+      color: #fff;
+    }
+
+    .top-tagline .arrow {
+      color: #ffd257;
+      margin: 0 6px;
+    }
+
+    .hero-card {
+      margin: 26px auto 0;
+      max-width: 620px;
+      padding: 22px 24px;
+      border-radius: 18px;
+      background: #fff;
+      text-align: left;
+    }
+    .hero-card .lead {
+      max-width: none;
+      margin: 0;
+      font-size: clamp(15px, 2vw, 17px);
+      color: #6b5642;
+      line-height: 1.85;
+    }
+    .hero-card .download-note {
+      margin: 14px 0 0;
+      color: #9b6b2c;
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 14px;
+      background: rgba(0,0,0,0.28);
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      text-align: left;
+    }
+
+    .hero-card ul {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .hero-card ul li {
+      margin: 5px 0 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: #9b6b2c;
+    }
+
+    .hero-pill {
+      display: inline-block;
+      margin: 20px auto 0;
+      padding: 9px 18px;
+      border-radius: 12px;
+      background: #fff;
+      color: #9b6b2c;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .card {
+      min-height: 190px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--card);
+      box-shadow: inset 0 1px 0 rgba(255, 252, 248, 0.06);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    p { margin: 0; }
+
+    .card p,
+    .support p {
       color: var(--muted);
       font-size: 15px;
     }
-    section {
-      margin-top: 28px;
-      padding: 20px;
-      background: var(--card);
+
+    .steps {
+      margin-top: 42px;
+      padding: 28px;
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: inset 0 1px 0 rgba(255, 252, 248, 0.06);
     }
-    h2 {
-      margin: 0 0 12px;
-      font-size: 16px;
+
+    .steps ol {
+      margin: 18px 0 0;
+      padding-left: 1.25em;
+    }
+
+    .steps li {
+      margin: 10px 0;
+      padding-left: 4px;
+    }
+
+    .support {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .links {
+      margin-top: 28px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--card);
+      box-shadow: inset 0 1px 0 rgba(255, 252, 248, 0.06);
+    }
+
+    .links ul {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .links a {
       color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
     }
-    p { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
-    ul {
-      margin: 0;
-      padding-left: 1.2em;
+
+    .links span {
       color: var(--muted);
       font-size: 14px;
     }
-    li { margin: 6px 0; }
-    a { color: var(--accent); }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #161210;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
     footer {
-      margin-top: 40px;
-      font-size: 12px;
-      color: #8a837a;
+      margin-top: 52px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .founder-note {
+      margin-top: 24px;
+      padding: 14px 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .founder-note strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    @media (max-width: 720px) {
+      main { padding-top: 38px; }
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
+      .steps { padding: 22px; }
+      .top-hero { padding: 36px 16px 30px; }
+      #fraud-graph-section { padding: 20px 0; border-radius: 0; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; }
+      #fraud-graph-card { width: 100%; max-width: none; border-radius: 0; padding: 16px; box-shadow: none; }
+      #fraud-graph-images { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>早稲田インスペクション</h1>
-    <p class="lead">
-      住宅診断・建築の相談と、Tandem Air System / AIRロビンソンのサポート窓口です。
+    <div class="top-hero">
+      <p class="eyebrow">TANDEM AIR SYSTEM / RENEWAL IN PROGRESS</p>
+      <p class="renewal">リニューアル中</p>
+      <h1>Tandem AIR System × 100% iOS</h1>
+      <p class="top-tagline">個人情報・キャリア契約不要<span class="arrow">―</span>100% iOS<span class="arrow">→</span>100% 世界最速</p>
+      <div class="hero-card">
+        <p class="lead">
+          世界最速通話前認証を搭載。電話番号ではなく、クイックアイコンでつながる新しい通話システムです。公開プロフィール、クイック機能、光誘導ナビを中心に、少しずつ内容を整えています。
+        </p>
+        <ul>
+          <li>国内通話対応</li>
+          <li>全キャリア対応・通話前認証システム</li>
+        </ul>
+        <p class="download-note">ダウンロード開始まで、もう少しお待ちください。</p>
+      </div>
+      <span class="hero-pill">全てのiPhoneユーザーへ</span>
+      <p class="notice">
+        このページはリニューアル中の仮公開です。正式な機能説明、サポート、各ドメインの行き先は順次更新します。<br>
+        ※「交換所」は現在予定していません。
+      </p>
+    </div>
+
+    <section id="fraud-graph-section" style="margin-top:36px;text-align:center;padding:40px 12px;border-radius:32px;background:radial-gradient(ellipse 92% 100% at 50% 50%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.08) 82%, transparent 100%);">
+      <p class="eyebrow">最新のお知らせ・仮掲載</p>
+      <div id="fraud-graph-card" style="width:94vw;max-width:1400px;margin:26px auto 0;padding:28px;border-radius:20px;background:#fff;text-align:left;box-shadow:0 24px 60px rgba(20,14,8,0.18);">
+        <div id="fraud-graph-images" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+          <a href="flyer_page1.png" target="_blank" rel="noopener" aria-label="原寸で拡大表示（新しいタブで開きます）" style="display:block;">
+            <img src="flyer_page1.png" alt="特殊詐欺 被害額の推移（警察庁データ）" style="width:100%;height:auto;border-radius:14px;display:block;cursor:zoom-in;box-shadow:0 6px 20px rgba(0,0,0,0.12);">
+          </a>
+          <a href="flyer_page2.png" target="_blank" rel="noopener" aria-label="原寸で拡大表示（新しいタブで開きます）" style="display:block;">
+            <img src="flyer_page2.png" alt="スマホ普及率・SNS利用率（総務省データ）" style="width:100%;height:auto;border-radius:14px;display:block;cursor:zoom-in;box-shadow:0 6px 20px rgba(0,0,0,0.12);">
+          </a>
+        </div>
+        <p class="lead" style="margin-top:22px;">
+          年間数千億円規模の詐欺被害の実態をまとめた啓発資料（警察庁公表データにもとづく、TEAM Kiyoshi・ロッキーによる連載第1回）です。正式版は本公開時にサポートページへ掲載予定です。
+        </p>
+        <p style="margin-top:10px;font-size:13px;color:#9b6b2c;">
+          Fraud-awareness data from Japan's National Police Agency. Full English version coming soon.
+        </p>
+        <p style="margin-top:10px;font-size:12px;color:#9b6b2c;">画像をクリックすると原寸で拡大表示されます（新しいタブで開きます）</p>
+      </div>
+    </section>
+
+    <section style="margin-top:48px;">
+      <p class="eyebrow">SNSで実際に起きている事件</p>
+      <h2 style="margin-top:14px;color:#fff;">その出会い、本当に安全ですか</h2>
+      <div class="grid" aria-label="SNS関連の事件事例" style="margin-top:20px;">
+        <article class="card">
+          <h2 style="font-size:17px;">① ニセ警察官がSNS・ビデオ通話へ誘導</h2>
+          <p>「逮捕される」などと不安をあおり、偽の警察手帳や逮捕状まで見せる手口。</p>
+          <p style="margin-top:12px;"><a href="https://www.keishicho.metro.tokyo.lg.jp/kurashi/tokushu/police_officer.html" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;font-weight:700;text-decoration:none;">警視庁：警察官等をかたる詐欺 ↗</a></p>
+        </article>
+        <article class="card">
+          <h2 style="font-size:17px;">② SNS・マッチングアプリから投資詐欺へ</h2>
+          <p>親しくなった相手に暗号資産への投資を勧められ、資金をだまし取られる事例。</p>
+          <p style="margin-top:12px;"><a href="https://www.keishicho.metro.tokyo.lg.jp/sodan/nettrouble/jirei/cryptocurrency_fraud.html" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;font-weight:700;text-decoration:none;">警視庁：暗号資産の投資詐欺に注意 ↗</a></p>
+        </article>
+        <article class="card">
+          <h2 style="font-size:17px;">③ 知らないアカウントからのDM</h2>
+          <p>投資・副業・恋愛などを入口に外部連絡や送金へ誘導する手口。警察庁も継続して注意喚起しています。</p>
+          <p style="margin-top:12px;"><a href="https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;font-weight:700;text-decoration:none;">警察庁：注意喚起一覧 ↗</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section style="margin-top:40px;padding:32px 24px;border-radius:24px;background:#0d0d0d;border:1px solid rgba(255,255,255,0.08);">
+      <p style="display:inline-block;padding:6px 14px;border-radius:999px;background:#c81e1e;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.08em;">SNSから始まる凶悪事件</p>
+      <h2 style="margin-top:16px;color:#fff;font-size:clamp(20px,4vw,28px);">そのDMは、殺人事件の入口かもしれない</h2>
+      <div class="grid" style="margin-top:24px;">
+        <article style="padding:22px;border-radius:16px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);">
+          <h3 style="margin:0 0 10px;color:#fff;font-size:17px;">① 闇バイト強盗殺人事件</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:14px;">SNSで集められた実行役が、首都圏の強盗殺人事件に関与しました。</p>
+        </article>
+        <article style="padding:22px;border-radius:16px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);">
+          <h3 style="margin:0 0 10px;color:#fff;font-size:17px;">②「高額・即日即金・ホワイト案件」の罠</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:14px;">SNSの求人から匿名アプリへ誘導し、身分証や家族情報を送らせ、脅迫して強盗や詐欺を実行させます。</p>
+        </article>
+        <article style="padding:22px;border-radius:16px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);">
+          <h3 style="margin:0 0 10px;color:#fff;font-size:17px;">③ 実行役は最後に捨てられる</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:14px;">犯罪グループはSNSで集めた若者を「使い捨て」にし、約束の報酬は支払われず、最終的に逮捕されるのは実行役です。</p>
+        </article>
+      </div>
+      <p style="margin-top:22px;color:rgba(255,255,255,0.85);font-size:14px;line-height:1.8;">
+        警察庁は、SNS募集から匿名性の高いアプリへの誘導、個人情報を使った脅迫、強盗への加担を注意喚起しています。もし応募してしまっていても、勇気を持って抜け出し、すぐに警察（相談ダイヤル＃9110）に相談してください。
+      </p>
+      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:14px;">
+        <a href="https://www.npa.go.jp/bureau/safetylife/yamibaito/hanzaishaboshu.html" target="_blank" rel="noopener" style="color:#ff6b6b;font-size:13px;font-weight:700;text-decoration:none;">警察庁：闇バイトの危険性 ↗</a>
+        <a href="https://www.npa.go.jp/hakusyo/r07/pdf/11_shiryo.pdf" target="_blank" rel="noopener" style="color:#ff6b6b;font-size:13px;font-weight:700;text-decoration:none;">警察庁：令和7年警察白書資料編 ↗</a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="主な準備中の機能">
+      <article class="card">
+        <h2>公開プロフィール</h2>
+        <p>個人情報を書かずに始めるための入口です。公開名とアバターを使い、必要な情報だけでつながります。</p>
+      </article>
+      <article class="card">
+        <h2>クイックアイコン</h2>
+        <p>画像ではなく、通話権のキーとして扱うアイコンです。相手との通話に必要な情報を安全に紐づけます。</p>
+      </article>
+      <article class="card">
+        <h2>着信時の安全確認</h2>
+        <p>着信を素早くキャッチし、本人確認と接続許可の確認を行います。安全が確認できた時だけ、アイコンが光で知らせます。</p>
+      </article>
+      <article class="card">
+        <h2>100% iOSへバトンタッチ</h2>
+        <p>コード生成、認証確認、管理、接続先確認までを整えたうえで、iPhone標準の暗号化通話へ安全に引き継ぎます。</p>
+      </article>
+    </section>
+
+    <section class="steps">
+      <h2>準備中の流れ</h2>
+      <ol>
+        <li>公開プロフィールを作成します。</li>
+        <li>相手の公開プロフィールを確認します。</li>
+        <li>Q再プッシュでクイックアイコンを追加します。</li>
+        <li>着信時は素早くキャッチし、本人確認を行います。</li>
+        <li>接続を許可できる相手か確認します。</li>
+        <li>安全確認が完了した時、アイコンが光で知らせます。</li>
+        <li>安全が確認された状態で通話を開始します。</li>
+        <li>確認後、iPhone標準の暗号化通話へバトンタッチします。</li>
+      </ol>
+      <span class="badge">安全を確認してから、必要な相手とつながる。</span>
+    </section>
+
+    <section class="hero-card" id="company" aria-label="会社案内" style="margin-top:36px;max-width:720px;margin-left:auto;margin-right:auto;">
+      <h2 style="margin:0 0 14px;font-size:clamp(20px,3.5vw,26px);color:#161210;">会社案内</h2>
+      <p class="lead" style="margin:0 0 16px;">
+        <strong>早稲田インスペクション</strong>（Waseda Inspection）— Tandem AIR System / Air Face の開発・提供を行う事業体です。本サイトは法人に伴う公式案内・安全啓発・サポート入口です。
+      </p>
+      <dl style="margin:0;font-size:14px;line-height:1.85;color:#6b5642;">
+        <dt style="font-weight:700;margin-top:10px;">事業者名</dt>
+        <dd style="margin:4px 0 0;">早稲田インスペクション</dd>
+        <dt style="font-weight:700;margin-top:10px;">代表者</dt>
+        <dd style="margin:4px 0 0;">関根 清</dd>
+        <dt style="font-weight:700;margin-top:10px;">所在地</dt>
+        <dd style="margin:4px 0 0;">〒366-0811 埼玉県深谷市人見1</dd>
+        <dt style="font-weight:700;margin-top:10px;">お問い合わせ</dt>
+        <dd style="margin:4px 0 0;"><a href="mailto:waseda-inspection@outlook.com" style="color:#9b6b2c;font-weight:700;text-decoration:none;">waseda-inspection@outlook.com</a></dd>
+        <dt style="font-weight:700;margin-top:10px;">振込先（法人口座）</dt>
+        <dd style="margin:4px 0 0;">金融機関の口座確定次第、本ページに掲載します。（審査・手続き中）</dd>
+        <dt style="font-weight:700;margin-top:10px;">特許等</dt>
+        <dd style="margin:4px 0 0;">Tandem AIR System に関する技術は<strong>特許出願中</strong>です。出願番号・明細書の全文は公開しておりません。無断模倣・無断販売については<a href="#patent-notice" style="color:#9b6b2c;font-weight:700;text-decoration:none;">下記</a>をご確認ください。</dd>
+      </dl>
+    </section>
+
+    <section class="notice" id="patent-notice" style="margin-top:24px;text-align:left;">
+      <p style="margin:0 0 10px;font-weight:700;">特許・権利に関するお知らせ</p>
+      <p style="margin:0;font-size:13px;line-height:1.75;">
+        Tandem AIR System に関する技術は特許出願中です。名称・画面・機能構成等の無断利用は、特許法その他の法令上問題となる場合があります。模倣品の販売・配布を見つけた場合は、購入・送金をせず上記メールへご連絡ください。
+      </p>
+    </section>
+
+    <section class="support">
+      <h2>サポートについて</h2>
+      <p>
+        サポートページもリニューアル準備中です。問い合わせ先・FAQ・安全情報は順次整備します。法人・取引・銀行審査用の基本情報は <a href="#company" style="color:var(--accent);font-weight:700;text-decoration:none;">会社案内</a> をご覧ください。
+      </p>
+      <p style="margin-top:10px;font-size:13px;">
+        <a href="privacy.html" style="color:var(--accent);font-weight:700;text-decoration:none;">プライバシーポリシー</a>
+      </p>
+    </section>
+
+    <section class="links">
+      <h2>公式X</h2>
+      <ul>
+        <li><a href="https://x.com/jxUOi4KXbA7l395">Air-Inspection</a> <span>運営・安全情報</span></li>
+        <li><a href="https://x.com/tandemair_jp">Tandem AIR System</a> <span>サポート</span></li>
+        <li><a href="https://x.com/AirQuick_jp">Air Quick</a> <span>クイックアイコン情報</span></li>
+      </ul>
+    </section>
+
+    <p class="founder-note">
+      <strong>TEAM KIYOSHI</strong> — 個人情報なしで、無料で、安全な通話。そのために作りました。INVENTOR / DESIGNER KIYO
     </p>
 
-    <section>
-      <h2>サポート内容</h2>
+    <section class="links" aria-label="公式ドメイン">
+      <h2>公式ドメイン（Apple・審査用）</h2>
       <ul>
-        <li>Tandem Air System に関する問い合わせ窓口</li>
-        <li>AIRロビンソンに関する問い合わせ窓口</li>
-        <li>アプリ利用上の確認・案内</li>
+        <li><a href="https://aicode.tokyo/">aicode.tokyo</a> <span>Elementary Code — 準備中</span></li>
+        <li><a href="https://tandemair.tokyo/">tandemair.tokyo</a> <span>AIRロビンソン — 準備中</span></li>
+        <li><a href="https://waseda-inspection.com/">waseda-inspection.com</a> <span>当サイト — 公開中</span></li>
+        <li><a href="https://elementarycode.tokyo/">elementarycode.tokyo</a> <span>EC 移行期 — 公開中</span></li>
       </ul>
-    </section>
-
-    <section>
-      <h2>建築・住宅診断</h2>
-      <p>代表：関根 清（2級建築施工管理技士・事件現場特殊清掃士）</p>
-      <p>住宅診断のほか、次の内容についてご相談を受け付けます。</p>
-      <ul>
-        <li>太陽光関連</li>
-        <li>舗装工事</li>
-        <li>リフォーム</li>
-        <li>クロス</li>
-        <li>見積もり相談</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>関連サイト</h2>
-      <ul>
-        <li><a href="https://tandemair.jp/">tandemair.jp</a> — AIRロビンソン紹介</li>
-        <li><a href="https://elementarycode.tokyo/">elementarycode.tokyo</a> — エレメンタリーコード</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>お問い合わせ</h2>
-      <p>住宅診断・工事・見積もりのご相談は、内容と所在地を添えてメールでお送りください。</p>
-      <p><a href="mailto:waseda-inspection@outlook.com?subject=%E5%BB%BA%E7%AF%89%E3%83%BB%E4%BD%8F%E5%AE%85%E8%A8%BA%E6%96%AD%E3%81%AE%E7%9B%B8%E8%AB%87">waseda-inspection@outlook.com</a></p>
     </section>
 
     <footer>
-      <p>© 早稲田インスペクション / Tandem Air System</p>
+      <p><a href="#company" style="color:var(--accent);text-decoration:none;">会社案内</a> · <a href="privacy.html" style="color:var(--accent);text-decoration:none;">プライバシーポリシー</a></p>
+      <p>© 早稲田インスペクション / Tandem AIR System</p>
     </footer>
   </main>
-</body>
-</html>
+
+
+</body></html>
