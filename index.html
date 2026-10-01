@@ -292,9 +292,87 @@
       font-weight: 700;
     }
 
+    .site-nav-top {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      padding: 12px 10px;
+      margin: 0 0 20px;
+      border-radius: 16px;
+      background: rgba(12, 10, 9, 0.92);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .site-nav-top a {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(216, 196, 168, 0.35);
+    }
+    .site-nav-top a.primary {
+      background: var(--accent);
+      color: #161210;
+      border-color: transparent;
+    }
+    .brand-hub {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .brand-hub a {
+      display: block;
+      padding: 18px 14px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      text-decoration: none;
+      color: var(--text);
+      text-align: center;
+    }
+    .brand-hub strong {
+      display: block;
+      font-size: 15px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .brand-hub span {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+    .photo-grid figcaption {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
     @media (max-width: 720px) {
       main { padding-top: 38px; }
       .grid { grid-template-columns: 1fr; }
+      .brand-hub { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr; }
       .card { min-height: 0; }
       .steps { padding: 22px; }
       .top-hero { padding: 36px 16px 30px; }
@@ -306,6 +384,72 @@
 </head>
 <body>
   <main>
+    <nav class="site-nav-top" aria-label="審査・公式入口">
+      <a class="primary" href="#company">会社案内</a>
+      <a href="#brand-waseda">早稲田東京</a>
+      <a href="https://tandemair.tokyo/" rel="noopener">タンデム東京</a>
+      <a href="https://elementarycode.tokyo/" rel="noopener">エレメンタリー東京</a>
+      <a href="privacy.html">プライバシー</a>
+    </nav>
+
+    <section class="hero-card" id="company" aria-label="会社案内" style="margin:0 auto 28px;max-width:720px;">
+      <h2 style="margin:0 0 14px;font-size:clamp(20px,3.5vw,26px);color:#161210;">会社案内（早稲田インスペクション）</h2>
+      <p class="lead" style="margin:0 0 16px;">
+        <strong>早稲田インスペクション</strong>（Waseda Inspection）— Tandem AIR System / Air Face の開発・提供。Apple 審査・法人確認用の公式入口です。
+      </p>
+      <dl style="margin:0;font-size:14px;line-height:1.85;color:#6b5642;">
+        <dt style="font-weight:700;margin-top:10px;">事業者名</dt>
+        <dd style="margin:4px 0 0;">早稲田インスペクション</dd>
+        <dt style="font-weight:700;margin-top:10px;">代表者</dt>
+        <dd style="margin:4px 0 0;">関根 清</dd>
+        <dt style="font-weight:700;margin-top:10px;">所在地</dt>
+        <dd style="margin:4px 0 0;">〒366-0811 埼玉県深谷市人見1</dd>
+        <dt style="font-weight:700;margin-top:10px;">お問い合わせ</dt>
+        <dd style="margin:4px 0 0;"><a href="mailto:waseda-inspection@outlook.com" style="color:#9b6b2c;font-weight:700;text-decoration:none;">waseda-inspection@outlook.com</a></dd>
+      </dl>
+    </section>
+
+    <section id="brand-waseda" aria-label="早稲田・タンデム・エレメンタリー" style="margin-bottom:28px;">
+      <p class="eyebrow" style="background:rgba(0,0,0,0.55);color:#fff;">公式3ブランド（審査用リンク）</p>
+      <div class="brand-hub">
+        <a href="#company">
+          <strong>早稲田東京</strong>
+          <span>waseda-inspection.com<br>会社案内・安全啓発</span>
+        </a>
+        <a href="https://tandemair.tokyo/" target="_blank" rel="noopener">
+          <strong>タンデム東京</strong>
+          <span>tandemair.tokyo<br>AIRロビンソン紹介</span>
+        </a>
+        <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener">
+          <strong>エレメンタリー東京</strong>
+          <span>elementarycode.tokyo<br>Elementary Code</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="steps" id="site-photos" aria-label="掲載写真">
+      <h2>掲載写真</h2>
+      <p class="card p" style="color:var(--muted);font-size:14px;margin:0 0 8px;">Air Face / 安全啓発 / チーム素材（各ページへ振り分け済み）</p>
+      <div class="photo-grid">
+        <figure>
+          <a href="promo_banner_airface.jpg" target="_blank" rel="noopener"><img src="promo_banner_airface.jpg" alt="Air Face プロモーション"></a>
+          <figcaption>Air Face（ホーム）</figcaption>
+        </figure>
+        <figure>
+          <a href="cook.jpg" target="_blank" rel="noopener"><img src="cook.jpg" alt="チーム・季節素材"></a>
+          <figcaption>チーム素材</figcaption>
+        </figure>
+        <figure>
+          <a href="flyer_page1.png" target="_blank" rel="noopener"><img src="flyer_page1.png" alt="啓発資料1"></a>
+          <figcaption>啓発資料（1）</figcaption>
+        </figure>
+        <figure>
+          <a href="flyer_page2.png" target="_blank" rel="noopener"><img src="flyer_page2.png" alt="啓発資料2"></a>
+          <figcaption>啓発資料（2）</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <div class="top-hero">
       <p class="eyebrow">TANDEM AIR SYSTEM / RENEWAL IN PROGRESS</p>
       <p class="renewal">リニューアル中</p>
@@ -431,25 +575,15 @@
       <span class="badge">安全を確認してから、必要な相手とつながる。</span>
     </section>
 
-    <section class="hero-card" id="company" aria-label="会社案内" style="margin-top:36px;max-width:720px;margin-left:auto;margin-right:auto;">
-      <h2 style="margin:0 0 14px;font-size:clamp(20px,3.5vw,26px);color:#161210;">会社案内</h2>
-      <p class="lead" style="margin:0 0 16px;">
-        <strong>早稲田インスペクション</strong>（Waseda Inspection）— Tandem AIR System / Air Face の開発・提供を行う事業体です。本サイトは法人に伴う公式案内・安全啓発・サポート入口です。
-      </p>
+    <section class="hero-card" aria-label="会社案内・詳細" style="margin-top:36px;max-width:720px;margin-left:auto;margin-right:auto;">
+      <h2 style="margin:0 0 14px;font-size:clamp(18px,3vw,22px);color:#161210;">会社案内（詳細）</h2>
       <dl style="margin:0;font-size:14px;line-height:1.85;color:#6b5642;">
-        <dt style="font-weight:700;margin-top:10px;">事業者名</dt>
-        <dd style="margin:4px 0 0;">早稲田インスペクション</dd>
-        <dt style="font-weight:700;margin-top:10px;">代表者</dt>
-        <dd style="margin:4px 0 0;">関根 清</dd>
-        <dt style="font-weight:700;margin-top:10px;">所在地</dt>
-        <dd style="margin:4px 0 0;">〒366-0811 埼玉県深谷市人見1</dd>
-        <dt style="font-weight:700;margin-top:10px;">お問い合わせ</dt>
-        <dd style="margin:4px 0 0;"><a href="mailto:waseda-inspection@outlook.com" style="color:#9b6b2c;font-weight:700;text-decoration:none;">waseda-inspection@outlook.com</a></dd>
         <dt style="font-weight:700;margin-top:10px;">振込先（法人口座）</dt>
         <dd style="margin:4px 0 0;">金融機関の口座確定次第、本ページに掲載します。（審査・手続き中）</dd>
         <dt style="font-weight:700;margin-top:10px;">特許等</dt>
-        <dd style="margin:4px 0 0;">Tandem AIR System に関する技術は<strong>特許出願中</strong>です。出願番号・明細書の全文は公開しておりません。無断模倣・無断販売については<a href="#patent-notice" style="color:#9b6b2c;font-weight:700;text-decoration:none;">下記</a>をご確認ください。</dd>
+        <dd style="margin:4px 0 0;">Tandem AIR System に関する技術は<strong>特許出願中</strong>です。無断模倣・無断販売については<a href="#patent-notice" style="color:#9b6b2c;font-weight:700;text-decoration:none;">下記</a>をご確認ください。</dd>
       </dl>
+      <p style="margin:14px 0 0;font-size:13px;"><a href="#company" style="color:#9b6b2c;font-weight:700;">↑ ページ上部の会社案内</a></p>
     </section>
 
     <section class="notice" id="patent-notice" style="margin-top:24px;text-align:left;">

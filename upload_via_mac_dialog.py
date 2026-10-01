@@ -18,8 +18,17 @@ DEFAULT_USER = "fakefur.jp-windy-hiji-5291"
 LOCAL = Path(__file__).resolve().parent
 FILES = [
     "index.html",
+    "privacy.html",
+    "support.html",
+    "elementary-code.html",
+    "gearwall2.jpg",
+    "flyer_page1.png",
+    "flyer_page2.png",
     "promo_banner_airface.jpg",
+    "promo_banner_airface.png",
     "air_face_gold_wordmark.png",
+    "cook.jpg",
+    "cook_square.jpg",
 ]
 
 
