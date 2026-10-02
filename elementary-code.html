@@ -4,12 +4,60 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>エレメンタリーコードについて｜早稲田インスペクション</title>
+<style>
+body{font-family:"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.75;margin:24px;color:#222;max-width:720px}
+h1{font-size:1.35rem}
+h2{font-size:1.05rem;margin-top:1.75rem}
+a{color:#9b6b2c;font-weight:700}
+.note{font-size:0.9rem;color:#555}
+.poster{max-width:100%;height:auto;border:1px solid #ddd;border-radius:8px;margin:12px 0}
+section p{margin:0.6em 0}
+</style>
 </head>
 <body>
-<h1>エレメンタリーコードについて</h1>
+<h1>エレメンタリーコード（Elementary Code）について</h1>
 <p>
-Tandem AIR System で用いる識別コードです。個人を直接特定しない形で管理し、利用者本人の操作で確認・利用できるよう設計しています。
+Tandem AIR System で用いる識別の枠組みです。電話番号の代わりに、端末と操作で確認できるコードとして設計しています。コード本体をユーザー向けに晒す運用は行いません。
 </p>
+<p><strong>生活・防犯での想定用途</strong></p>
+<ul>
+  <li>通話前の本人確認（なりすまし・フィッシング対策の補助）</li>
+  <li>SNS・DM からの誘導に対する注意喚起（特殊詐欺・闇バイト等）</li>
+  <li>旅先・日常のつながり（相手を確認してからつなぐ）</li>
+  <li>Apple 審査・サポートで説明する公開情報との整合</li>
+</ul>
+
+<h2>ELEMENTARYCODE × iOS（ポスター文案）</h2>
+<p class="note">
+  左欄のかすれ・誤字を整理した読みやすし版です。正本テキストは
+  <a href="assets/ELEMENTARYCODE_x_iOS_POSTER_COPY_JA.md">assets/ELEMENTARYCODE_x_iOS_POSTER_COPY_JA.md</a>。
+  特許番号の正本は <strong>特願2025-189376</strong>（画像上の数字と異なる場合は再版で合わせる）。
+  Air Face 初回提出に通話は含みません（ビジョン説明と審査後更新を区別してください）。
+</p>
+<p><img class="poster" src="assets/elementarycode_x_ios_poster.jpg" width="720" alt="ELEMENTARYCODE × iOS プロモーション画像"></p>
+
+<section id="poster-copy">
+  <h2>通話前認証</h2>
+  <p>通話前認証システムにより、発信・着信の際に、あなたより先に、すべて自動で相手の本人確認を瞬時に行います。</p>
+
+  <h2>エレメンタリーコードとは</h2>
+  <p>ビットコインよりも一意性が高く保たれる、独自開発のコード「エレメンタリー・パーティクル」（素粒子を思わせる要素）を、認証の場面から「エレメンタリーコード」と呼んでいます。そのコードがあることで、多要素認証の確認ができます。</p>
+  <p>DNA や指紋は一意性に優れますが、これは遥かに高い、素粒子のような存在として設計しています。そのため、電話番号もパスワードも必要としません。</p>
+
+  <h2>速度が条件</h2>
+  <p>どれほど複雑でパスワード的な要素が強くなっても、確認に暗号資産・ビットコイン1枚あたり約10分のような時間がかかるなら、電話の認証としては使えません。短時間で確認を完了させることを目標にしなければ、通信で使えない——そう理解しました。</p>
+  <p>偶然のように開発された「エレメンタリーコード」では、認証確認は約1秒程度で完了します。特に海外では、Air アプリが直接認証を行う方法とは異なり、現行キャリア発信と比べると、通話が開始されるまでの時間差がより大きく感じられると思います。</p>
+
+  <h2>1対1の限定回線</h2>
+  <p>通話は発信と受信それぞれ専用設計です。Air 通信限定接続に加え、1セットのペアでしか接続できない構造のため、なりすましや第三者の割込み、コピーも想定しにくい設計です。SNS のように広がることが目的ではなく、1対1の限定回線として、互いが専用となるイメージで設計しています。</p>
+
+  <h2>開発の姿勢</h2>
+  <p>「人手不介在」を最低限の義務とし、いつまでも App Store に置いていただけるアプリの開発を目指しています。破損した場合には元に戻せない設計であること、たまたま持っていた方にも役立つ時を想定した無料プランも、原稿どおりの方針です。</p>
+
+  <h2>操作のやさしさ</h2>
+  <p>長押しするだけで、返信メールと同様の意味で送信できる操作を想定しています。</p>
+</section>
+
 <p><a href="https://elementarycode.tokyo/">Elementary Code 公式（elementarycode.tokyo）</a></p>
 <p><a href="index.html">トップへ戻る</a> · <a href="index.html#company">会社案内</a> · <a href="privacy.html">プライバシーポリシー</a></p>
 </body>

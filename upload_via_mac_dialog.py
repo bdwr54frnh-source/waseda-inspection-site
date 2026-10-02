@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""ロリポップへ waseda-inspection をFTPアップ。
+"""【非推奨・ロリポップ解約】旧 FTP アップ。
 
-パスワードはチャットに貼らず、Macのダイアログで直接入力する。
-資格情報はファイルに保存しない。
+正本: ./scripts/publish_homepages_to_github.sh（GitHub Pages）。
+解約後はこのスクリプトは使えません。
 """
 
 from __future__ import annotations
@@ -30,6 +30,44 @@ FILES = [
     "cook.jpg",
     "cook_square.jpg",
 ]
+
+ASSET_FILES = [
+    "assets/building.jpg",
+    "assets/product_airface_banner.jpg",
+    "assets/safety_fraud_chart.png",
+    "assets/safety_mobile_stats.png",
+    "assets/brand_wordmark_gold.png",
+    "assets/bg_gearwall.jpg",
+    "assets/apple_music_logo.svg",
+    "assets/apple_music_glass_tile_clean.jpg",
+    "assets/apple_music_glass_tile_serial.jpg",
+    "assets/elementarycode_x_ios_poster.jpg",
+]
+
+ASSET_UPLOAD_SKIP = {
+    "founder_portrait.jpg",
+    "apple_music_glass_tile_edited.jpg",
+    "apple_music_glass_tile_source.jpg",
+}
+ASSET_IMAGE_EXT = {".jpg", ".jpeg", ".png", ".webp", ".svg"}
+
+
+def collect_all_asset_uploads() -> list[str]:
+    """assets/ 配下を再帰的に列挙（作業用・代表顔は除外）。"""
+    out: list[str] = []
+    assets_dir = LOCAL / "assets"
+    if not assets_dir.is_dir():
+        return out
+    for path in sorted(assets_dir.rglob("*")):
+        if not path.is_file():
+            continue
+        if path.suffix.lower() == ".md":
+            continue
+        if path.name in ASSET_UPLOAD_SKIP:
+            continue
+        if path.name == "manifest.json" or path.suffix.lower() in ASSET_IMAGE_EXT:
+            out.append(path.relative_to(LOCAL).as_posix())
+    return out
 
 
 def mac_prompt(title: str, message: str, *, hidden: bool, default: str = "") -> str:
@@ -140,7 +178,19 @@ def main() -> int:
         print("キャンセルされました。")
         return 2
 
+    # ギャラリー manifest を最新化
+    gen = LOCAL / "generate_screenshot_manifest.py"
+    if gen.is_file():
+        subprocess.run([sys.executable, str(gen)], cwd=LOCAL, check=False)
+
+    upload_assets = sorted(set(ASSET_FILES + collect_all_asset_uploads()))
+    required_assets = [
+        "assets/building.jpg",
+        "assets/apple_music_glass_tile_clean.jpg",
+        "assets/apple_music_glass_tile_serial.jpg",
+    ]
     missing = [f for f in FILES if not (LOCAL / f).is_file()]
+    missing += [f for f in required_assets if not (LOCAL / f).is_file()]
     if missing:
         print("ローカル不足:", missing)
         return 3
@@ -156,11 +206,31 @@ def main() -> int:
 
     try:
         pick_target_dir(ftp)
-        for name in FILES:
+        base_pwd = ftp.pwd()
+        try:
+            ftp.mkd("assets")
+        except Exception:
+            pass
+        for name in FILES + upload_assets:
             path = LOCAL / name
             print(f"UPLOAD {name} ({path.stat().st_size} bytes)")
+            if name.startswith("assets/"):
+                sub = name.split("/", 1)[1]
+                parts = sub.split("/")
+                ftp.cwd(base_pwd)
+                ftp.cwd("assets")
+                for part in parts[:-1]:
+                    try:
+                        ftp.mkd(part)
+                    except Exception:
+                        pass
+                    ftp.cwd(part)
+                store_name = parts[-1]
+            else:
+                ftp.cwd(base_pwd)
+                store_name = name
             with path.open("rb") as fh:
-                ftp.storbinary(f"STOR {name}", fh)
+                ftp.storbinary(f"STOR {store_name}", fh)
             print(f"  OK {name}")
         print("DONE → https://www.waseda-inspection.com/ をハードリロードしてください。")
         return 0

@@ -1,0 +1,27 @@
+早稲田 HP — 写真・スクショ（2026-10-02）
+
+■ いちばん簡単（スクショ全部）
+assets/screenshots/ … ここに jpg/png/webp を**名前自由で全部**入れる
+→ python3 generate_screenshot_manifest.py
+→ python3 upload_via_mac_dialog.py
+→ #app-gallery の「その他スクショ」に全部並ぶ
+
+■ 審査用・代表4枚（直下でも可）
+assets/app_screen_robinson.jpg
+assets/app_screen_music.jpg
+assets/app_screen_collection.jpg
+assets/app_screen_chat.jpg
+
+assets/ 直下の screenshot_*.* も manifest に入る
+
+■ 会社案内 #company
+assets/building.jpg（小）
+assets/apple_music_glass_tile_clean.jpg / _serial.jpg（72px）
+
+■ 啓発 #awareness
+assets/safety_fraud_chart.png / safety_mobile_stats.png
+flyer_page1.png / flyer_page2.png
+assets/product_airface_banner.jpg / brand_wordmark_gold.png
+
+■ 載せない
+founder_portrait.jpg · *_edited · *_source · bg_gearwall · essentials_jacket（作業用）

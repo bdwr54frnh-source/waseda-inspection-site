@@ -5,6 +5,17 @@
 - **ドメイン**: `waseda-inspection.com` のみ。**名称変更・.tokyo 統一の対象にしない**
 - **中身**: 早稲田インスペクション **会社のページ**（リニューアル中デザイン）。tandemair / aicode 用に差し替えない
 
+## プレビュー（公開前）
+
+Cursor: **「現在の完成版をブラウザでプレビューして」**
+
+```bash
+cd "/Users/kiyoshisekine/Desktop/保存/AirQuick_Final_3/waseda-inspection"
+python3 -m http.server 8765
+```
+
+→ http://127.0.0.1:8765/
+
 ## 公開（Git のみ）
 
 ```bash

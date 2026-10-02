@@ -19,7 +19,7 @@
 - 写真約10枚（用途メモがあるとよい。無くても可）
 - 使ってよいチャットスクショ（個人情報・第三者はマスク）
 - 現行ページの残すブロック: 啓発（詐欺グラフ）、SNS事件、公式X、TEAM KIYOSHI、リニューアル/ダウンロード待ちのトーン
-- **必須（社長）**: **会社案内**（法人・代表・所在地・問い合わせ）／**振込先は口座確定次第 index に追記**／**特許出願中**の一文（出願番号・明細の全文公開はしない）
+- **必須（社長）**: **会社案内**（法人・代表・所在地・問い合わせ）／**振込先は HP にペイペイ銀行名＋名義のみ**（番号は Web 非掲載可）／**特許出願中**の一文（出願番号・明細の全文公開はしない）
 
 ## 現行 HTML 参考
 
@@ -35,11 +35,14 @@
 
 ## ローカル確認
 
+**Cursor への指示（そのまま貼る）:** 「現在の完成版をブラウザでプレビューして」
+
 ```bash
-cd waseda-inspection && python3 -m http.server 8765
-# → http://127.0.0.1:8765/
+cd "/Users/kiyoshisekine/Desktop/保存/AirQuick_Final_3/waseda-inspection"
+python3 -m http.server 8765
+# → http://127.0.0.1:8765/  （#company / #bank / #awareness）
 ```
 
 ## DNS（社長・お名前.com）
 
-Web の A → GitHub 4 IP。MX（mx01.lolipop.jp 等）は**削除しない**。
+Web の A → GitHub 4 IP。**ロリポップ解約** → MX は `info@` 移行先に差し替え（`EMAIL_SETUP.md`）。Outlook スマホは今まで通り。

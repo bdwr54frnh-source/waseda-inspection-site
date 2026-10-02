@@ -1,636 +1,811 @@
-<html lang="ja"><head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tandem AIR System｜リニューアル中</title>
-  <meta name="description" content="Tandem AIR System は、電話番号ではなくクイックアイコンでつながる新しい通話体験を準備中です。">
-  <!-- Google tag (gtag.js) -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WXF127P26H"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WXF127P26H');
-  </script>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg-deep: #0c0a09;
-      --bg-warm: #17120f;
-      --card: rgba(24, 20, 17, 0.86);
-      --text: #faf6f1;
-      --muted: rgba(250, 246, 241, 0.72);
-      --line: rgba(232, 215, 200, 0.20);
-      --accent: #d8c4a8;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: #0a0c10;
-      color: var(--text);
-      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", serif;
-      line-height: 1.75;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: url("gearwall2.jpg") center / cover no-repeat;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background:
-        radial-gradient(ellipse 78% 58% at 12% 0%, rgba(216, 196, 168, 0.16), transparent 56%),
-        radial-gradient(ellipse 58% 48% at 94% 88%, rgba(190, 160, 138, 0.13), transparent 54%),
-        linear-gradient(165deg, rgba(37,34,32,0.24) 0%, rgba(23,18,15,0.28) 48%, rgba(12,10,9,0.34) 100%);
-    }
-
-    main {
-      position: relative;
-      width: min(920px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 56px 0 72px;
-    }
-
-    .top-hero {
-      position: relative;
-      padding: 48px 24px 40px;
-      border-radius: 28px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 24px 70px rgba(20, 24, 31, 0.28);
-    }
-    .top-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 40%, rgba(0,0,0,0.16) 100%);
-    }
-    .top-hero > * { position: relative; z-index: 1; }
-
-    .eyebrow {
-      display: inline-block;
-      margin: 0 0 14px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      color: #6b4a1e;
-      background: rgba(255,255,255,0.92);
-      padding: 6px 14px;
-      border-radius: 999px;
-    }
-
-    .renewal {
-      margin: 18px 0 6px;
-      font-size: clamp(18px, 3vw, 28px);
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: #fff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(24px, 4.2vw, 38px);
-      line-height: 1.28;
-      letter-spacing: 0.02em;
-      color: #fff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    .top-tagline {
-      margin: 14px 0 0;
-      font-size: clamp(15px, 2.4vw, 21px);
-      font-weight: 800;
-      letter-spacing: 0.10em;
-      line-height: 1.55;
-      color: #fff;
-    }
-
-    .top-tagline .arrow {
-      color: #ffd257;
-      margin: 0 6px;
-    }
-
-    .hero-card {
-      margin: 26px auto 0;
-      max-width: 620px;
-      padding: 22px 24px;
-      border-radius: 18px;
-      background: #fff;
-      text-align: left;
-    }
-    .hero-card .lead {
-      max-width: none;
-      margin: 0;
-      font-size: clamp(15px, 2vw, 17px);
-      color: #6b5642;
-      line-height: 1.85;
-    }
-    .hero-card .download-note {
-      margin: 14px 0 0;
-      color: #9b6b2c;
-      font-size: clamp(15px, 2vw, 18px);
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .notice {
-      margin-top: 20px;
-      padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 14px;
-      background: rgba(0,0,0,0.28);
-      font-size: 13px;
-      color: rgba(255,255,255,0.85);
-      text-align: left;
-    }
-
-    .hero-card ul {
-      margin: 14px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .hero-card ul li {
-      margin: 5px 0 0;
-      font-size: 13px;
-      font-weight: 600;
-      color: #9b6b2c;
-    }
-
-    .hero-pill {
-      display: inline-block;
-      margin: 20px auto 0;
-      padding: 9px 18px;
-      border-radius: 12px;
-      background: #fff;
-      color: #9b6b2c;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 36px;
-    }
-
-    .card {
-      min-height: 190px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--card);
-      box-shadow: inset 0 1px 0 rgba(255, 252, 248, 0.06);
-    }
-
-    h2 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      line-height: 1.35;
-    }
-
-    p { margin: 0; }
-
-    .card p,
-    .support p {
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .steps {
-      margin-top: 42px;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--card);
-      box-shadow: inset 0 1px 0 rgba(255, 252, 248, 0.06);
-    }
-
-    .steps ol {
-      margin: 18px 0 0;
-      padding-left: 1.25em;
-    }
-
-    .steps li {
-      margin: 10px 0;
-      padding-left: 4px;
-    }
-
-    .support {
-      margin-top: 28px;
-      padding-top: 24px;
-      border-top: 1px solid var(--line);
-    }
-
-    .links {
-      margin-top: 28px;
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      background: var(--card);
-      box-shadow: inset 0 1px 0 rgba(255, 252, 248, 0.06);
-    }
-
-    .links ul {
-      list-style: none;
-      margin: 14px 0 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .links span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 22px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #161210;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    footer {
-      margin-top: 52px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .founder-note {
-      margin-top: 24px;
-      padding: 14px 18px;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .founder-note strong {
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    .site-nav-top {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      padding: 12px 10px;
-      margin: 0 0 20px;
-      border-radius: 16px;
-      background: rgba(12, 10, 9, 0.92);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(8px);
-    }
-    .site-nav-top a {
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 800;
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(216, 196, 168, 0.35);
-    }
-    .site-nav-top a.primary {
-      background: var(--accent);
-      color: #161210;
-      border-color: transparent;
-    }
-    .brand-hub {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-    .brand-hub a {
-      display: block;
-      padding: 18px 14px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      text-decoration: none;
-      color: var(--text);
-      text-align: center;
-    }
-    .brand-hub strong {
-      display: block;
-      font-size: 15px;
-      color: var(--accent);
-      margin-bottom: 6px;
-    }
-    .brand-hub span {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-top: 16px;
-    }
-    .photo-grid img {
-      width: 100%;
-      height: auto;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      display: block;
-    }
-    .photo-grid figcaption {
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    @media (max-width: 720px) {
-      main { padding-top: 38px; }
-      .grid { grid-template-columns: 1fr; }
-      .brand-hub { grid-template-columns: 1fr; }
-      .photo-grid { grid-template-columns: 1fr; }
-      .card { min-height: 0; }
-      .steps { padding: 22px; }
-      .top-hero { padding: 36px 16px 30px; }
-      #fraud-graph-section { padding: 20px 0; border-radius: 0; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; }
-      #fraud-graph-card { width: 100%; max-width: none; border-radius: 0; padding: 16px; box-shadow: none; }
-      #fraud-graph-images { grid-template-columns: 1fr; }
-    }
-  </style>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>早稲田インスペクション｜会社案内</title>
+<meta name="description" content="早稲田インスペクション — iOS を基盤としたセキュリティ・振込送金対策の研究開発、会社案内・特許出願・安全啓発。">
+<style>
+  :root {
+    --ink: #1c2430;
+    --sub: #5a6472;
+    --line: #dfe3e8;
+    --bg: #ffffff;
+    --panel: #f6f7f9;
+    --accent: #2d4a66;
+    --alert: #b42318;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Hiragino Sans", "Noto Sans JP", -apple-system, sans-serif;
+    color: var(--ink);
+    background: #ffffff;
+    line-height: 1.85;
+  }
+  .top-bar {
+    background: #ffffff;
+    color: var(--ink);
+    padding: 36px 20px 28px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .top-bar h1 {
+    margin: 0 0 8px;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .top-bar p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--sub);
+    letter-spacing: 0.04em;
+  }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--line);
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav a {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .nav a.primary {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  section {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    margin: 0 0 20px;
+    color: var(--accent);
+  }
+  h3 {
+    font-size: 16px;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  .company-box {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 24px 28px;
+  }
+  .company-box dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(5.5em, 7.2em) minmax(0, 1fr);
+    row-gap: 14px;
+    column-gap: 12px;
+    font-size: 14px;
+    align-items: start;
+  }
+  .company-box dt { color: var(--sub); margin: 0; padding-top: 1px; }
+  .company-box dd { margin: 0; min-width: 0; }
+  .company-box a { color: var(--accent); }
+  .company-building {
+    margin-top: 12px;
+    max-width: 120px;
+    display: block;
+  }
+  .company-building img {
+    width: 80px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .company-building .note {
+    margin-top: 4px;
+    font-size: 11px;
+  }
+  .bank-block {
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .bank-block strong { color: var(--accent); }
+  .apple-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+  }
+  .apple-row img.am-logo {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+  .am-glass-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .am-glass-thumb {
+    max-width: 88px;
+  }
+  .am-glass-thumb img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .am-glass-thumb .note { font-size: 10px; margin-top: 4px; }
+  .patent-inline {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .patent-inline li { margin: 0 0 4px; }
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 1px 7px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .notice {
+    background: #fbf8ef;
+    border: 1px solid #e6dcb8;
+    border-radius: 6px;
+    padding: 18px 22px;
+    font-size: 14px;
+    color: #514a30;
+  }
+  .patent-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .patent-list li {
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .note { font-size: 13px; color: var(--sub); margin-top: 14px; }
+  .ec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .ec-grid div {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 13px;
+    text-align: center;
+  }
+  .awareness-wrap {
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 24px 22px 28px;
+    box-shadow: 0 8px 28px rgba(28, 36, 48, 0.06);
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    border: 1px solid var(--line);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0 0;
+  }
+  .photo-grid a {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .photo-grid img {
+    width: 100%;
+    max-height: 108px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    background: var(--panel);
+  }
+  .photo-grid.single { grid-template-columns: 1fr; }
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .photo-strip--two {
+    grid-template-columns: 1fr 1fr;
+    max-width: 280px;
+  }
+  .photo-strip img {
+    width: 100%;
+    height: 44px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  .sns-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .sns-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 14px;
+  }
+  .sns-card p { margin: 0; color: var(--sub); font-size: 13px; }
+  .sns-card a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .alert-panel {
+    margin-top: 28px;
+    padding: 22px 20px;
+    border-radius: 10px;
+    border: 1px solid #f0c4c4;
+    background: #fffafa;
+  }
+  .alert-panel .badge-red {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #fff;
+    background: var(--alert);
+    padding: 5px 12px;
+    border-radius: 999px;
+  }
+  .alert-panel .sns-grid .sns-card {
+    background: #fff;
+    border-color: #ecd0d0;
+  }
+  .alert-links {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+  .alert-links a {
+    color: var(--alert);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  footer {
+    padding: 28px 20px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--sub);
+    border-top: 1px solid var(--line);
+  }
+  footer a { color: var(--accent); }
+  .profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .profile-card {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px;
+    background: #fff;
+    min-width: 0;
+  }
+  .app-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .app-gallery figure { margin: 0; text-align: center; min-width: 0; }
+  .app-gallery img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: #fafafa;
+    display: block;
+  }
+  .app-gallery figure:has(img:not([style*='display: none'])) .slot-empty { display: none; }
+  .app-gallery figcaption {
+    font-size: 11px;
+    color: var(--sub);
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+  .app-gallery .slot-empty {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--sub);
+    border: 1px dashed var(--line);
+    border-radius: 8px;
+    padding: 12px;
+    background: var(--panel);
+  }
+  .profile-card h3 {
+    font-size: 14px;
+    margin: 0 0 4px;
+    line-height: 1.45;
+  }
+  .profile-card .profile-handle {
+    font-size: 12px;
+    color: var(--sub);
+    margin: 0 0 8px;
+  }
+  .profile-card .profile-bio {
+    margin: 0 0 10px;
+    line-height: 1.72;
+  }
+  .profile-card .profile-meta {
+    margin: 0 0 8px;
+    font-size: 12px;
+    color: var(--sub);
+  }
+  .profile-card a.profile-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .rd-panel {
+    padding: 18px 20px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.78;
+  }
+  .rd-panel p { margin: 0 0 12px; }
+  .rd-panel ul {
+    margin: 0;
+    padding-left: 1.25em;
+    font-size: 13px;
+    line-height: 1.72;
+  }
+  .rd-panel li { margin-bottom: 6px; }
+  .rd-links {
+    margin-top: 14px;
+    font-size: 13px;
+  }
+  .rd-links a { color: var(--accent); font-weight: 700; }
+  @media (max-width: 560px) {
+    .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
+    .company-box dt { margin-top: 10px; }
+    .ec-grid { grid-template-columns: 1fr; }
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .sns-grid { grid-template-columns: 1fr; }
+    .profile-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-  <main>
-    <nav class="site-nav-top" aria-label="審査・公式入口">
-      <a class="primary" href="#company">会社案内</a>
-      <a href="#brand-waseda">早稲田東京</a>
-      <a href="https://tandemair.tokyo/" rel="noopener">タンデム東京</a>
-      <a href="https://elementarycode.tokyo/" rel="noopener">エレメンタリー東京</a>
-      <a href="privacy.html">プライバシー</a>
-    </nav>
 
-    <section class="hero-card" id="company" aria-label="会社案内" style="margin:0 auto 28px;max-width:720px;">
-      <h2 style="margin:0 0 14px;font-size:clamp(20px,3.5vw,26px);color:#161210;">会社案内（早稲田インスペクション）</h2>
-      <p class="lead" style="margin:0 0 16px;">
-        <strong>早稲田インスペクション</strong>（Waseda Inspection）— Tandem AIR System / Air Face の開発・提供。Apple 審査・法人確認用の公式入口です。
-      </p>
-      <dl style="margin:0;font-size:14px;line-height:1.85;color:#6b5642;">
-        <dt style="font-weight:700;margin-top:10px;">事業者名</dt>
-        <dd style="margin:4px 0 0;">早稲田インスペクション</dd>
-        <dt style="font-weight:700;margin-top:10px;">代表者</dt>
-        <dd style="margin:4px 0 0;">関根 清</dd>
-        <dt style="font-weight:700;margin-top:10px;">所在地</dt>
-        <dd style="margin:4px 0 0;">〒366-0811 埼玉県深谷市人見1</dd>
-        <dt style="font-weight:700;margin-top:10px;">お問い合わせ</dt>
-        <dd style="margin:4px 0 0;"><a href="mailto:waseda-inspection@outlook.com" style="color:#9b6b2c;font-weight:700;text-decoration:none;">waseda-inspection@outlook.com</a></dd>
+<div class="top-bar">
+  <h1>早稲田インスペクション</h1>
+  <p>優しく輝くその先にいつも iPhone♪ · 会社案内</p>
+</div>
+
+<nav class="nav" aria-label="サイト内">
+  <a class="primary" href="#company">会社案内</a>
+  <a href="#app-gallery">アプリ画面</a>
+  <a href="#profile">プロフィール</a>
+  <a href="#security-rd">iOS・R&amp;D</a>
+  <a href="#bank">振込先</a>
+  <a href="#awareness">啓発資料</a>
+  <a href="#sns">SNS被害</a>
+  <a href="#patents">特許</a>
+  <a href="https://tandemair.tokyo/" target="_blank" rel="noopener">タンデム東京</a>
+  <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener">エレメンタリー東京</a>
+  <a href="privacy.html">プライバシー</a>
+</nav>
+
+<main>
+
+  <section id="company">
+    <h2>会社案内</h2>
+    <div class="company-box">
+      <dl>
+        <dt>社名</dt>
+        <dd>早稲田インスペクション（エレメンタリー・コード）<span class="tag">Patent Pending</span></dd>
+        <dt>代表</dt>
+        <dd>関根 清</dd>
+        <dt>業種</dt>
+        <dd>モバイルアプリケーション、住宅診断、IT関連（Apple Developer Program）</dd>
+        <dt>事業・R&amp;D</dt>
+        <dd>
+          <strong>iOS</strong> を利用し、モバイルまわりの<strong>セキュリティ対策</strong>・<strong>スマートフォンからの振込・送金被害</strong>への対策、住宅診断およびアプリの<strong>研究開発</strong>を行っています。
+          <span class="note" style="display:block;margin-top:6px;"><a href="#security-rd">iOS セキュリティ研究（詳細）</a> · 特許出願2件<!-- 文案整理はジェミニ --></span>
+        </dd>
+        <dt>設立</dt>
+        <dd>2025年4月25日</dd>
+        <dt>特許出願</dt>
+        <dd>
+          <ul class="patent-inline">
+            <li>特願2025-189376 <span class="tag">Patent Pending</span></li>
+            <li>特願2026-65348 <span class="tag">Patent Pending</span></li>
+          </ul>
+          <span class="note">明細全文は非公開です。</span>
+        </dd>
+        <dt>Apple</dt>
+        <dd>
+          <div class="apple-row">
+            <img class="am-logo" src="assets/apple_music_logo.svg" width="28" height="28" alt="Apple Music">
+            <div style="font-size:13px;">
+              <strong>Apple Developer Program</strong> 登録。<br>
+              Air Face（AIRロビンソン）— <strong>Apple Music</strong> 公式連携（メタデータ・公式リンク）。<br>
+              <span style="color:var(--sub);">Apple Music User とアーティストの関係を遮らない設計 · 光UIナビ · 最小タップ · 静音設計 · 「Air deflect」「Ai-code」（iOS）</span>
+            </div>
+          </div>
+          <div class="am-glass-row" aria-label="Mアイコン（Apple Music 入口・正本）">
+            <figure class="am-glass-thumb">
+              <a href="assets/apple_music_micon.png" target="_blank" rel="noopener">
+                <img src="assets/apple_music_micon.png" width="72" height="72" alt="Apple Music Mアイコン（厚ガラス枠・50th）">
+              </a>
+              <figcaption class="note">Micon 正本</figcaption>
+            </figure>
+          </div>
+          <p class="note" style="margin-top:8px;">人物入り旧ガラス JPEG は掲載しません。アプリ正本 <code>Micon.imageset</code> と同一 PNG。詳細 <a href="#app-gallery">アプリ画面</a>。</p>
+        </dd>
+        <dt>公式サイト</dt>
+        <dd>
+          <a href="#company">waseda-inspection.com</a> ·
+          <a href="https://tandemair.tokyo/" target="_blank" rel="noopener">tandemair.tokyo</a> ·
+          <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener">elementarycode.tokyo</a>
+        </dd>
+        <dt>住所</dt>
+        <dd>
+          〒366-0811 埼玉県深谷市人見1<br>
+          〒231-0004 神奈川県横浜市中区元浜町3-21-2（10F）横浜オフィス
+          <figure class="company-building">
+            <img src="assets/building.jpg" width="80" height="52" alt="深谷事業所外観（参考・小）">
+            <figcaption class="note">事業所外観（補助表示・メインビジュアルには使用しません）</figcaption>
+          </figure>
+        </dd>
+        <dt>電話・FAX</dt>
+        <dd>048-511-3500（365日）</dd>
+        <dt>Eメール</dt>
+        <dd>
+          <a href="mailto:info@waseda-inspection.com">info@waseda-inspection.com</a><br>
+          <a href="mailto:waseda-inspection@outlook.com">waseda-inspection@outlook.com</a>
+        </dd>
+        <dt id="bank">振込先</dt>
+        <dd>
+          <div class="bank-block">
+            <strong>法人口座（お振込先）</strong><br>
+            金融機関：<strong>ペイペイ銀行</strong>（Business Account）<br>
+            店番：<strong>005</strong><br>
+            口座番号：<strong>1108325</strong><br>
+            口座名義：早稲田インスペクション（代表 関根 清）<br>
+            <span class="note" style="margin-top:8px;display:block;">App Store Connect の売上振込口座も、上記ペイペイ銀行口座に合わせて登録してください。</span>
+          </div>
+        </dd>
       </dl>
-    </section>
+    </div>
+  </section>
 
-    <section id="brand-waseda" aria-label="早稲田・タンデム・エレメンタリー" style="margin-bottom:28px;">
-      <p class="eyebrow" style="background:rgba(0,0,0,0.55);color:#fff;">公式3ブランド（審査用リンク）</p>
-      <div class="brand-hub">
-        <a href="#company">
-          <strong>早稲田東京</strong>
-          <span>waseda-inspection.com<br>会社案内・安全啓発</span>
+  <section id="app-gallery">
+    <h2>アプリ画面（AIRロビンソン / Air Face）</h2>
+    <p class="note" style="margin-top:0;">
+      審査・取引先向けの<strong>スクショ・枠付きアイコン</strong>です。ファイル名どおり <code>assets/</code> に置くと自動で表示されます（顔アップ・第三者は載せない）。
+    </p>
+    <div class="app-gallery">
+      <figure>
+        <a href="assets/app_screen_robinson.jpg" target="_blank" rel="noopener">
+          <img src="assets/app_screen_robinson.jpg" alt="AIRロビンソン 船内画面"
+               onerror="this.style.display='none'; this.closest('a').style.display='none';">
         </a>
-        <a href="https://tandemair.tokyo/" target="_blank" rel="noopener">
-          <strong>タンデム東京</strong>
-          <span>tandemair.tokyo<br>AIRロビンソン紹介</span>
+        <figcaption>app_screen_robinson.jpg</figcaption>
+        <div class="slot-empty">船内・ロビンソン（未配置）</div>
+      </figure>
+      <figure>
+        <a href="assets/app_screen_music.png" target="_blank" rel="noopener">
+          <img src="assets/app_screen_music.png" alt="Apple Music Mアイコン"
+               onerror="this.style.display='none'; this.closest('a').style.display='none';">
         </a>
-        <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener">
-          <strong>エレメンタリー東京</strong>
-          <span>elementarycode.tokyo<br>Elementary Code</span>
+        <figcaption>app_screen_music.png（Micon）</figcaption>
+        <div class="slot-empty">Music 入口（未配置）</div>
+      </figure>
+      <figure>
+        <a href="assets/app_screen_collection.jpg" target="_blank" rel="noopener">
+          <img src="assets/app_screen_collection.jpg" alt="コレクションフロア"
+               onerror="this.style.display='none'; this.closest('a').style.display='none';">
         </a>
-      </div>
-    </section>
+        <figcaption>app_screen_collection.jpg</figcaption>
+        <div class="slot-empty">1階ホルダー（未配置）</div>
+      </figure>
+      <figure>
+        <a href="assets/app_screen_chat.jpg" target="_blank" rel="noopener">
+          <img src="assets/app_screen_chat.jpg" alt="船内チャット"
+               onerror="this.style.display='none'; this.closest('a').style.display='none';">
+        </a>
+        <figcaption>app_screen_chat.jpg</figcaption>
+        <div class="slot-empty">船内チャット（未配置）</div>
+      </figure>
+    </div>
+    <h3 style="font-size:14px;margin:22px 0 10px;color:var(--accent);">その他スクショ（まとめて表示）</h3>
+    <p class="note" style="margin-top:0;">
+      <code>assets/screenshots/</code> に入れた画像は<strong>ファイル名自由</strong>で全部ここに並びます。追加後は
+      <code>python3 generate_screenshot_manifest.py</code> → GitHub 公開（`publish_homepages_to_github.sh`）。
+    </p>
+    <div class="app-gallery" id="app-gallery-all" aria-live="polite"></div>
+    <p class="note">枠付き・審査用4枚は上の固定名で上書き可。その他は screenshots フォルダへ。一覧 <code>写真一覧.txt</code> · <code>PHOTO_ASSET_MAP.md</code>。</p>
+  </section>
+  <script>
+    (function () {
+      var box = document.getElementById("app-gallery-all");
+      if (!box) return;
+      fetch("assets/screenshots/manifest.json", { cache: "no-store" })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+          if (!data || !data.items || !data.items.length) {
+            box.innerHTML = '<p class="note" style="grid-column:1/-1;margin:0;">assets/screenshots/ にスクショを入れると、ここに全部表示されます。</p>';
+            return;
+          }
+          data.items.forEach(function (item) {
+            var fig = document.createElement("figure");
+            var a = document.createElement("a");
+            a.href = item.path;
+            a.target = "_blank";
+            a.rel = "noopener";
+            var img = document.createElement("img");
+            img.src = item.path;
+            img.alt = item.label || "";
+            img.loading = "lazy";
+            a.appendChild(img);
+            fig.appendChild(a);
+            var cap = document.createElement("figcaption");
+            cap.textContent = item.label || item.path.split("/").pop();
+            fig.appendChild(cap);
+            box.appendChild(fig);
+          });
+        })
+        .catch(function () {
+          box.innerHTML = '<p class="note" style="margin:0;">manifest 未生成 — generate_screenshot_manifest.py を実行してください。</p>';
+        });
+    })();
+  </script>
 
-    <section class="steps" id="site-photos" aria-label="掲載写真">
-      <h2>掲載写真</h2>
-      <p class="card p" style="color:var(--muted);font-size:14px;margin:0 0 8px;">Air Face / 安全啓発 / チーム素材（各ページへ振り分け済み）</p>
-      <div class="photo-grid">
-        <figure>
-          <a href="promo_banner_airface.jpg" target="_blank" rel="noopener"><img src="promo_banner_airface.jpg" alt="Air Face プロモーション"></a>
-          <figcaption>Air Face（ホーム）</figcaption>
-        </figure>
-        <figure>
-          <a href="cook.jpg" target="_blank" rel="noopener"><img src="cook.jpg" alt="チーム・季節素材"></a>
-          <figcaption>チーム素材</figcaption>
-        </figure>
-        <figure>
-          <a href="flyer_page1.png" target="_blank" rel="noopener"><img src="flyer_page1.png" alt="啓発資料1"></a>
-          <figcaption>啓発資料（1）</figcaption>
-        </figure>
-        <figure>
-          <a href="flyer_page2.png" target="_blank" rel="noopener"><img src="flyer_page2.png" alt="啓発資料2"></a>
-          <figcaption>啓発資料（2）</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <div class="top-hero">
-      <p class="eyebrow">TANDEM AIR SYSTEM / RENEWAL IN PROGRESS</p>
-      <p class="renewal">リニューアル中</p>
-      <h1>Tandem AIR System × 100% iOS</h1>
-      <p class="top-tagline">個人情報・キャリア契約不要<span class="arrow">―</span>100% iOS<span class="arrow">→</span>100% 世界最速</p>
-      <div class="hero-card">
-        <p class="lead">
-          世界最速通話前認証を搭載。電話番号ではなく、クイックアイコンでつながる新しい通話システムです。公開プロフィール、クイック機能、光誘導ナビを中心に、少しずつ内容を整えています。
+  <section id="profile">
+    <h2>公式プロフィール（参考）</h2>
+    <p class="note" style="margin-top:0;">X（@TandemAir）・LinkedIn に掲載している表記を、審査・取引先確認用にそのまま載せています。<!-- 文案の読みやすさ整理はジェミニ --></p>
+    <div class="profile-grid">
+      <article class="profile-card">
+        <h3>早稲田インスペクション</h3>
+        <p class="profile-handle">@TandemAir · 優しく輝くその先にいつも iPhone♪</p>
+        <p class="profile-bio">
+          Apple Music User とアーティストの関係を遮る事が無く心地良さを最大限追求開発、通知機能には光UIナビを採用、文字数を減らしても優しく誘動／最小タップ数達成、シームレスな時と静音設計開発／緊急時 iOS と連携カードロック現地住所即時通知アップルアカウント即時再開<br>
+          「Y by KIYOSHI」
         </p>
-        <ul>
-          <li>国内通話対応</li>
-          <li>全キャリア対応・通話前認証システム</li>
-        </ul>
-        <p class="download-note">ダウンロード開始まで、もう少しお待ちください。</p>
-      </div>
-      <span class="hero-pill">全てのiPhoneユーザーへ</span>
-      <p class="notice">
-        このページはリニューアル中の仮公開です。正式な機能説明、サポート、各ドメインの行き先は順次更新します。<br>
-        ※「交換所」は現在予定していません。
+        <p class="profile-meta">カテゴリ：モバイルアプリケーション · Hitomi-Fukaya waseda-I · waseda-inspection.com</p>
+        <a class="profile-link" href="https://x.com/TandemAir" target="_blank" rel="noopener">X @TandemAir ↗</a>
+      </article>
+      <article class="profile-card">
+        <h3>関根 清（プロダクトデザイナー）</h3>
+        <p class="profile-handle">TANDEM AIR SYSTEM × 100% iOS · TEAM KIYOSHI</p>
+        <p class="profile-bio">
+          ♩ ミュージックチャット音・優しく流れる／時代が動く光の輝きに独自開発された「Air deflect」輝くアーティスト強くしずかに繋ぐ「Ai-code」その先にある物全てが一つ、iOS
+        </p>
+        <p class="profile-meta">広域東京エリア · Apple Music ヘッダー連動</p>
+        <span class="profile-meta">LinkedIn はアプリ内プロフィールをご参照ください。</span>
+      </article>
+    </div>
+  </section>
+
+  <section id="security-rd">
+    <h2>事業・研究開発（iOS）</h2>
+    <div class="rd-panel">
+      <p>
+        早稲田インスペクションは、<strong>100% iOS</strong> のモバイルアプリ（Tandem Air System / Air Face）と、住宅診断・IT 事業を並行しています。
+        Apple のプラットフォームを前提に、利用者の安全と操作のしやすさ（最小タップ・静音・光UIナビ）を両立する<strong>研究開発</strong>を続けています。
+      </p>
+      <ul>
+        <li><strong>あらゆるセキュリティ対策</strong> — なりすまし・不正アクセスへの備え、エレメンタリーコード、通知設計、個人情報を減らしたつながり方、緊急時の iOS 連携（カードロック・現在地の即時共有・アップルアカウント再開の支援）など</li>
+        <li><strong>スマホからの振込・送金対策</strong> — 特殊詐欺・SNS 経由の誘導を想定した<strong>啓発資料</strong>の提供、連絡の前に相手を確認する発想、通話・通知 UX の改善研究（口座情報そのものをアプリに載せ替えるものではありません）</li>
+        <li><strong>研究開発・特許</strong> — 「Air deflect」「Ai-code」等の独自要素、Apple Music 公式連携 UI、特願2025-189376・特願2026-65348（明細非公開）</li>
+      </ul>
+      <p class="note" style="margin:12px 0 0;">金融機関の振込機能の代替ではなく、被害を減らすための<strong>啓発・認証・iOS アプリ</strong>の研究開発です。法人口座のお振込先は<a href="#bank">会社案内「振込先」</a>をご確認ください。</p>
+      <p class="rd-links">
+        <a href="#awareness">啓発資料</a> ·
+        <a href="#sns">SNS被害</a> ·
+        <a href="#elementary-code">エレメンタリーコード</a> ·
+        <a href="#patents">特許出願</a>
       </p>
     </div>
+  </section>
 
-    <section id="fraud-graph-section" style="margin-top:36px;text-align:center;padding:40px 12px;border-radius:32px;background:radial-gradient(ellipse 92% 100% at 50% 50%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.55) 55%, rgba(255,255,255,0.08) 82%, transparent 100%);">
-      <p class="eyebrow">最新のお知らせ・仮掲載</p>
-      <div id="fraud-graph-card" style="width:94vw;max-width:1400px;margin:26px auto 0;padding:28px;border-radius:20px;background:#fff;text-align:left;box-shadow:0 24px 60px rgba(20,14,8,0.18);">
-        <div id="fraud-graph-images" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
-          <a href="flyer_page1.png" target="_blank" rel="noopener" aria-label="原寸で拡大表示（新しいタブで開きます）" style="display:block;">
-            <img src="flyer_page1.png" alt="特殊詐欺 被害額の推移（警察庁データ）" style="width:100%;height:auto;border-radius:14px;display:block;cursor:zoom-in;box-shadow:0 6px 20px rgba(0,0,0,0.12);">
-          </a>
-          <a href="flyer_page2.png" target="_blank" rel="noopener" aria-label="原寸で拡大表示（新しいタブで開きます）" style="display:block;">
-            <img src="flyer_page2.png" alt="スマホ普及率・SNS利用率（総務省データ）" style="width:100%;height:auto;border-radius:14px;display:block;cursor:zoom-in;box-shadow:0 6px 20px rgba(0,0,0,0.12);">
-          </a>
-        </div>
-        <p class="lead" style="margin-top:22px;">
-          年間数千億円規模の詐欺被害の実態をまとめた啓発資料（警察庁公表データにもとづく、TEAM Kiyoshi・ロッキーによる連載第1回）です。正式版は本公開時にサポートページへ掲載予定です。
-        </p>
-        <p style="margin-top:10px;font-size:13px;color:#9b6b2c;">
-          Fraud-awareness data from Japan's National Police Agency. Full English version coming soon.
-        </p>
-        <p style="margin-top:10px;font-size:12px;color:#9b6b2c;">画像をクリックすると原寸で拡大表示されます（新しいタブで開きます）</p>
-      </div>
-    </section>
+  <section id="registration-notice">
+    <h2>法人登記について</h2>
+    <p class="notice">
+      現在、法人登記の手続きを進めております。上記の所在地は現在の事業所所在地であり、登記完了後、正式な登記情報に更新いたします。ご不便をおかけいたしますが、何卒ご了承くださいますようお願い申し上げます。
+    </p>
+  </section>
 
-    <section style="margin-top:48px;">
-      <p class="eyebrow">SNSで実際に起きている事件</p>
-      <h2 style="margin-top:14px;color:#fff;">その出会い、本当に安全ですか</h2>
-      <div class="grid" aria-label="SNS関連の事件事例" style="margin-top:20px;">
-        <article class="card">
-          <h2 style="font-size:17px;">① ニセ警察官がSNS・ビデオ通話へ誘導</h2>
-          <p>「逮捕される」などと不安をあおり、偽の警察手帳や逮捕状まで見せる手口。</p>
-          <p style="margin-top:12px;"><a href="https://www.keishicho.metro.tokyo.lg.jp/kurashi/tokushu/police_officer.html" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;font-weight:700;text-decoration:none;">警視庁：警察官等をかたる詐欺 ↗</a></p>
-        </article>
-        <article class="card">
-          <h2 style="font-size:17px;">② SNS・マッチングアプリから投資詐欺へ</h2>
-          <p>親しくなった相手に暗号資産への投資を勧められ、資金をだまし取られる事例。</p>
-          <p style="margin-top:12px;"><a href="https://www.keishicho.metro.tokyo.lg.jp/sodan/nettrouble/jirei/cryptocurrency_fraud.html" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;font-weight:700;text-decoration:none;">警視庁：暗号資産の投資詐欺に注意 ↗</a></p>
-        </article>
-        <article class="card">
-          <h2 style="font-size:17px;">③ 知らないアカウントからのDM</h2>
-          <p>投資・副業・恋愛などを入口に外部連絡や送金へ誘導する手口。警察庁も継続して注意喚起しています。</p>
-          <p style="margin-top:12px;"><a href="https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px;font-weight:700;text-decoration:none;">警察庁：注意喚起一覧 ↗</a></p>
-        </article>
+  <section id="awareness">
+    <h2>啓発資料（詐欺・SNS）</h2>
+    <div class="awareness-wrap">
+      <span class="eyebrow">最新のお知らせ · 仮掲載</span>
+      <div class="photo-grid">
+        <a href="assets/safety_fraud_chart.png" target="_blank" rel="noopener">
+          <img src="assets/safety_fraud_chart.png" alt="特殊詐欺 被害額の推移（警察庁データ）">
+        </a>
+        <a href="assets/safety_mobile_stats.png" target="_blank" rel="noopener">
+          <img src="assets/safety_mobile_stats.png" alt="スマホ普及率・SNS利用率（総務省データ）">
+        </a>
       </div>
-    </section>
+      <div class="photo-grid" style="margin-top:10px;">
+        <a href="flyer_page1.png" target="_blank" rel="noopener">
+          <img src="flyer_page1.png" alt="啓発チラシ 1（クリックで原寸）">
+        </a>
+        <a href="flyer_page2.png" target="_blank" rel="noopener">
+          <img src="flyer_page2.png" alt="啓発チラシ 2（クリックで原寸）">
+        </a>
+      </div>
+      <div class="photo-strip photo-strip--two" aria-label="製品（サムネ）">
+        <img src="assets/product_airface_banner.jpg" alt="Air Face">
+        <img src="assets/brand_wordmark_gold.png" alt="EC ロゴ">
+      </div>
+      <p style="margin:20px 0 0;font-size:14px;">
+        年間数千億円規模の詐欺被害の実態をまとめた啓発資料（警察庁公表データにもとづく、TEAM Kiyoshi・ロッキーによる連載第1回）です。正式版は本公開時にサポートページへ掲載予定です。
+      </p>
+      <p class="note">Fraud-awareness data from Japan's National Police Agency. Full English version coming soon.</p>
+      <p class="note">画像をクリックすると原寸で拡大表示されます（新しいタブで開きます）。</p>
+    </div>
+  </section>
 
-    <section style="margin-top:40px;padding:32px 24px;border-radius:24px;background:#0d0d0d;border:1px solid rgba(255,255,255,0.08);">
-      <p style="display:inline-block;padding:6px 14px;border-radius:999px;background:#c81e1e;color:#fff;font-size:12px;font-weight:700;letter-spacing:0.08em;">SNSから始まる凶悪事件</p>
-      <h2 style="margin-top:16px;color:#fff;font-size:clamp(20px,4vw,28px);">そのDMは、殺人事件の入口かもしれない</h2>
-      <div class="grid" style="margin-top:24px;">
-        <article style="padding:22px;border-radius:16px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);">
-          <h3 style="margin:0 0 10px;color:#fff;font-size:17px;">① 闇バイト強盗殺人事件</h3>
-          <p style="color:rgba(255,255,255,0.75);font-size:14px;">SNSで集められた実行役が、首都圏の強盗殺人事件に関与しました。</p>
+  <section id="sns">
+    <h2>SNSで実際に起きている事件</h2>
+    <p class="eyebrow">その出会い、本当に安全ですか</p>
+    <div class="sns-grid" aria-label="SNS関連の事件事例">
+      <article class="sns-card">
+        <h3>① ニセ警察官がSNS・ビデオ通話へ誘導</h3>
+        <p>「逮捕される」などと不安をあおり、偽の警察手帳や逮捕状まで見せる手口。</p>
+        <a href="https://www.keishicho.metro.tokyo.lg.jp/kurashi/tokushu/police_officer.html" target="_blank" rel="noopener">警視庁：警察官等をかたる詐欺 ↗</a>
+      </article>
+      <article class="sns-card">
+        <h3>② SNS・マッチングアプリから投資詐欺へ</h3>
+        <p>親しくなった相手に暗号資産への投資を勧められ、資金をだまし取られる事例。</p>
+        <a href="https://www.keishicho.metro.tokyo.lg.jp/sodan/nettrouble/jirei/cryptocurrency_fraud.html" target="_blank" rel="noopener">警視庁：暗号資産の投資詐欺に注意 ↗</a>
+      </article>
+      <article class="sns-card">
+        <h3>③ 知らないアカウントからのDM</h3>
+        <p>投資・副業・恋愛などを入口に外部連絡や送金へ誘導する手口。警察庁も継続して注意喚起しています。</p>
+        <a href="https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/" target="_blank" rel="noopener">警察庁：注意喚起一覧 ↗</a>
+      </article>
+    </div>
+
+    <div class="alert-panel" id="sns-serious">
+      <span class="badge-red">SNSから始まる凶悪事件</span>
+      <h3 style="margin-top:14px;">そのDMは、殺人事件の入口かもしれない</h3>
+      <div class="sns-grid">
+        <article class="sns-card">
+          <h3>① 闇バイト強盗殺人事件</h3>
+          <p>SNSで集められた実行役が、首都圏の強盗殺人事件に関与しました。</p>
         </article>
-        <article style="padding:22px;border-radius:16px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);">
-          <h3 style="margin:0 0 10px;color:#fff;font-size:17px;">②「高額・即日即金・ホワイト案件」の罠</h3>
-          <p style="color:rgba(255,255,255,0.75);font-size:14px;">SNSの求人から匿名アプリへ誘導し、身分証や家族情報を送らせ、脅迫して強盗や詐欺を実行させます。</p>
+        <article class="sns-card">
+          <h3>②「高額・即日即金・ホワイト案件」の罠</h3>
+          <p>SNSの求人から匿名アプリへ誘導し、身分証や家族情報を送らせ、脅迫して強盗や詐欺を実行させます。</p>
         </article>
-        <article style="padding:22px;border-radius:16px;background:#1a1a1a;border:1px solid rgba(255,255,255,0.1);">
-          <h3 style="margin:0 0 10px;color:#fff;font-size:17px;">③ 実行役は最後に捨てられる</h3>
-          <p style="color:rgba(255,255,255,0.75);font-size:14px;">犯罪グループはSNSで集めた若者を「使い捨て」にし、約束の報酬は支払われず、最終的に逮捕されるのは実行役です。</p>
+        <article class="sns-card">
+          <h3>③ 実行役は最後に捨てられる</h3>
+          <p>犯罪グループはSNSで集めた若者を「使い捨て」にし、約束の報酬は支払われず、最終的に逮捕されるのは実行役です。</p>
         </article>
       </div>
-      <p style="margin-top:22px;color:rgba(255,255,255,0.85);font-size:14px;line-height:1.8;">
+      <p style="margin-top:16px;font-size:14px;">
         警察庁は、SNS募集から匿名性の高いアプリへの誘導、個人情報を使った脅迫、強盗への加担を注意喚起しています。もし応募してしまっていても、勇気を持って抜け出し、すぐに警察（相談ダイヤル＃9110）に相談してください。
       </p>
-      <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:14px;">
-        <a href="https://www.npa.go.jp/bureau/safetylife/yamibaito/hanzaishaboshu.html" target="_blank" rel="noopener" style="color:#ff6b6b;font-size:13px;font-weight:700;text-decoration:none;">警察庁：闇バイトの危険性 ↗</a>
-        <a href="https://www.npa.go.jp/hakusyo/r07/pdf/11_shiryo.pdf" target="_blank" rel="noopener" style="color:#ff6b6b;font-size:13px;font-weight:700;text-decoration:none;">警察庁：令和7年警察白書資料編 ↗</a>
+      <div class="alert-links">
+        <a href="https://www.npa.go.jp/bureau/safetylife/yamibaito/hanzaishaboshu.html" target="_blank" rel="noopener">警察庁：闇バイトの危険性 ↗</a>
+        <a href="https://www.npa.go.jp/hakusyo/r07/pdf/11_shiryo.pdf" target="_blank" rel="noopener">警察庁：令和7年警察白書資料編 ↗</a>
       </div>
-    </section>
+    </div>
+    <p class="note">TEAM KIYOSHI — 個人情報なしで、無料で、安全な通話。そのために作りました。</p>
+  </section>
 
-    <section class="grid" aria-label="主な準備中の機能">
-      <article class="card">
-        <h2>公開プロフィール</h2>
-        <p>個人情報を書かずに始めるための入口です。公開名とアバターを使い、必要な情報だけでつながります。</p>
-      </article>
-      <article class="card">
-        <h2>クイックアイコン</h2>
-        <p>画像ではなく、通話権のキーとして扱うアイコンです。相手との通話に必要な情報を安全に紐づけます。</p>
-      </article>
-      <article class="card">
-        <h2>着信時の安全確認</h2>
-        <p>着信を素早くキャッチし、本人確認と接続許可の確認を行います。安全が確認できた時だけ、アイコンが光で知らせます。</p>
-      </article>
-      <article class="card">
-        <h2>100% iOSへバトンタッチ</h2>
-        <p>コード生成、認証確認、管理、接続先確認までを整えたうえで、iPhone標準の暗号化通話へ安全に引き継ぎます。</p>
-      </article>
-    </section>
+  <section id="patents">
+    <h2>特許出願について</h2>
+    <ul class="patent-list">
+      <li><span>特願2025-189376</span><span class="tag">Patent Pending</span></li>
+      <li><span>特願2026-65348</span><span class="tag">Patent Pending</span></li>
+    </ul>
+    <p class="note">エレメンタリーコードおよび Tandem Air System 関連技術について特許出願中です。明細全文は非公開です。</p>
+  </section>
 
-    <section class="steps">
-      <h2>準備中の流れ</h2>
-      <ol>
-        <li>公開プロフィールを作成します。</li>
-        <li>相手の公開プロフィールを確認します。</li>
-        <li>Q再プッシュでクイックアイコンを追加します。</li>
-        <li>着信時は素早くキャッチし、本人確認を行います。</li>
-        <li>接続を許可できる相手か確認します。</li>
-        <li>安全確認が完了した時、アイコンが光で知らせます。</li>
-        <li>安全が確認された状態で通話を開始します。</li>
-        <li>確認後、iPhone標準の暗号化通話へバトンタッチします。</li>
-      </ol>
-      <span class="badge">安全を確認してから、必要な相手とつながる。</span>
-    </section>
-
-    <section class="hero-card" aria-label="会社案内・詳細" style="margin-top:36px;max-width:720px;margin-left:auto;margin-right:auto;">
-      <h2 style="margin:0 0 14px;font-size:clamp(18px,3vw,22px);color:#161210;">会社案内（詳細）</h2>
-      <dl style="margin:0;font-size:14px;line-height:1.85;color:#6b5642;">
-        <dt style="font-weight:700;margin-top:10px;">振込先（法人口座）</dt>
-        <dd style="margin:4px 0 0;">金融機関の口座確定次第、本ページに掲載します。（審査・手続き中）</dd>
-        <dt style="font-weight:700;margin-top:10px;">特許等</dt>
-        <dd style="margin:4px 0 0;">Tandem AIR System に関する技術は<strong>特許出願中</strong>です。無断模倣・無断販売については<a href="#patent-notice" style="color:#9b6b2c;font-weight:700;text-decoration:none;">下記</a>をご確認ください。</dd>
-      </dl>
-      <p style="margin:14px 0 0;font-size:13px;"><a href="#company" style="color:#9b6b2c;font-weight:700;">↑ ページ上部の会社案内</a></p>
-    </section>
-
-    <section class="notice" id="patent-notice" style="margin-top:24px;text-align:left;">
-      <p style="margin:0 0 10px;font-weight:700;">特許・権利に関するお知らせ</p>
-      <p style="margin:0;font-size:13px;line-height:1.75;">
-        Tandem AIR System に関する技術は特許出願中です。名称・画面・機能構成等の無断利用は、特許法その他の法令上問題となる場合があります。模倣品の販売・配布を見つけた場合は、購入・送金をせず上記メールへご連絡ください。
-      </p>
-    </section>
-
-    <section class="support">
-      <h2>サポートについて</h2>
-      <p>
-        サポートページもリニューアル準備中です。問い合わせ先・FAQ・安全情報は順次整備します。法人・取引・銀行審査用の基本情報は <a href="#company" style="color:var(--accent);font-weight:700;text-decoration:none;">会社案内</a> をご覧ください。
-      </p>
-      <p style="margin-top:10px;font-size:13px;">
-        <a href="privacy.html" style="color:var(--accent);font-weight:700;text-decoration:none;">プライバシーポリシー</a>
-      </p>
-    </section>
-
-    <section class="links">
-      <h2>公式X</h2>
-      <ul>
-        <li><a href="https://x.com/jxUOi4KXbA7l395">Air-Inspection</a> <span>運営・安全情報</span></li>
-        <li><a href="https://x.com/tandemair_jp">Tandem AIR System</a> <span>サポート</span></li>
-        <li><a href="https://x.com/AirQuick_jp">Air Quick</a> <span>クイックアイコン情報</span></li>
-      </ul>
-    </section>
-
-    <p class="founder-note">
-      <strong>TEAM KIYOSHI</strong> — 個人情報なしで、無料で、安全な通話。そのために作りました。INVENTOR / DESIGNER KIYO
+  <section id="elementary-code">
+    <h2>エレメンタリーコードとは</h2>
+    <p>
+      詐欺・なりすましなど身近な犯罪被害から日常生活を守ることを目的とした、独自の認証コードの考え方です。電話番号やパスワードに依存せず、連絡の前に相手を確認する発想を基本としています。
     </p>
+    <div class="ec-grid">
+      <div>防犯<br>詐欺・特殊詐欺対策の一助</div>
+      <div>なりすまし防止<br>相手確認を前提</div>
+      <div>生活の安全<br>旅先・日常のつながり</div>
+    </div>
+    <p class="note">詳細は <a href="elementary-code.html">説明ページ</a> および <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener">elementarycode.tokyo</a> をご覧ください。</p>
+  </section>
 
-    <section class="links" aria-label="公式ドメイン">
-      <h2>公式ドメイン（Apple・審査用）</h2>
-      <ul>
-        <li><a href="https://aicode.tokyo/">aicode.tokyo</a> <span>Elementary Code — 準備中</span></li>
-        <li><a href="https://tandemair.tokyo/">tandemair.tokyo</a> <span>AIRロビンソン — 準備中</span></li>
-        <li><a href="https://waseda-inspection.com/">waseda-inspection.com</a> <span>当サイト — 公開中</span></li>
-        <li><a href="https://elementarycode.tokyo/">elementarycode.tokyo</a> <span>EC 移行期 — 公開中</span></li>
-      </ul>
-    </section>
+</main>
 
-    <footer>
-      <p><a href="#company" style="color:var(--accent);text-decoration:none;">会社案内</a> · <a href="privacy.html" style="color:var(--accent);text-decoration:none;">プライバシーポリシー</a></p>
-      <p>© 早稲田インスペクション / Tandem AIR System</p>
-    </footer>
-  </main>
+<footer>
+  <p>
+    <a href="#company">会社案内</a> ·
+    <a href="#profile">プロフィール</a> ·
+    <a href="#security-rd">iOS・R&amp;D</a> ·
+    <a href="#bank">振込先</a> ·
+    <a href="#awareness">啓発</a> ·
+    <a href="privacy.html">プライバシーポリシー</a> ·
+    <a href="elementary-code.html">EC 説明</a> ·
+    <a href="support.html">サポート</a>
+  </p>
+  <p>© 早稲田インスペクション All Rights Reserved.</p>
+</footer>
 
-
-</body></html>
+</body>
+</html>
