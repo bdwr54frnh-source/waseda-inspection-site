@@ -5,7 +5,9 @@
 | 用途 | ファイル | 備考 |
 |------|----------|------|
 | シャッター約5秒 | `air_shutter_demo_5s.mp4` | 元: `promo_konchan_shutter_small_10s.mp4` 先頭5秒 · avconvert PresetMediumQuality |
-| Micon | `apple_music_micon.png` | アプリ正本と同一 |
+| Micon（Team Kiyoshi） | `hp_micon_team_kiyoshi.jpg` | 社長送付 2026-10-03 |
+| Air-ロビンソンタイル | `hp_air_robinson_tile.jpg` | 同上 |
+| Music タイル3枚 | `hp_music_tile_essentials.jpg` · `_xjapan_live` · `_abbey_road` | Essentials は Web 用 56KB に圧縮 |
 | 発信ガラス額縁 | `air_call_floor_glass_frame.png` | 本番 `air_call_floor_glass_frame` |
 | 地下入口スクショ | `app_screen_basement.png` | case_pack 06 Quick ギフト入口 |
 | AIR 製品 | `product_airface_banner.jpg` | ロビンソン／製品イメージ |

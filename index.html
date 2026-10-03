@@ -177,6 +177,33 @@
   .icon-pair .micon { width: 72px; height: 72px; }
   .icon-pair .glass { width: 88px; height: auto; max-height: 120px; }
   .icon-pair figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; max-width: 120px; }
+  .music-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .music-tiles figure { margin: 0; text-align: center; }
+  .music-tiles img {
+    width: 100%;
+    max-height: 128px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #fafafa;
+  }
+  .music-tiles figcaption { font-size: 10px; color: var(--sub); margin-top: 5px; line-height: 1.35; }
+  .air-robinson-tile {
+    max-width: 280px;
+    margin: 12px auto 0;
+  }
+  .air-robinson-tile img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    display: block;
+  }
+  .air-robinson-tile figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; text-align: center; }
   .ec-block {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
@@ -267,6 +294,7 @@
     .ec-block { grid-template-columns: 1fr; }
     .ec-grid { grid-template-columns: 1fr; }
     .photo-grid { grid-template-columns: 1fr; }
+    .music-tiles { grid-template-columns: 1fr; max-width: 240px; margin-left: auto; margin-right: auto; }
   }
   @media (prefers-reduced-motion: reduce) {
     .air-demo video { display: none; }
@@ -372,33 +400,45 @@
       <p class="motion-fallback">動画の自動再生をオフにしています。下の静止画で UI をご確認ください。</p>
       <figcaption>実機に近い操作イメージ（約5秒 · 音声なし）</figcaption>
     </figure>
-    <div class="shot-pair" aria-label="アプリ画面（厳選）">
-      <figure>
-        <img src="assets/app_screen_basement.png" width="320" height="568" alt="シャッター開口後の地下フロア入口" loading="lazy">
-        <figcaption>地下入口（Quick ギフト）</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/product_airface_banner.jpg" width="320" height="200" alt="AIRロビンソン / Air Face" loading="lazy">
-        <figcaption>AIRロビンソン（製品）</figcaption>
-      </figure>
-    </div>
+    <figure class="air-robinson-tile">
+      <img src="assets/hp_air_robinson_tile.jpg" width="280" height="280" alt="Air-ロビンソン — 世界一周チャット（アプリ内タイル）" loading="lazy">
+      <figcaption>Air-ロビンソン · Music 50th 連動 UI</figcaption>
+    </figure>
+    <figure class="air-robinson-tile" style="max-width:200px;">
+      <img src="assets/app_screen_basement.png" width="200" alt="シャッター開口後の地下フロア入口" loading="lazy">
+      <figcaption>シャッター開口後 · 地下入口</figcaption>
+    </figure>
     <p class="note">製品紹介 <a href="https://tandemair.tokyo/" target="_blank" rel="noopener">tandemair.tokyo</a></p>
   </section>
 
   <section id="apple-music">
     <h2>Apple Music · 発信アイコン</h2>
-    <p class="lead">Music 入口の <strong>Micon</strong> と、発信フロアの<strong>ガラス額縁</strong>（本番アセット）です。</p>
+    <p class="lead">厚ガラス枠の <strong>Music 50th</strong> タイルと、発信フロアの<strong>ガラス額縁</strong>（本番）です。公式アートワークは Apple Music の表示に従います。</p>
     <div class="icon-pair">
       <figure>
-        <img class="micon" src="assets/apple_music_micon.png" width="72" height="72" alt="Apple Music Micon（厚ガラス枠）" loading="lazy">
-        <figcaption>Micon 正本</figcaption>
+        <img class="micon" src="assets/hp_micon_team_kiyoshi.jpg" width="96" height="96" alt="Micon — Team Kiyoshi / Tandem Air" loading="lazy">
+        <figcaption>Micon（Team Kiyoshi）</figcaption>
       </figure>
       <figure>
         <img class="glass" src="assets/air_call_floor_glass_frame.png" width="88" alt="発信フロア・ガラス額縁（ELEMENTARY CODE A）" loading="lazy">
         <figcaption>発信 `air_call_floor_glass_frame`</figcaption>
       </figure>
     </div>
-    <p class="note">人物入り旧ガラス JPEG は掲載しません。</p>
+    <div class="music-tiles" aria-label="Apple Music ガラスタイル（厳選3枚）">
+      <figure>
+        <img src="assets/hp_music_tile_essentials.jpg" width="160" height="160" alt="Apple Music Essentials · ELEMENTARY CODE" loading="lazy">
+        <figcaption>Essentials · EC</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hp_music_tile_xjapan_live.jpg" width="160" height="160" alt="再生中 UI — X JAPAN Rusty Nail (Live)" loading="lazy">
+        <figcaption>再生表示（Live）</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hp_music_tile_abbey_road.jpg" width="160" height="160" alt="Apple Music 50th — Abbey Road" loading="lazy">
+        <figcaption>50th アート例</figcaption>
+      </figure>
+    </div>
+    <p class="note">同一デザインの重複掲載は避け、役割の違う3枚に絞っています。</p>
   </section>
 
   <section id="elementary-code">
