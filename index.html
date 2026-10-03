@@ -179,9 +179,12 @@
   .icon-pair figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; max-width: 120px; }
   .music-tiles {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-top: 14px;
+  }
+  @media (min-width: 640px) {
+    .music-tiles { grid-template-columns: repeat(3, 1fr); }
   }
   .music-tiles figure { margin: 0; text-align: center; }
   .music-tiles img {
@@ -416,15 +419,20 @@
     <p class="lead">厚ガラス枠の <strong>Music 50th</strong> タイルと、発信フロアの<strong>ガラス額縁</strong>（本番）です。公式アートワークは Apple Music の表示に従います。</p>
     <div class="icon-pair">
       <figure>
-        <img class="micon" src="assets/hp_micon_team_kiyoshi.jpg" width="96" height="96" alt="Micon — Team Kiyoshi / Tandem Air" loading="lazy">
-        <figcaption>Micon（Team Kiyoshi）</figcaption>
+        <img class="micon" src="assets/apple_music_micon.png" width="96" height="96" alt="Apple Music Micon（50th · 正本）" loading="lazy">
+        <figcaption>Micon 正本</figcaption>
       </figure>
       <figure>
         <img class="glass" src="assets/air_call_floor_glass_frame.png" width="88" alt="発信フロア・ガラス額縁（ELEMENTARY CODE A）" loading="lazy">
         <figcaption>発信 `air_call_floor_glass_frame`</figcaption>
       </figure>
     </div>
-    <div class="music-tiles" aria-label="Apple Music ガラスタイル（厳選3枚）">
+    <div class="music-tiles" aria-label="Apple Music ガラスタイル（厳選）">
+      <figure>
+        <img src="assets/hp_music_tile_bowie.jpg" width="160" height="160" alt="Apple Music 50th — David Bowie" loading="lazy"
+             onerror="this.closest('figure').style.display='none'">
+        <figcaption>Bowie · 50th</figcaption>
+      </figure>
       <figure>
         <img src="assets/hp_music_tile_essentials.jpg" width="160" height="160" alt="Apple Music Essentials · ELEMENTARY CODE" loading="lazy">
         <figcaption>Essentials · EC</figcaption>
@@ -433,12 +441,8 @@
         <img src="assets/hp_music_tile_xjapan_live.jpg" width="160" height="160" alt="再生中 UI — X JAPAN Rusty Nail (Live)" loading="lazy">
         <figcaption>再生表示（Live）</figcaption>
       </figure>
-      <figure>
-        <img src="assets/hp_music_tile_abbey_road.jpg" width="160" height="160" alt="Apple Music 50th — Abbey Road" loading="lazy">
-        <figcaption>50th アート例</figcaption>
-      </figure>
     </div>
-    <p class="note">同一デザインの重複掲載は避け、役割の違う3枚に絞っています。</p>
+    <p class="note">Abbey Road は上の Micon 正本のみ。Bowie / Essentials / Live の3枚＋Micon。汚れのある Team ロゴ素材は使用しません。</p>
   </section>
 
   <section id="elementary-code">
