@@ -6,17 +6,27 @@
 
 ---
 
-## 事実（2026-10-02 時点）
+## 事実（2026-10-03 朝 — コンちゃん再計測）
+
+| 追加確認 | 結果 |
+|----------|------|
+| GitHub `main` clone | タイトル **「早稲田インスペクション｜会社案内」**（push 済み・追加 push 不要） |
+| `dig A` TTL 600 | 仍 **`163.44.185.173` のみ** → **唯一のブロッカー** |
+| 振り分け正本 | `waseda-inspection/DNS_URGENT_振り分け_2026-10-03.md` |
+| Mac 検証 | `./scripts/verify_waseda_homepage_live.sh` |
+
+## 事実（2026-10-02 夕方更新）
 
 | 項目 | 状態 |
 |------|------|
 | 審査が見る URL | `https://waseda-inspection.com/` · `privacy.html` · `#company`（`AppStoreConnectListingPolicy` 正本） |
-| **本番トップ** | タイトル **「Tandem AIR System｜リニューアル中」** — **`#company` なし** → 会社案内 URL が実質死んでいる |
-| DNS A | `163.44.185.173`（ロリポップ）→ GitHub Pages ではない |
-| GitHub `waseda-inspection-site` | リモートも **古い index** のまま（ローカル新 `早稲田インスペクション｜会社案内` は **未 push**） |
-| ローカル正本 | `AirQuick_Final_3/waseda-inspection/index.html` に `#company` · `#bank` · 特許 · `privacy.html` 更新済み |
+| **本番の定義（仕様書）** | `SITES_GITHUB_PAGES.md` / `SITES_LOLIPOP_GITHUB_HANDOFF.md` — **GitHub push ＋ DNS A→GitHub** まで。**ローカル完成・FTP は本番ではない** |
+| **本番トップ（ドメイン）** | まだ **「Tandem AIR System｜リニューアル中」**（Apache・`163.44.185.173`）→ Connect と不一致 |
+| DNS A | `163.44.185.173`（ロリポップ Web）→ **未切替** |
+| GitHub `waseda-inspection-site` | **push 済** `b70c3bf` — `main/index.html` タイトル **「早稲田インスペクション｜会社案内」** · Micon 等 |
+| ローカル正本 | 同上（`waseda-inspection/`）。編集後は再 push |
 
-**結論**: URL は「公開されている」が **Connect に書いた内容と一致しない** → 審査落ちリスク大。
+**結論**: GitHub 正本は審査用。**審査員が開く URL が変わるのは DNS 切替後。** それまでは仕様上「本番未完了」。
 
 ---
 
