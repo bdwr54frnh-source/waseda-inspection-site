@@ -1,6 +1,6 @@
 # 写真の使い方（社長指示 2026-10-01）
 
-**メインは白（写真なし）。ヒーローに使わない**
+**メインは白基調。ヒーロー全幅写真は使わない（2026-10-03 再構成）**
 - `building.jpg`（建築）— **フル幅・トップ禁止**。`#company` 住所欄 **112×72px 小のみ可**（社長 2026-10-01）
 - `promo_banner_*` / `gearwall2` / 旧リニューアル用素材 — メイン禁止
 
@@ -11,8 +11,14 @@
 - FTP は **assets 配下を再帰的に全部**アップ（代表顔・edited/source は除外）
 - 枠付きガラスは **clean / serial 正本のみ**（会社案内 Apple 行 72px）
 
-**使ってよい（小さく・役だけ）**
-- ~~`assets/founder_portrait.jpg`~~ — **HP 非掲載**（代表は氏名テキストのみ・顔アップ禁止 社長 2026-10-01）
+**代表写真（2026-10-03 指示）**
+- `assets/founder_portrait.jpg` — `#people` のみ · 108px 程度 · ヒーロー禁止
+
+**AIR デモ動画**
+- `assets/air_shutter_demo_5s.mp4` — 約5秒 · 音声なし autoplay · 正本一覧 `assets/HP_CURATED_ASSETS.md`
+
+**厳選スクショ（manifest 全件ロードは廃止）**
+- `assets/app_screen_basement.png` · `assets/product_airface_banner.jpg` · `assets/air_call_floor_glass_frame.png`
 
 **啓発・SNS（白ブロック `#awareness` / `#sns`）**
 - `assets/safety_fraud_chart.png` / `assets/safety_mobile_stats.png`
