@@ -7,7 +7,7 @@
 | シャッター約5秒 | `air_shutter_demo_5s.mp4` | 元: `promo_konchan_shutter_small_10s.mp4` 先頭5秒 · avconvert PresetMediumQuality |
 | Micon 正本 | `apple_music_micon.png` | `Micon.imageset/Micon.001.png` コピー |
 | 発信額縁 | `air_call_floor_glass_frame.png` | xcassets 本番 2x |
-| Bowie ガラス | `hp_music_tile_bowie.jpg` | **社長送付待ち** → 置いたら HP 先頭に表示 |
+| BOØWY ガラス | `hp_music_tile_bowie.jpg` | 社長送付 2026-10-03 · Web 71KB |
 | **使用禁止** | `hp_micon_team_kiyoshi.jpg` | 右側ロゴ汚れ · 掲載しない |
 | Air-ロビンソンタイル | `hp_air_robinson_tile.jpg` | 同上 |
 | Music タイル3枚 | `hp_music_tile_essentials.jpg` · `_xjapan_live` · `_abbey_road` | Essentials は Web 用 56KB に圧縮 |
