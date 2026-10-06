@@ -77,6 +77,19 @@
     border-radius: 8px;
     padding: 22px 24px;
     background: #fff;
+    box-shadow: none;
+  }
+  #company,
+  #company .company-box {
+    outline: none;
+    box-shadow: none;
+  }
+  #company::before,
+  #company::after,
+  #company .company-box::before,
+  #company .company-box::after {
+    content: none !important;
+    display: none !important;
   }
   .company-box dl {
     margin: 0;
@@ -323,12 +336,14 @@
 </div>
 
 <nav class="nav" aria-label="サイト内">
-  <a class="primary" href="#company">会社</a>
-  <a href="#air-app">AIR</a>
-  <a href="#apple-music">Music・発信</a>
-  <a href="#elementary-code">EC</a>
+  <a class="primary" href="#company">会社紹介</a>
+  <a href="#air-app">AIRロビンソン</a>
+  <a href="#apple-music">Music</a>
+  <a href="#elementary-code">Elementary Code</a>
   <a href="#world-clocks">世界時刻</a>
+  <a href="#patents">特許</a>
   <a href="#people">代表・TEAM</a>
+  <a href="#more">サポート</a>
   <a href="privacy.html">プライバシー</a>
 </nav>
 
