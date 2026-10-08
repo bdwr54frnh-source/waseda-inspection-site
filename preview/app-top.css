@@ -1,0 +1,191 @@
+.app-hero .cloud-missing {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  background: rgba(20,40,70,0.55);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  z-index: 4;
+}
+.app-hero.cloud-fail .cloud-missing { display: flex; }
+.app-hero .robinson-float {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: min(58vw, 280px);
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 20px 36px rgba(20,40,80,0.4));
+  z-index: 2;
+  animation: robinson-drift 8s ease-in-out infinite alternate;
+}
+@keyframes robinson-drift {
+  from { transform: translate(-50%, -50%) translateY(0); }
+  to { transform: translate(-50%, -50%) translateY(-10px); }
+}
+.app-hero {
+  position: relative;
+  min-height: min(52vh, 400px);
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  margin: -16px -18px 20px;
+  background: linear-gradient(165deg, #87b8e8 0%, #c8dff5 35%, #eef6ff 70%);
+}
+.app-hero .cloud-layer {
+  position: absolute;
+  inset: 0;
+  background: center 28% / cover no-repeat;
+  transform: scale(1.04);
+  animation: cloud-drift 14s ease-in-out infinite alternate;
+}
+@keyframes cloud-drift {
+  from { transform: scale(1.04) translateY(0); }
+  to { transform: scale(1.06) translateY(-8px); }
+}
+.app-hero .vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(10,30,60,0.25) 55%, rgba(244,245,247,0.95) 100%);
+  pointer-events: none;
+}
+.glass-section {
+  margin-bottom: 8px;
+}
+.copy-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+.copy-pills .pill {
+  margin: 0;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+.pill-primary {
+  background: linear-gradient(135deg, #2d4a66, #4a7ab8);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(45,74,102,0.25);
+}
+.pill-secondary {
+  background: rgba(255,255,255,0.95);
+  color: #2d4a66;
+  border: 2px solid rgba(201,162,39,0.55);
+}
+.glass-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 12px;
+  max-width: 520px;
+}
+.glass-grid li {
+  display: flex;
+  justify-content: center;
+}
+.glass-grid img {
+  width: 100%;
+  max-width: 120px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 18px;
+  filter: drop-shadow(0 10px 22px rgba(20,40,80,0.18));
+}
+.glass-count {
+  font-weight: 700;
+  color: #2d4a66;
+  margin-bottom: 10px;
+}
+.app-hero .hero-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 20px 18px 28px;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.55);
+}
+.app-hero .hero-copy h1 {
+  margin: 0 0 6px;
+  font-size: clamp(22px, 5vw, 30px);
+  letter-spacing: 0.06em;
+}
+.app-hero .hero-copy p { margin: 0; font-size: 13px; opacity: 1; font-weight: 500; }
+.device-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.device-row img {
+  width: 140px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+.future-apps { margin-top: 8px; }
+.future-apps .app-card {
+  border-top: 3px solid #6b4a9e;
+}
+.robinson-screens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-start;
+}
+.robinson-screens figure { margin: 0; text-align: center; }
+.robinson-screens img {
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(20,40,80,0.15);
+  max-width: 100%;
+  height: auto;
+}
+.theme-song-panel .theme-song-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--accent, #2d4a66);
+}
+.theme-song-panel .theme-song-artist {
+  margin: 2px 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--sub, #5a6472);
+}
+.theme-song-panel .theme-song-credits {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--sub, #5a6472);
+}
+.theme-song-panel .theme-song-audio {
+  width: 100%;
+  max-width: 420px;
+  margin: 8px 0 0;
+}
+.apple-music-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #fa233b, #fb5c74);
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(250,35,59,0.25);
+}
+.apple-music-link img { flex-shrink: 0; }
