@@ -1,0 +1,4 @@
+# waseda-inspection 公開 HTML に載せてよい X ハンドル（推測で追加しない）
+# 検証: ./scripts/verify_official_x_links.sh
+# 2026-10-03 ブラウザ確認 — プロフィール表示 OK（@TandemAir）
+TandemAir

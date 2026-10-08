@@ -10,6 +10,8 @@
 | BOØWY ガラス | `hp_music_tile_bowie.jpg` | 社長送付 2026-10-03 · Web 71KB |
 | **使用禁止** | `hp_micon_team_kiyoshi.jpg` | 右側ロゴ汚れ · 掲載しない |
 | Air-ロビンソンタイル | `hp_air_robinson_tile.jpg` | 同上 |
+| 公式テーマ曲（許諾クリップ） | `air_robinson_theme_licensed.m4a` | 未配置時はクレジットのみ。正本 `AIR_ROBINSON_THEME_SONG_WEB_POLICY.md` |
+| プラグロックアイコン | `hp_pluglock_app_icon.jpg` | 無料版 ON スイッチ説明とセット（社長送付・2026-10-03） |
 | Music タイル3枚 | `hp_music_tile_essentials.jpg` · `_xjapan_live` · `_abbey_road` | Essentials は Web 用 56KB に圧縮 |
 | 発信ガラス額縁 | `air_call_floor_glass_frame.png` | 本番 `air_call_floor_glass_frame` |
 | 地下入口スクショ | `app_screen_basement.png` | case_pack 06 Quick ギフト入口 |

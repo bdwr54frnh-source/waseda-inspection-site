@@ -3,93 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>早稲田インスペクション｜会社案内</title>
-<meta name="description" content="早稲田インスペクション — iOS・Air Face（AIRロビンソン）、Apple Developer、特許出願、Elementary Code、会社案内。">
+<title>早稲田インスペクション｜公式ポータル</title>
+<meta name="description" content="早稲田インスペクション公式入口 — 会社案内、Tandem AIR System / Air Face、Elementary Code、AIRロビンソン、サポート。">
 <script src="assets/analytics.js"></script>
 <style>
   :root {
-    --ink: #1c2430;
+    --ink: #1a1f28;
     --sub: #5a6472;
-    --line: #dfe3e8;
-    --bg: #ffffff;
-    --panel: #f6f7f9;
+    --line: rgba(255,255,255,0.14);
+    --glass: rgba(255,255,255,0.88);
+    --glass-border: rgba(45,74,102,0.22);
     --accent: #2d4a66;
+    --gold: #c9a227;
+    --gold-soft: rgba(201,162,39,0.35);
     --alert: #b42318;
+    --sky: #7eb8ff;
+    --wood: #8b6914;
+    --wood-light: #c4a35a;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     font-family: "Hiragino Sans", "Noto Sans JP", -apple-system, sans-serif;
     color: var(--ink);
-    background: var(--bg);
     line-height: 1.85;
+    background: #0a0c10 url("assets/bg_gearwall.jpg") center top / cover fixed no-repeat;
   }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,10,14,0.55) 0%, rgba(248,249,251,0.92) 38%, #f4f5f7 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page { position: relative; z-index: 1; }
   .top-bar {
-    background: #fff;
-    padding: 32px 20px 24px;
     text-align: center;
-    border-bottom: 1px solid var(--line);
+    padding: 28px 20px 20px;
+    color: #fff;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.45);
   }
   .top-bar h1 {
-    margin: 0 0 6px;
-    font-size: clamp(20px, 4vw, 28px);
+    margin: 0 0 8px;
+    font-size: clamp(22px, 4.5vw, 32px);
     font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--accent);
+    letter-spacing: 0.08em;
   }
-  .top-bar p { margin: 0; font-size: 14px; color: var(--sub); }
+  .top-bar .tagline { margin: 0; font-size: 14px; opacity: 0.92; max-width: 36em; margin-inline: auto; }
   .nav {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     justify-content: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--line);
-    background: #fff;
+    padding: 10px 16px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
   }
   .nav a {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     color: var(--accent);
     text-decoration: none;
     padding: 7px 11px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     border-radius: 8px;
-    background: #fff;
+    background: rgba(255,255,255,0.75);
   }
   .nav a.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  main { max-width: 820px; margin: 0 auto; padding: 0 20px; }
-  section { padding: 26px 0; border-bottom: 1px solid var(--line); }
+  main { max-width: 920px; margin: 0 auto; padding: 0 20px 24px; }
+  .portal-hero {
+    padding: 8px 0 28px;
+  }
+  .portal-hero > p {
+    text-align: center;
+    font-size: 14px;
+    color: var(--sub);
+    margin: 0 0 18px;
+  }
+  .brand-ladder {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.72);
+    border: 1px solid var(--glass-border);
+    font-size: 13px;
+    line-height: 1.65;
+    max-width: 28em;
+    margin-inline: auto;
+  }
+  .brand-ladder li { margin: 0; padding: 2px 0; }
+  .brand-ladder li:first-child { font-weight: 700; color: var(--accent); }
+  .brand-ladder .step { color: var(--sub); padding-left: 0.5em; }
+  .portal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .portal-card {
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 18px 16px;
+    box-shadow: 0 8px 28px rgba(20,30,50,0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  .portal-card h2 {
+    margin: 0 0 8px;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+  .portal-card .blurb {
+    font-size: 12px;
+    color: var(--sub);
+    margin: 0 0 12px;
+    flex: 1;
+  }
+  .portal-card ul {
+    margin: 0 0 14px;
+    padding-left: 1.1em;
+    font-size: 12px;
+  }
+  .portal-card li { margin: 4px 0; }
+  .portal-card a.cta {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: var(--accent);
+    color: #fff;
+  }
+  .portal-card a.cta.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    margin-top: 8px;
+  }
+  section {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(45,74,102,0.12);
+  }
   section:last-of-type { border-bottom: none; }
-  h2 {
-    font-size: 16px;
+  section > h2 {
+    font-size: 17px;
     letter-spacing: 0.06em;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     color: var(--accent);
   }
   h3 { font-size: 15px; margin: 0 0 8px; color: var(--ink); }
   .lead { font-size: 14px; color: var(--sub); margin: 0 0 16px; }
-  .company-box {
-    border: 1px solid var(--line);
-    border-radius: 8px;
+  .company-box, .glass-panel {
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
     padding: 22px 24px;
-    background: #fff;
-    box-shadow: none;
-  }
-  #company,
-  #company .company-box {
-    outline: none;
-    box-shadow: none;
-  }
-  #company::before,
-  #company::after,
-  #company .company-box::before,
-  #company .company-box::after {
-    content: none !important;
-    display: none !important;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
   }
   .company-box dl {
     margin: 0;
@@ -102,7 +183,7 @@
   }
   .company-box dt { color: var(--sub); margin: 0; }
   .company-box dd { margin: 0; min-width: 0; }
-  .company-box a { color: var(--accent); }
+  .company-box a { color: var(--accent); font-weight: 600; }
   .tag {
     display: inline-block;
     font-size: 10px;
@@ -118,15 +199,15 @@
   .bank-block {
     margin-top: 6px;
     padding: 12px 14px;
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 6px;
+    background: rgba(246,247,249,0.9);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
     font-size: 13px;
     line-height: 1.7;
   }
   .company-building img {
     width: 80px; height: 52px; object-fit: cover;
-    border-radius: 6px; border: 1px solid var(--line); margin-top: 8px;
+    border-radius: 6px; border: 1px solid var(--glass-border); margin-top: 8px;
   }
   .people-row {
     display: grid;
@@ -138,23 +219,57 @@
     width: 100%;
     max-width: 108px;
     border-radius: 10px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     display: block;
   }
   .people-meta { font-size: 13px; }
   .people-meta p { margin: 0 0 10px; }
   .patent-inline { margin: 8px 0 0; padding-left: 1.1em; font-size: 13px; }
-  .air-story { font-size: 14px; margin: 0 0 14px; }
-  .air-demo {
-    margin: 0 auto 16px;
-    max-width: 560px;
+  .feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
   }
-  .air-demo video {
+  .feature-chips span {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(45,74,102,0.08);
+    border: 1px solid var(--glass-border);
+  }
+  .device-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .device-showcase figure {
+    margin: 0;
+    text-align: center;
+  }
+  .device-showcase img {
     width: 100%;
-    height: auto;
-    display: block;
+    max-width: 220px;
+    border-radius: 16px;
+    border: 2px solid rgba(201,162,39,0.35);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    background: #0a0a0a;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .device-showcase figcaption {
+    font-size: 11px;
+    color: var(--sub);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .air-demo { margin: 0 auto 16px; max-width: 560px; }
+  .air-demo video {
+    width: 100%; height: auto; display: block;
     border-radius: 12px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     background: #0a0a0a;
   }
   .air-demo figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; text-align: center; }
@@ -167,13 +282,12 @@
   .shot-pair figure { margin: 0; text-align: center; }
   .shot-pair img {
     width: 100%;
-    max-height: 200px;
+    max-height: 220px;
     object-fit: contain;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    background: var(--panel);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: #111;
   }
-  .shot-pair figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; line-height: 1.4; }
   .icon-pair {
     display: flex;
     flex-wrap: wrap;
@@ -184,21 +298,17 @@
   .icon-pair figure { margin: 0; text-align: center; }
   .icon-pair img {
     border-radius: 10px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     background: #fafafa;
     object-fit: contain;
   }
   .icon-pair .micon { width: 72px; height: 72px; }
   .icon-pair .glass { width: 88px; height: auto; max-height: 120px; }
-  .icon-pair figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; max-width: 120px; }
   .music-tiles {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     margin-top: 14px;
-  }
-  @media (min-width: 640px) {
-    .music-tiles { grid-template-columns: repeat(3, 1fr); }
   }
   .music-tiles figure { margin: 0; text-align: center; }
   .music-tiles img {
@@ -206,31 +316,173 @@
     max-height: 128px;
     object-fit: contain;
     border-radius: 10px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     background: #fafafa;
   }
-  .music-tiles figcaption { font-size: 10px; color: var(--sub); margin-top: 5px; line-height: 1.35; }
-  .air-robinson-tile {
-    max-width: 280px;
-    margin: 12px auto 0;
+  .music-tiles figcaption { font-size: 10px; color: var(--sub); margin-top: 5px; }
+  .robinson-hero {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: min(52vh, 360px);
+    margin: 16px 0;
+    border: 1px solid var(--glass-border);
+    background: linear-gradient(165deg, #87b8e8 0%, #c8dff5 35%, #eef6ff 70%);
   }
-  .air-robinson-tile img {
+  .robinson-hero-cloud {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+    transform: scale(1.04);
+    animation: robinson-cloud-drift 14s ease-in-out infinite alternate;
+  }
+  @keyframes robinson-cloud-drift {
+    from { transform: scale(1.04) translateY(0); }
+    to { transform: scale(1.06) translateY(-8px); }
+  }
+  .robinson-hero-float {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    width: min(58vw, 240px);
+    height: auto;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 20px 36px rgba(20,40,80,0.4));
+    z-index: 2;
+    animation: robinson-float-drift 8s ease-in-out infinite alternate;
+  }
+  @keyframes robinson-float-drift {
+    from { transform: translate(-50%, -50%) translateY(0); }
+    to { transform: translate(-50%, -50%) translateY(-10px); }
+  }
+  .robinson-hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(10,30,60,0.22) 55%, rgba(255,255,255,0.88) 100%);
+    pointer-events: none;
+  }
+  .robinson-hero-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    margin: 0;
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a2838;
+    text-shadow: 0 1px 8px rgba(255,255,255,0.85);
+  }
+  .robinson-screens {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .theme-song-panel { margin-top: 22px; }
+  .theme-song-panel h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: var(--accent);
+  }
+  .theme-song-title {
+    margin: 0 0 4px;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+  .theme-song-artist {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: var(--sub);
+  }
+  .theme-song-credits {
+    margin: 14px 0 0;
+    font-size: 11px;
+    line-height: 1.65;
+    color: var(--sub);
+  }
+  .apple-music-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #fa233b, #fb5c74);
+    padding: 10px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(250,35,59,0.25);
+  }
+  .apple-music-link img { flex-shrink: 0; }
+  .portal-app-jump {
+    margin: 0 0 18px;
+    padding: 12px 16px;
+    text-align: center;
+    background: rgba(45,74,102,0.12);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  .portal-app-jump a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .portal-app-jump a:hover { text-decoration: underline; }
+  .app-intro-panel { margin-bottom: 20px; }
+  .app-intro-panel h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: var(--accent);
+  }
+  .app-intro-panel ul { margin: 0; padding-left: 1.2em; font-size: 14px; line-height: 1.75; }
+  .app-intro-banner {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto 14px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+  }
+  .robinson-screens img {
     width: 100%;
     border-radius: 12px;
-    border: 1px solid var(--line);
-    display: block;
+    border: 1px solid var(--glass-border);
   }
-  .air-robinson-tile figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; text-align: center; }
+  .pluglock-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .pluglock-row img {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    border-radius: 16px;
+    border: 1px solid var(--gold-soft);
+    background: #0a0c12;
+    padding: 8px;
+  }
   .ec-block {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
     gap: 16px;
     align-items: start;
   }
-  .ec-block img {
+  .media-frame-dark {
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #0c1420, #1a2838);
+    border: 1px solid var(--glass-border);
+  }
+  .media-frame-dark img {
     width: 100%;
     border-radius: 8px;
-    border: 1px solid var(--line);
+    display: block;
   }
   .ec-grid {
     display: grid;
@@ -239,16 +491,16 @@
     margin-top: 12px;
   }
   .ec-grid div {
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 6px;
+    background: rgba(246,247,249,0.95);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
     padding: 10px;
     font-size: 12px;
     text-align: center;
   }
   .world-clocks-lite {
-    background: var(--panel);
-    border: 1px solid var(--line);
+    background: rgba(246,247,249,0.95);
+    border: 1px solid var(--glass-border);
     border-radius: 8px;
     padding: 14px 16px;
     font-size: 14px;
@@ -258,14 +510,17 @@
     justify-content: space-between;
     gap: 12px;
     padding: 6px 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--glass-border);
   }
   .world-clocks-lite .row:last-child { border-bottom: none; }
   .world-clocks-lite time { font-variant-numeric: tabular-nums; font-weight: 600; }
-  details.secondary {
-    margin-top: 8px;
-    font-size: 14px;
+  .link-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .link-row a {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
   }
+  details.secondary { margin-top: 8px; font-size: 14px; }
   details.secondary summary {
     cursor: pointer;
     font-weight: 700;
@@ -274,11 +529,11 @@
   }
   details.secondary summary::-webkit-details-marker { display: none; }
   .awareness-wrap {
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     border-radius: 8px;
     padding: 16px;
     margin-top: 12px;
-    background: #fff;
+    background: var(--glass);
   }
   .photo-grid {
     display: grid;
@@ -290,82 +545,157 @@
     width: 100%;
     max-height: 96px;
     object-fit: contain;
-    border: 1px solid var(--line);
+    border: 1px solid var(--glass-border);
     border-radius: 8px;
-    background: var(--panel);
+    background: rgba(246,247,249,0.9);
   }
   footer {
     padding: 28px 20px 48px;
     text-align: center;
     font-size: 12px;
     color: var(--sub);
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(8px);
   }
-  footer a { color: var(--accent); }
-  @media (max-width: 560px) {
-    .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
-    .company-box dt { margin-top: 8px; }
-    .people-row { grid-template-columns: 1fr; }
-    .people-row img { max-width: 96px; }
-    .shot-pair { grid-template-columns: 1fr; }
-    .ec-block { grid-template-columns: 1fr; }
-    .ec-grid { grid-template-columns: 1fr; }
-    .photo-grid { grid-template-columns: 1fr; }
-    .music-tiles { grid-template-columns: 1fr; max-width: 240px; margin-left: auto; margin-right: auto; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .air-demo video { display: none; }
-    .air-demo .motion-fallback { display: block; }
-  }
+  footer a { color: var(--accent); font-weight: 600; }
   .motion-fallback {
     display: none;
     padding: 24px;
     text-align: center;
     font-size: 13px;
     color: var(--sub);
-    border: 1px dashed var(--line);
+    border: 1px dashed var(--glass-border);
     border-radius: 12px;
   }
+  @media (max-width: 720px) {
+    .portal-grid { grid-template-columns: 1fr; }
+    .device-showcase { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
+    .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
+    .company-box dt { margin-top: 8px; }
+    .people-row { grid-template-columns: 1fr; }
+    .shot-pair, .robinson-screens, .ec-block { grid-template-columns: 1fr; }
+    .music-tiles { grid-template-columns: 1fr; max-width: 240px; margin-inline: auto; }
+    .ec-grid, .photo-grid { grid-template-columns: 1fr; }
+    .pluglock-row { grid-template-columns: 1fr; text-align: center; }
+    .pluglock-row img { margin-inline: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .air-demo video { display: none; }
+    .air-demo .motion-fallback { display: block; }
+    .robinson-hero-cloud,
+    .robinson-hero-float { animation: none; }
+  }
+  /* 2026-10-04: 小さい補助文 — コントラスト・ウェイトのみ（サイズ・レイアウト不変） */
+  :root { --sub-readable: #434b57; }
+  .note,
+  .portal-card .blurb,
+  .brand-ladder .step,
+  .device-showcase figcaption,
+  .air-demo figcaption,
+  .music-tiles figcaption,
+  .theme-song-artist,
+  .theme-song-credits,
+  footer,
+  .motion-fallback {
+    color: var(--sub-readable);
+  }
+  .note,
+  .portal-card .blurb,
+  .device-showcase figcaption,
+  .air-demo figcaption,
+  .music-tiles figcaption,
+  .theme-song-credits {
+    font-weight: 500;
+  }
+  .top-bar .tagline { opacity: 1; }
 </style>
 </head>
 <body>
+<div class="page">
 
 <div class="top-bar">
   <h1>早稲田インスペクション</h1>
-  <p>会社案内 · Air Face（AIRロビンソン）· Elementary Code</p>
+  <p class="tagline">起点：早稲田インスペクション — Tandem AIR System · Air Face / AIRロビンソン · Elementary Code</p>
 </div>
 
 <nav class="nav" aria-label="サイト内">
-  <a class="primary" href="#company">会社紹介</a>
-  <a href="#air-app">AIRロビンソン</a>
-  <a href="#apple-music">Music</a>
-  <a href="#elementary-code">Elementary Code</a>
-  <a href="#world-clocks">世界時刻</a>
-  <a href="#patents">特許</a>
-  <a href="#people">代表・TEAM</a>
-  <a href="#more">サポート</a>
+  <a class="primary" href="#portal">3つの入口</a>
+  <a href="#company">① 会社案内</a>
+  <a href="#tandem-air">② Air Face</a>
+  <a href="#elementary-code">③ EC</a>
+  <a href="#air-robinson">ロビンソン</a>
+  <a href="#plug-lock">プラグロック</a>
+  <a href="support.html">サポート</a>
   <a href="privacy.html">プライバシー</a>
 </nav>
 
 <main>
 
+  <section id="portal" class="portal-hero">
+    <p>ホームページの起点は<strong>早稲田インスペクション</strong>（当サイト）。最初の画面から、会社 · アプリ · Elementary Code へ移動できます。</p>
+    <ol class="brand-ladder" aria-label="ブランドの順序">
+      <li>早稲田インスペクション</li>
+      <li class="step">↓ Tandem AIR System</li>
+      <li class="step">↓ Air Face / AIRロビンソン</li>
+      <li class="step">↓ Elementary Code</li>
+    </ol>
+    <div class="portal-grid">
+      <article class="portal-card" id="portal-company">
+        <h2>① 早稲田インスペクション</h2>
+        <p class="blurb">会社・事業・特許・代表。<strong>ポータルの起点</strong>（waseda-inspection.com）。問い合わせ・サポートの正本。</p>
+        <ul>
+          <li><a href="#company">会社／事業情報</a></li>
+          <li><a href="support.html">サポート</a></li>
+          <li><a href="mailto:info@waseda-inspection.com">問い合わせ（メール）</a></li>
+        </ul>
+        <a class="cta" href="#company">会社案内へ</a>
+      </article>
+      <article class="portal-card" id="portal-tandem">
+        <h2>② Tandem AIR System / Air Face</h2>
+        <p class="blurb">開発中の iPhone アプリ。すぐに始められ、プロフィールは後から任意。Plug Lock（接続前認証）・クイックアイコン・100% iOS。</p>
+        <ul>
+          <li><a href="#tandem-air">アプリ紹介・実機画面</a></li>
+          <li><a href="#air-robinson">AIRロビンソン</a></li>
+          <li><a href="#apple-music">Music・発信アイコン</a></li>
+          <li><a href="support.html">アプリ関連サポート</a></li>
+        </ul>
+        <a class="cta" href="https://tandemair.jp/" target="_blank" rel="noopener noreferrer">tandemair.jp（TAS・東京ブランド）</a>
+        <a class="cta secondary" href="#tandem-air">このサイト内の説明</a>
+        <p class="blurb" style="margin:10px 0 0;font-size:11px;">tandemair.jp は Tandem AIR System／アプリ面の東京ブランドです（会社全体の代表URLではありません）。</p>
+      </article>
+      <article class="portal-card" id="portal-ec">
+        <h2>③ Elementary Code</h2>
+        <p class="blurb">接続前の相手確認・認証の技術（Elementary Code）。Air Face / Plug Lock と連携する独立レイヤーです。</p>
+        <ul>
+          <li><a href="#elementary-code">技術説明（当サイト）</a></li>
+          <li><a href="#world-clocks">世界時刻サンプル</a></li>
+          <li><a href="elementary-code.html">詳細ページ</a></li>
+        </ul>
+        <a class="cta" href="https://elementarycode.tokyo/" target="_blank" rel="noopener noreferrer">elementarycode.tokyo（EC 技術面）</a>
+      </article>
+    </div>
+    <p class="portal-app-jump"><a href="#company">① 会社案内（社名・代表・特許・連絡・振込先）</a> · <a href="#tandem-air">② Air Face アプリ紹介（実機写真）</a></p>
+  </section>
+
   <section id="company">
     <h2>会社案内</h2>
-    <p class="lead">iOS を基盤に、モバイルのセキュリティ・振込送金被害への対策、住宅診断、アプリの研究開発を行っています。単なるWeb制作会社ではなく、iPhoneユーザーと、ユーザーが利用する金融機関等で設定されたカードを守るためのプロダクト設計・実装を行います。</p>
-    <div class="company-box" style="margin-bottom:16px;">
-      <h3>私たちの目標</h3>
-      <p style="margin:0;font-size:14px;">人が内容を見たり判断したりする運用ではなく、必要な状態だけを機械的に判定し、必要な機能だけをピンポイントで制御すること。プラグロックでは、不審操作を検知した際に、対象のiPhoneで利用される設定済みカード等の<strong>支払い機能だけをロック</strong>する考え方を中心に、iPhoneユーザーの被害を限りなくゼロへ近づけることを目指しています。中身を覗くのではなく、人手非介在で守る。その積み重ねによって「カード関係はiPhoneに任せられる」と利用者に評価される、本物の安全設計をつくります。</p>
-    </div>
+    <p class="lead">iOS を基盤に、モバイルのセキュリティ・振込送金被害への対策、住宅診断、アプリの研究開発を行っています。</p>
     <div class="company-box">
       <dl>
         <dt>社名</dt>
         <dd>早稲田インスペクション（エレメンタリー・コード）</dd>
         <dt>代表</dt>
         <dd>関根 清</dd>
+        <dt>肩書</dt>
+        <dd><strong>Developer / Product Designer</strong>（デベロッパー／デザイナー）</dd>
         <dt>設立</dt>
         <dd>2025年4月25日</dd>
-        <dt>Apple</dt>
-        <dd><strong>Apple Developer Program</strong> 登録 · Air Face（AIRロビンソン）· Apple Music 公式連携</dd>
+        <dt>Apple関連</dt>
+        <dd>
+          <strong>Apple Developer Program</strong> 登録（メンバー）<br>
+          <span class="note" style="margin-top:4px;display:inline-block;">Air Face（AIRロビンソン）· Apple Music 公式連携 · 100% iOS</span>
+        </dd>
         <dt>特許</dt>
         <dd>
           <ul class="patent-inline">
@@ -398,54 +728,128 @@
       </dl>
     </div>
     <p class="note">法人登記手続き中です。登記完了後、正式な登記情報に更新します。</p>
-  </section>
-
-  <section id="people">
-    <h2>代表 · プロダクトデザイン</h2>
-    <div class="people-row">
-      <img src="assets/founder_portrait.jpg" width="108" height="108" alt="関根 清（代表）" loading="lazy">
-      <div class="people-meta">
-        <h3>関根 清</h3>
-        <p><strong>Product Designer</strong> · TANDEM AIR SYSTEM × 100% iOS · TEAM KIYOSHI</p>
-        <p>Apple Music User とアーティストの関係を遮らない設計、光UIナビ、最小タップ、静音設計。「Air deflect」「Ai-code」（iOS）<!-- 文案整理はジェミニ --></p>
-        <p class="note">早稲田インスペクション @TandemAir · <a href="https://x.com/TandemAir" target="_blank" rel="noopener">X @TandemAir</a></p>
-      </div>
-    </div>
-    <div class="company-box" style="margin-top:16px;">
-      <h3>TEAM KIYOSHI</h3>
-      <p style="margin:0 0 8px;font-size:13px;"><strong>ロッキー</strong> — 最終提出フィニッシュ責任者。法務・ガイドライン・類似品調査、提出前の漏れ・矛盾・未完了確認を担当し、完成基準と優先順位を管理します。</p>
-      <p style="margin:0 0 8px;font-size:13px;"><strong>コンちゃん</strong> — Composer・Web・検査文書。</p>
-      <p style="margin:0 0 8px;font-size:13px;"><strong>こーちゃん</strong> — 検査・Web。</p>
-      <p style="margin:0 0 8px;font-size:13px;"><strong>ジェーン（男性）</strong> — チームサポート。</p>
-      <p style="margin:0;font-size:13px;"><strong>ミンティナ</strong> — API「AIRコンシェルジュ」。AIRの案内・ユーザーサポートを担当します。</p>
+    <div class="link-row">
+      <a href="support.html">サポート</a>
+      <a href="#tandem-air">Air Face アプリ紹介へ</a>
+      <a href="#portal">ポータルに戻る</a>
     </div>
   </section>
 
-  <section id="air-app">
-    <h2>AIR（Air Face / AIRロビンソン）</h2>
-    <p class="air-story">ホーム画面の<strong>シャッター</strong>を開くと、地下フロアへ。飛行船ロビンソンと Apple Music 連携 UI へ続きます。</p>
+  <section id="tandem-air">
+    <h2>Air Face（AIRロビンソン）— アプリ紹介</h2>
+    <p class="lead">Tandem AIR System の<strong>開発中 iPhone アプリ</strong>（100% iOS）。App Store 上の名称は <strong>AIRロビンソン</strong> — 飛行船の旅、船内チャット、Apple Music 連携が中心です。<strong>すぐに始められ</strong>、公開プロフィールの作成は必須ではありません。</p>
+    <div class="glass-panel app-intro-panel">
+      <img class="app-intro-banner" src="assets/product_airface_banner.jpg" width="560" alt="Air Face — Tandem AIR System（製品イメージ）" loading="lazy">
+      <h3>このバージョンでできること</h3>
+      <ul>
+        <li>ホームから <strong>Apple Music</strong> — 曲を選び、ガラスアイコンに載せる</li>
+        <li><strong>AIRロビンソン</strong> 入口 — 船内の旅チャット</li>
+        <li>船内で Music を送る／相手の Music は<strong>長押し</strong>で受け取って再生</li>
+        <li>チャットに参加者の<strong>国旗</strong>（初回は端末の登録国）</li>
+        <li>旅の記念交換 — 双方の操作で成立</li>
+        <li>MusicKit でカタログ検索・再生（Apple Music 公式連携）</li>
+      </ul>
+      <p class="note" style="margin-top:12px;">初回は同意と本人確認のみ。音源ファイルの取り込みはありません。通話・ジェネレーター・SOS 等は今回の提出面に含みません。</p>
+    </div>
+    <div class="feature-chips" aria-label="主な機能">
+      <span>100% iOS</span>
+      <span>Plug Lock · 接続前認証</span>
+      <span>クイックアイコン</span>
+      <span>Apple Music 連携</span>
+      <span>AIRロビンソン</span>
+    </div>
+    <div class="device-showcase" aria-label="実機スクリーンショット（社長撮影・実機）">
+      <figure>
+        <img src="assets/hp_app_screen_gear_home.jpg" width="220" height="480" alt="Air Face 実機 — ギヤ背景ホーム（ELEMENTARY CODE）" loading="lazy">
+        <figcaption>ギヤ背景ホーム（実機）</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/app_screen_basement.png" width="220" alt="シャッター開口後の地下フロア" loading="lazy">
+        <figcaption>シャッター → 地下入口</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hp_app_screen_airship_chat.jpg" width="220" alt="AIRロビンソン船内チャット（実機）" loading="lazy">
+        <figcaption>ロビンソン船内（実機）</figcaption>
+      </figure>
+    </div>
     <figure class="air-demo">
       <video id="air-shutter-video" src="assets/air_shutter_demo_5s.mp4" width="560" height="315"
              muted playsinline autoplay loop preload="metadata"
              aria-label="シャッターが開き、地下画面が見える約5秒のデモ（音声なし）"></video>
-      <p class="motion-fallback">動画の自動再生をオフにしています。下の静止画で UI をご確認ください。</p>
-      <figcaption>実機に近い操作イメージ（約5秒 · 音声なし）</figcaption>
+      <p class="motion-fallback">動画の自動再生をオフにしています。上の静止画で UI をご確認ください。</p>
+      <figcaption>シャッター操作デモ（約5秒 · 音声なし）</figcaption>
     </figure>
-    <figure class="air-robinson-tile">
-      <img src="assets/hp_air_robinson_tile.jpg" width="280" height="280" alt="Air-ロビンソン — 世界一周チャット（アプリ内タイル）" loading="lazy">
-      <figcaption>Air-ロビンソン · Music 50th 連動 UI</figcaption>
-    </figure>
-    <figure class="air-robinson-tile" style="max-width:200px;">
-      <img src="assets/app_screen_basement.png" width="200" alt="シャッター開口後の地下フロア入口" loading="lazy">
-      <figcaption>シャッター開口後 · 地下入口</figcaption>
-    </figure>
-    <p class="note">製品紹介 <a href="https://tandemair.tokyo/" target="_blank" rel="noopener">tandemair.tokyo</a></p>
+    <p class="note">Tandem AIR System（東京ブランド）: <a href="https://tandemair.jp/" target="_blank" rel="noopener noreferrer">tandemair.jp</a> · ポータル起点: <a href="index.html">waseda-inspection.com</a></p>
+    <div class="link-row">
+      <a href="https://tandemair.jp/" target="_blank" rel="noopener noreferrer">tandemair.jp（アプリ面）</a>
+      <a href="#air-robinson">AIRロビンソン詳細</a>
+      <a href="support.html">サポート</a>
+    </div>
+  </section>
+
+  <section id="air-robinson">
+    <h2>AIRロビンソン</h2>
+    <p class="lead">飛行船ロビンソン上の旅チャット・Music 連携。木とガラス、雲より高い開放感を、アプリ内 UI とあわせて案内します（外部SNS画像は使用しません）。</p>
+    <div class="robinson-hero" aria-label="雲の上の世界と AIRロビンソン">
+      <img class="robinson-hero-cloud" src="assets/hp_app_cloud_world_kiyoshi.jpg" width="920" height="520" alt="" aria-hidden="true" loading="lazy">
+      <img class="robinson-hero-float" src="assets/hp_air_robinson_tile.jpg" width="240" height="240" alt="AIRロビンソン — 雲上の飛行船タイル" loading="lazy">
+      <div class="robinson-hero-vignette" aria-hidden="true"></div>
+      <p class="robinson-hero-caption">雲の上の飛行船 — 正本写真 `hp_app_cloud_world_kiyoshi.jpg` × アプリ内タイル（外部SNS画像は不使用）</p>
+    </div>
+    <div class="robinson-screens">
+      <figure>
+        <img src="assets/hp_air_robinson_tile.jpg" width="280" alt="Air-ロビンソン — アプリ内タイル" loading="lazy">
+        <figcaption class="note">アプリ内タイル</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hp_app_screen_airship_chat.jpg" width="280" alt="AIRロビンソン船内チャット（実機）" loading="lazy">
+        <figcaption class="note">船内チャット（実機）</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/app_screen_music.png" width="280" alt="Music 連携 UI（実機キャプチャ）" loading="lazy">
+        <figcaption class="note">Music 連携（実機）</figcaption>
+      </figure>
+    </div>
+    <div class="glass-panel theme-song-panel" id="air-robinson-theme-song">
+      <h3>公式テーマ曲</h3>
+      <p class="theme-song-title">ロビンソン</p>
+      <p class="theme-song-artist">スピッツ</p>
+      <p class="note" style="margin:0 0 12px;">AIRロビンソンの公式テーマ曲です。当 HP では<strong>曲名・クレジット</strong>と<strong>Apple Music 公式リンク</strong>のみ案内します（自サイトでの試聴ファイル・埋め込みプレーヤーは、許諾書確認まで掲載しません）。</p>
+      <p class="theme-song-apple">
+        <a class="apple-music-link" href="https://music.apple.com/jp/search?term=%E3%82%B9%E3%83%94%E3%83%83%E3%83%84%20%E3%83%AD%E3%83%93%E3%83%B3%E3%82%BD%E3%83%B3" target="_blank" rel="noopener noreferrer">
+          <img src="assets/apple_music_logo.svg" width="22" height="22" alt="" aria-hidden="true">
+          Apple Music で「ロビンソン」を探す
+        </a>
+      </p>
+      <p class="theme-song-credits">
+        作詞・作曲：草野マサムネ<br>
+        ℗ 1994 UNIVERSAL MUSIC LLC<br>
+        <span class="note" style="margin:4px 0 0;display:block;">権利表記の追加行は、許諾書で指定された文言どおりに更新します（正本 `AIR_ROBINSON_THEME_SONG_WEB_POLICY.md`）。</span>
+      </p>
+    </div>
+  </section>
+
+  <section id="plug-lock">
+    <h2>開発中：プラグロック</h2>
+    <div class="glass-panel pluglock-row">
+      <img src="assets/hp_pluglock_app_icon.jpg" width="96" height="96" alt="プラグロック — プラグと鍵（ガラス額）" loading="lazy">
+      <div>
+        <p style="margin:0 0 10px;font-size:14px;"><strong>Plug Lock</strong> — 認証・ロックの共通基盤。接続前認証はもともとある機能で、<strong>他社 SNS を2つ追加したとき</strong>も、各外部アプリ（通話・メール等）へ移る直前に認証を挟めます。</p>
+        <p style="margin:0 0 8px;font-size:13px;"><strong>無料版（スイッチ ON・初期 OFF）</strong></p>
+        <ul style="margin:0 0 10px;padding-left:1.2em;font-size:13px;line-height:1.65;">
+          <li>メール等への接続前に認証</li>
+          <li>他社サービスの通話へ移る前にも Plug Lock 認証</li>
+        </ul>
+        <p style="margin:0 0 10px;font-size:14px;"><strong>緊急時（別系統）</strong> — 紛失・盗難などで不審操作と判定されたとき、<strong>支払い機能だけ</strong>を瞬時にピンポイント停止。Apple アカウント等で本人確認後、すぐ再開。緊急アプリロック（無効化アイコン検知）も別途説明します。</p>
+        <p class="note">親プラグロック（サーバー鍵）→ Music → ガラス保存・送信 → ロビンソン。Air Face に通話がない版では「通話前」ではなく接続前として案内します。正本はアプリ内 Policy。</p>
+      </div>
+    </div>
   </section>
 
   <section id="apple-music">
     <h2>Apple Music · 発信アイコン</h2>
-    <p class="lead">厚ガラス枠の <strong>Music 50th</strong> タイルと、発信フロアの<strong>ガラス額縁</strong>（本番）です。<!-- 文案整理はジェミニ --></p>
-    <p class="air-story" style="margin-bottom:12px;">すぐ聴きたいから、大切な曲 ── <strong>パスワード不要</strong>（Apple Music 公式連携 · 曲の再生は Music 側の表示に従います）。</p>
+    <p class="lead">厚ガラス枠の <strong>Music 50th</strong> タイルと、発信フロアの<strong>ガラス額縁</strong>（本番）です。</p>
+    <p class="lead" style="margin-bottom:12px;">すぐ聴きたいから、大切な曲 ── <strong>パスワード不要</strong>（Apple Music 公式連携 · 曲の再生は Music 側の表示に従います）。</p>
     <div class="icon-pair">
       <figure>
         <img class="micon" src="assets/apple_music_micon.png" width="96" height="96" alt="Apple Music Micon（50th · 正本）" loading="lazy">
@@ -458,44 +862,74 @@
     </div>
     <div class="music-tiles" aria-label="Apple Music ガラスタイル（厳選）">
       <figure>
-        <img src="assets/hp_music_tile_bowie.jpg" width="160" height="160" alt="Apple Music Essentials — BOØWY（50th ガラスタイル）" loading="lazy">
+        <img src="assets/hp_music_tile_bowie.jpg" width="160" height="160" alt="Apple Music Essentials — BOØWY" loading="lazy">
         <figcaption>BOØWY · Essentials</figcaption>
       </figure>
       <figure>
-        <img src="assets/hp_music_tile_essentials.jpg" width="160" height="160" alt="Apple Music Essentials · ELEMENTARY CODE" loading="lazy">
+        <img src="assets/hp_music_tile_essentials.jpg" width="160" alt="Apple Music Essentials · ELEMENTARY CODE" loading="lazy">
         <figcaption>Essentials · EC</figcaption>
       </figure>
       <figure>
-        <img src="assets/hp_music_tile_xjapan_live.jpg" width="160" height="160" alt="再生中 UI — X JAPAN Rusty Nail (Live)" loading="lazy">
+        <img src="assets/hp_music_tile_xjapan_live.jpg" width="160" alt="再生中 UI — X JAPAN Rusty Nail (Live)" loading="lazy">
         <figcaption>再生表示（Live）</figcaption>
       </figure>
     </div>
-    <p class="air-story" style="margin-top:16px;"><strong>子どもたちへの支援</strong><br>Mアイコンの売上の一部を「Yahoo!ネット募金」を通じて、子どもたちの支援に役立てています。</p>
-    <p class="note">Abbey Road は上の Micon 正本のみ。Bowie / Essentials / Live の3枚＋Micon。汚れのある Team ロゴ素材は使用しません。</p>
+    <p class="note">Abbey Road は Micon 正本のみ。Bowie / Essentials / Live の3枚＋Micon。汚れのある Team ロゴ素材は使用しません。</p>
   </section>
 
   <section id="elementary-code">
     <h2>Elementary Code</h2>
-    <p class="lead">通話前の相手確認を前提とした、独自の認証の考え方です。</p>
+    <p class="lead">Tandem AIR System / Air Face / Plug Lock と連携する、接続前の相手確認・認証の技術レイヤー。独立した公式サイトで世界時刻・技術説明を公開しています。</p>
     <div class="ec-block">
-      <a href="elementary-code.html"><img src="assets/elementarycode_x_ios_poster.jpg" alt="ELEMENTARYCODE × iOS ポスター" loading="lazy"></a>
+      <div class="media-frame-dark">
+        <a href="elementary-code.html"><img src="assets/hp_promo_elementary_code_infographic.jpg" alt="Elementary Code プロモーション（地球・世界時刻・ランタン）" loading="lazy"></a>
+      </div>
       <div>
-        <p style="margin:0 0 10px;font-size:14px;">電話番号やパスワードに依存せず、連絡の前に相手を確認する発想を基本としています。</p>
+        <p style="margin:0 0 10px;font-size:14px;"><strong>パスワードレス・ナンバーレス・個人情報登録不要。</strong> 接続直前に Elementary Code が即時認証します。番号の記憶・入力はユーザーに求めません。</p>
         <div class="ec-grid">
           <div>防犯・詐欺対策</div>
           <div>なりすまし防止</div>
           <div>旅先・日常</div>
         </div>
-        <p class="note"><a href="elementary-code.html">説明ページ</a> · <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener">elementarycode.tokyo</a></p>
+        <div class="link-row">
+          <a href="elementary-code.html">当サイトの説明</a>
+          <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener noreferrer">elementarycode.tokyo</a>
+        </div>
+        <p class="note"><a href="assets/elementarycode_x_ios_poster.jpg">ELEMENTARYCODE × iOS ポスター画像</a> · <a href="index.html#portal">ポータル</a></p>
       </div>
     </div>
   </section>
 
   <section id="world-clocks">
     <h2>世界時刻</h2>
-    <p class="lead">Elementary Code サイトの世界時計（195地域）への入口です。HP 本体は軽量のサンプル表示のみ。</p>
+    <p class="lead">Elementary Code サイトの世界時計（195地域）への入口。HP 本体は軽量サンプルのみ。</p>
     <div class="world-clocks-lite" id="world-clocks-lite" aria-live="polite"></div>
-    <p class="note"><a href="https://elementarycode.tokyo/#world-clocks" target="_blank" rel="noopener">elementarycode.tokyo — 世界時刻（全地域）</a></p>
+    <p class="note"><a href="https://elementarycode.tokyo/#world-clocks" target="_blank" rel="noopener noreferrer">elementarycode.tokyo — 世界時刻（全地域）</a></p>
+  </section>
+
+  <section id="people">
+    <h2>代表</h2>
+    <div class="people-row">
+      <img src="assets/founder_portrait.jpg" width="108" height="108" alt="関根 清（代表）" loading="lazy">
+      <div class="people-meta">
+        <h3>関根 清</h3>
+        <p><strong>Developer / Product Designer</strong>（デベロッパー／デザイナー）<br>TANDEM AIR SYSTEM × 100% iOS · TEAM KIYOSHI</p>
+        <p class="note">Apple関連: <strong>Apple Developer Program</strong> 登録</p>
+        <p>Apple Music User とアーティストの関係を遮らない設計、光UIナビ、最小タップ、静音設計。「Air deflect」「Ai-code」（iOS）</p>
+        <p class="note">公式Xは <a href="#official-x">@TandemAir</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="official-x">
+    <h2>公式X</h2>
+    <p class="lead">運用中のメインアカウントのみ案内します。</p>
+    <div class="company-box">
+      <p style="margin:0;">
+        <a class="nav primary" style="display:inline-block;text-decoration:none;" href="https://x.com/TandemAir" target="_blank" rel="noopener noreferrer">@TandemAir</a>
+        <span class="note" style="display:block;margin-top:8px;">接続確認済 · 存在しないアカウントへのリンクは掲載しません</span>
+      </p>
+    </div>
   </section>
 
   <section id="patents">
@@ -520,7 +954,7 @@
             <img src="assets/safety_mobile_stats.png" alt="スマホ普及率・SNS利用率" loading="lazy">
           </a>
         </div>
-        <p class="note">警視庁・警察庁リンク等は <a href="support.html">サポート</a> · 旧版全文は順次整理<!-- ジェミニ --></p>
+        <p class="note"><a href="support.html">サポート</a> · 旧版全文は順次整理</p>
       </div>
     </details>
   </section>
@@ -529,14 +963,18 @@
 
 <footer>
   <p>
-    <a href="#company">会社案内</a> ·
-    <a href="privacy.html">プライバシー</a> ·
-    <a href="elementary-code.html">EC 説明</a> ·
+    <a href="#portal">ポータル</a> ·
+    <a href="#company">会社（起点）</a> ·
+    <a href="https://tandemair.jp/" target="_blank" rel="noopener noreferrer" title="Tandem AIR System · 東京ブランド（アプリ面）">tandemair.jp</a> ·
+    <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener noreferrer" title="Elementary Code 技術面">elementarycode.tokyo</a> ·
     <a href="support.html">サポート</a> ·
-    <a href="https://tandemair.tokyo/" target="_blank" rel="noopener">tandemair.tokyo</a>
+    <a href="privacy.html">プライバシー</a> ·
+    <a href="https://x.com/TandemAir" target="_blank" rel="noopener noreferrer">@TandemAir</a>
   </p>
   <p>© 早稲田インスペクション All Rights Reserved.</p>
 </footer>
+
+</div>
 
 <script>
 (function () {
@@ -546,24 +984,24 @@
     { label: "ニューヨーク", tz: "America/New_York" }
   ];
   var box = document.getElementById("world-clocks-lite");
-  if (!box) return;
-  function render() {
-    var html = "";
-    samples.forEach(function (s) {
-      var t = new Intl.DateTimeFormat("ja-JP", {
-        timeZone: s.tz,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false
-      }).format(new Date());
-      html += '<div class="row"><span>' + s.label + "</span><time>" + t + "</time></div>";
-    });
-    box.innerHTML = html;
+  if (box) {
+    function render() {
+      var html = "";
+      samples.forEach(function (s) {
+        var t = new Intl.DateTimeFormat("ja-JP", {
+          timeZone: s.tz,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false
+        }).format(new Date());
+        html += '<div class="row"><span>' + s.label + "</span><time>" + t + "</time></div>";
+      });
+      box.innerHTML = html;
+    }
+    render();
+    setInterval(render, 1000);
   }
-  render();
-  setInterval(render, 1000);
-
   var v = document.getElementById("air-shutter-video");
   if (v && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     v.removeAttribute("autoplay");
@@ -571,6 +1009,5 @@
   }
 })();
 </script>
-<!-- redeploy: 2026-10-07 -->
 </body>
 </html>
