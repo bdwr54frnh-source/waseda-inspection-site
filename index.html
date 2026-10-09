@@ -29,7 +29,7 @@
     color: var(--ink);
     line-height: 1.85;
     font-size: 18px;
-    background: #0a0c10 url("assets/bg_gearwall.jpg") center top / cover no-repeat;
+    background: #0a0c10 url("assets/bg_gearwall.jpg") center top / cover fixed no-repeat;
   }
   .page { position: relative; z-index: 1; }
   .top-bar {
@@ -417,7 +417,7 @@
     background: rgba(45,74,102,0.12);
     border: 1px solid var(--glass-border);
     border-radius: 10px;
-    font-size: 24px;
+    font-size: 18px;
   }
   .portal-app-jump a { color: var(--accent); font-weight: 700; text-decoration: none; }
   .portal-app-jump a:hover { text-decoration: underline; }
@@ -558,6 +558,7 @@
     border-radius: 12px;
   }
   @media (max-width: 720px) {
+    body { background-size: 100% auto; background-attachment: scroll; background-repeat: repeat-y; }
     .portal-grid { grid-template-columns: 1fr; }
     .device-showcase { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
     .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
