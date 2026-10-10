@@ -11,7 +11,7 @@
     --ink: #1a1f28;
     --sub: #5a6472;
     --line: rgba(255,255,255,0.14);
-    --glass: rgba(255,255,255,0.88);
+    --glass: #fff;
     --glass-border: rgba(45,74,102,0.22);
     --accent: #2d4a66;
     --gold: #c9a227;
@@ -28,15 +28,8 @@
     font-family: "Hiragino Sans", "Noto Sans JP", -apple-system, sans-serif;
     color: var(--ink);
     line-height: 1.85;
+    font-size: 18px;
     background: #0a0c10 url("assets/bg_gearwall.jpg") center top / cover fixed no-repeat;
-  }
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(8,10,14,0.55) 0%, rgba(248,249,251,0.92) 38%, #f4f5f7 100%);
-    pointer-events: none;
-    z-index: 0;
   }
   .page { position: relative; z-index: 1; }
   .top-bar {
@@ -59,21 +52,20 @@
     justify-content: center;
     padding: 10px 16px;
     background: var(--glass);
-    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--glass-border);
     position: sticky;
     top: 0;
     z-index: 20;
   }
   .nav a {
-    font-size: 11px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--accent);
     text-decoration: none;
     padding: 7px 11px;
     border: 1px solid var(--glass-border);
     border-radius: 8px;
-    background: rgba(255,255,255,0.75);
+    background: #fff;
   }
   .nav a.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
   main { max-width: 920px; margin: 0 auto; padding: 0 20px 24px; }
@@ -91,7 +83,7 @@
     margin: 0 0 20px;
     padding: 14px 18px;
     border-radius: 12px;
-    background: rgba(255,255,255,0.72);
+    background: #fff;
     border: 1px solid var(--glass-border);
     font-size: 13px;
     line-height: 1.65;
@@ -108,7 +100,6 @@
   }
   .portal-card {
     background: var(--glass);
-    backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
     border-radius: 14px;
     padding: 18px 16px;
@@ -119,12 +110,12 @@
   }
   .portal-card h2 {
     margin: 0 0 8px;
-    font-size: 15px;
+    font-size: 24px;
     letter-spacing: 0.04em;
     color: var(--accent);
   }
   .portal-card .blurb {
-    font-size: 12px;
+    font-size: 18px;
     color: var(--sub);
     margin: 0 0 12px;
     flex: 1;
@@ -132,13 +123,13 @@
   .portal-card ul {
     margin: 0 0 14px;
     padding-left: 1.1em;
-    font-size: 12px;
+    font-size: 18px;
   }
   .portal-card li { margin: 4px 0; }
   .portal-card a.cta {
     display: block;
     text-align: center;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 700;
     padding: 10px 12px;
     border-radius: 8px;
@@ -158,19 +149,18 @@
   }
   section:last-of-type { border-bottom: none; }
   section > h2 {
-    font-size: 17px;
+    font-size: 24px;
     letter-spacing: 0.06em;
     margin: 0 0 12px;
     color: var(--accent);
   }
-  h3 { font-size: 15px; margin: 0 0 8px; color: var(--ink); }
-  .lead { font-size: 14px; color: var(--sub); margin: 0 0 16px; }
+  h3 { font-size: 24px; margin: 0 0 8px; color: var(--ink); }
+  .lead { font-size: 18px; color: var(--sub); margin: 0 0 16px; }
   .company-box, .glass-panel {
     border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 22px 24px;
     background: var(--glass);
-    backdrop-filter: blur(10px);
   }
   .company-box dl {
     margin: 0;
@@ -199,7 +189,7 @@
   .bank-block {
     margin-top: 6px;
     padding: 12px 14px;
-    background: rgba(246,247,249,0.9);
+    background: #f6f7f9;
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     font-size: 13px;
@@ -362,7 +352,7 @@
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(10,30,60,0.22) 55%, rgba(255,255,255,0.88) 100%);
+    background: none;
     pointer-events: none;
   }
   .robinson-hero-caption {
@@ -373,10 +363,10 @@
     z-index: 3;
     margin: 0;
     padding: 14px 16px;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
-    color: #1a2838;
-    text-shadow: 0 1px 8px rgba(255,255,255,0.85);
+    color: #fff;
+    background: rgba(10,30,60,0.88);
   }
   .robinson-screens {
     display: grid;
@@ -387,22 +377,22 @@
   .theme-song-panel { margin-top: 22px; }
   .theme-song-panel h3 {
     margin: 0 0 10px;
-    font-size: 15px;
+    font-size: 24px;
     color: var(--accent);
   }
   .theme-song-title {
     margin: 0 0 4px;
-    font-size: 16px;
+    font-size: 18px;
     letter-spacing: 0.04em;
   }
   .theme-song-artist {
     margin: 0 0 12px;
-    font-size: 14px;
+    font-size: 18px;
     color: var(--sub);
   }
   .theme-song-credits {
     margin: 14px 0 0;
-    font-size: 11px;
+    font-size: 18px;
     line-height: 1.65;
     color: var(--sub);
   }
@@ -410,7 +400,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     color: #fff;
     background: linear-gradient(135deg, #fa233b, #fb5c74);
@@ -427,14 +417,14 @@
     background: rgba(45,74,102,0.12);
     border: 1px solid var(--glass-border);
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 18px;
   }
   .portal-app-jump a { color: var(--accent); font-weight: 700; text-decoration: none; }
   .portal-app-jump a:hover { text-decoration: underline; }
   .app-intro-panel { margin-bottom: 20px; }
   .app-intro-panel h3 {
     margin: 0 0 10px;
-    font-size: 15px;
+    font-size: 24px;
     color: var(--accent);
   }
   .app-intro-panel ul { margin: 0; padding-left: 1.2em; font-size: 14px; line-height: 1.75; }
@@ -491,7 +481,7 @@
     margin-top: 12px;
   }
   .ec-grid div {
-    background: rgba(246,247,249,0.95);
+    background: #f6f7f9;
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     padding: 10px;
@@ -499,7 +489,7 @@
     text-align: center;
   }
   .world-clocks-lite {
-    background: rgba(246,247,249,0.95);
+    background: #f6f7f9;
     border: 1px solid var(--glass-border);
     border-radius: 8px;
     padding: 14px 16px;
@@ -547,28 +537,28 @@
     object-fit: contain;
     border: 1px solid var(--glass-border);
     border-radius: 8px;
-    background: rgba(246,247,249,0.9);
+    background: #f6f7f9;
   }
   footer {
     padding: 28px 20px 48px;
     text-align: center;
-    font-size: 12px;
+    font-size: 18px;
     color: var(--sub);
     border-top: 1px solid var(--glass-border);
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(8px);
+    background: #fff;
   }
   footer a { color: var(--accent); font-weight: 600; }
   .motion-fallback {
     display: none;
     padding: 24px;
     text-align: center;
-    font-size: 13px;
+    font-size: 18px;
     color: var(--sub);
     border: 1px dashed var(--glass-border);
     border-radius: 12px;
   }
   @media (max-width: 720px) {
+    body { background-size: 100% auto; background-attachment: scroll; background-repeat: repeat-y; }
     .portal-grid { grid-template-columns: 1fr; }
     .device-showcase { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
     .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
@@ -609,6 +599,9 @@
     font-weight: 500;
   }
   .top-bar .tagline { opacity: 1; }
+  body * { font-size: 18px !important; }
+  h1 { font-size: clamp(24px, 4.5vw, 32px) !important; }
+  h2, h3, h4, h5, h6 { font-size: 24px !important; }
 </style>
 </head>
 <body>
