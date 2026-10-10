@@ -211,19 +211,22 @@
   }
   .people-row {
     display: grid;
-    grid-template-columns: minmax(0, 108px) minmax(0, 1fr);
-    gap: 16px;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 12px;
     align-items: start;
   }
   .people-row img {
-    width: 100%;
-    max-width: 108px;
-    border-radius: 10px;
+    width: 72px;
+    height: 72px;
+    max-width: 72px;
+    object-fit: cover;
+    border-radius: 6px;
     border: 1px solid var(--glass-border);
     display: block;
   }
-  .people-meta { font-size: 13px; }
-  .people-meta p { margin: 0 0 10px; }
+  .people-meta { font-size: 15px; color: #222; line-height: 1.6; }
+  .people-meta p { margin: 0 0 10px; color: #222; }
+  .people-meta .note { color: #444; }
   .patent-inline { margin: 8px 0 0; padding-left: 1.1em; font-size: 13px; }
   .feature-chips {
     display: flex;
@@ -573,7 +576,7 @@
     .device-showcase { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
     .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
     .company-box dt { margin-top: 8px; }
-    .people-row { grid-template-columns: 1fr; }
+    .people-row { grid-template-columns: 72px minmax(0, 1fr); }
     .shot-pair, .robinson-screens, .ec-block { grid-template-columns: 1fr; }
     .music-tiles { grid-template-columns: 1fr; max-width: 240px; margin-inline: auto; }
     .ec-grid, .photo-grid { grid-template-columns: 1fr; }
@@ -895,7 +898,7 @@
   <section id="people">
     <h2>代表</h2>
     <div class="people-row">
-      <img src="assets/founder_portrait.jpg" width="108" height="108" alt="関根 清（代表）" loading="lazy">
+      <img src="assets/founder_portrait.jpg" width="72" height="72" alt="関根 清（代表）" loading="lazy">
       <div class="people-meta">
         <h3>関根 清</h3>
         <p><strong>Developer / Product Designer</strong>（デベロッパー／デザイナー）<br>TANDEM AIR SYSTEM × 100% iOS · TEAM KIYOSHI</p>
