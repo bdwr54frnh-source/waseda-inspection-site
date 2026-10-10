@@ -66,7 +66,7 @@
     z-index: 20;
   }
   .nav a {
-    font-size: 11px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--accent);
     text-decoration: none;
@@ -124,7 +124,7 @@
     color: var(--accent);
   }
   .portal-card .blurb {
-    font-size: 12px;
+    font-size: 15px;
     color: var(--sub);
     margin: 0 0 12px;
     flex: 1;
@@ -132,13 +132,13 @@
   .portal-card ul {
     margin: 0 0 14px;
     padding-left: 1.1em;
-    font-size: 12px;
+    font-size: 15px;
   }
   .portal-card li { margin: 4px 0; }
   .portal-card a.cta {
     display: block;
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     padding: 10px 12px;
     border-radius: 8px;
@@ -158,13 +158,13 @@
   }
   section:last-of-type { border-bottom: none; }
   section > h2 {
-    font-size: 17px;
+    font-size: 24px;
     letter-spacing: 0.06em;
     margin: 0 0 12px;
     color: var(--accent);
   }
-  h3 { font-size: 15px; margin: 0 0 8px; color: var(--ink); }
-  .lead { font-size: 14px; color: var(--sub); margin: 0 0 16px; }
+  h3 { font-size: 19px; margin: 0 0 8px; color: var(--ink); }
+  .lead { font-size: 17px; color: var(--sub); margin: 0 0 16px; }
   .company-box, .glass-panel {
     border: 1px solid var(--glass-border);
     border-radius: 12px;
@@ -178,7 +178,7 @@
     grid-template-columns: minmax(5.5em, 7em) minmax(0, 1fr);
     row-gap: 12px;
     column-gap: 12px;
-    font-size: 14px;
+    font-size: 17px;
     align-items: start;
   }
   .company-box dt { color: var(--sub); margin: 0; }
@@ -195,14 +195,14 @@
     margin-left: 4px;
     vertical-align: middle;
   }
-  .note { font-size: 12px; color: var(--sub); margin-top: 10px; }
+  .note { font-size: 15px; color: var(--sub); margin-top: 10px; }
   .bank-block {
     margin-top: 6px;
     padding: 12px 14px;
     background: rgba(246,247,249,0.9);
     border: 1px solid var(--glass-border);
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.7;
   }
   .company-building img {
@@ -227,7 +227,7 @@
   .people-meta { font-size: 15px; color: #222; line-height: 1.6; }
   .people-meta p { margin: 0 0 10px; color: #222; }
   .people-meta .note { color: #444; }
-  .patent-inline { margin: 8px 0 0; padding-left: 1.1em; font-size: 13px; }
+  .patent-inline { margin: 8px 0 0; padding-left: 1.1em; font-size: 16px; }
   .feature-chips {
     display: flex;
     flex-wrap: wrap;
@@ -613,6 +613,7 @@
     font-weight: 500;
   }
   .top-bar .tagline { opacity: 1; }
+  @media(max-width:600px) { .company-box dl { grid-template-columns:1fr; row-gap:4px; } .company-box dt { font-weight:700; margin-top:12px; } .company-box dd { overflow-wrap:anywhere; } .company-box,.glass-panel {padding:18px;} .nav a {font-size:15px; padding:9px 12px;} }
 </style>
 </head>
 <body>
@@ -666,7 +667,7 @@
         </ul>
         <a class="cta" href="https://tandemair.jp/" target="_blank" rel="noopener noreferrer">tandemair.jp（TAS・東京ブランド）</a>
         <a class="cta secondary" href="#tandem-air">このサイト内の説明</a>
-        <p class="blurb" style="margin:10px 0 0;font-size:11px;">tandemair.jp は Tandem AIR System／アプリ面の東京ブランドです（会社全体の代表URLではありません）。</p>
+        <p class="blurb" style="margin:10px 0 0;font-size:11px;">tandemair.jp はアプリのご案内サイトです。</p>
       </article>
       <article class="portal-card" id="portal-ec">
         <h2>③ Elementary Code</h2>
@@ -688,7 +689,7 @@
     <div class="company-box">
       <dl>
         <dt>社名</dt>
-        <dd>早稲田インスペクション（エレメンタリー・コード）</dd>
+        <dd>早稲田インスペクション</dd>
         <dt>代表</dt>
         <dd>関根 清</dd>
         <dt>肩書</dt>
@@ -698,7 +699,7 @@
         <dt>Apple関連</dt>
         <dd>
           <strong>Apple Developer Program</strong> 登録（メンバー）<br>
-          <span class="note" style="margin-top:4px;display:inline-block;">Air Face（AIRロビンソン）· Apple Music 公式連携 · 100% iOS</span>
+          <span class="note" style="margin-top:4px;display:inline-block;">Air Face（AIRロビンソン）· Apple Music 対応開発中 · iOS アプリ</span>
         </dd>
         <dt>特許</dt>
         <dd>
@@ -731,7 +732,7 @@
         </dd>
       </dl>
     </div>
-    <p class="note">法人登記手続き中です。登記完了後、正式な登記情報に更新します。</p>
+    
     <div class="link-row">
       <a href="support.html">サポート</a>
       <a href="#tandem-air">Air Face アプリ紹介へ</a>
