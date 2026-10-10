@@ -11,7 +11,7 @@
     --ink: #1a1f28;
     --sub: #5a6472;
     --line: rgba(255,255,255,0.14);
-    --glass: rgba(255,255,255,0.88);
+    --glass: #ffffff;
     --glass-border: rgba(45,74,102,0.22);
     --accent: #2d4a66;
     --gold: #c9a227;
@@ -28,18 +28,19 @@
     font-family: "Hiragino Sans", "Noto Sans JP", -apple-system, sans-serif;
     color: var(--ink);
     line-height: 1.85;
-    background: #0a0c10 url("assets/bg_gearwall.jpg") center top / cover fixed no-repeat;
+    background: #f4f5f7;
   }
   body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: linear-gradient(180deg, rgba(8,10,14,0.55) 0%, rgba(248,249,251,0.92) 38%, #f4f5f7 100%);
+    background: transparent;
     pointer-events: none;
     z-index: 0;
   }
   .page { position: relative; z-index: 1; }
   .top-bar {
+    background: #172637;
     text-align: center;
     padding: 28px 20px 20px;
     color: #fff;
@@ -73,7 +74,7 @@
     padding: 7px 11px;
     border: 1px solid var(--glass-border);
     border-radius: 8px;
-    background: rgba(255,255,255,0.75);
+    background: #ffffff;
   }
   .nav a.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
   main { max-width: 920px; margin: 0 auto; padding: 0 20px 24px; }
@@ -82,7 +83,7 @@
   }
   .portal-hero > p {
     text-align: center;
-    font-size: 14px;
+    font-size: 17px;
     color: var(--sub);
     margin: 0 0 18px;
   }
@@ -91,11 +92,11 @@
     margin: 0 0 20px;
     padding: 14px 18px;
     border-radius: 12px;
-    background: rgba(255,255,255,0.72);
+    background: #ffffff;
     border: 1px solid var(--glass-border);
-    font-size: 13px;
-    line-height: 1.65;
-    max-width: 28em;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 38em;
     margin-inline: auto;
   }
   .brand-ladder li { margin: 0; padding: 2px 0; }
@@ -103,7 +104,7 @@
   .brand-ladder .step { color: var(--sub); padding-left: 0.5em; }
   .portal-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     gap: 14px;
   }
   .portal-card {
@@ -119,7 +120,7 @@
   }
   .portal-card h2 {
     margin: 0 0 8px;
-    font-size: 15px;
+    font-size: 20px;
     letter-spacing: 0.04em;
     color: var(--accent);
   }
