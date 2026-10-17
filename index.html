@@ -1,1 +1,1177 @@
-PLACEHOLDER_FOR_FULL_UPDATE
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>早稲田インスペクション｜公式ポータル</title>
+<meta name="description" content="早稲田インスペクション公式入口 — 会社案内、Tandem AIR System / Air Face、Elementary Code、AIRロビンソン、サポート。">
+<script src="assets/analytics.js"></script>
+<style>
+  :root {
+    --ink: #1a1f28;
+    --sub: #5a6472;
+    --line: rgba(255,255,255,0.14);
+    --glass: #ffffff;
+    --glass-border: rgba(45,74,102,0.22);
+    --accent: #2d4a66;
+    --gold: #c9a227;
+    --gold-soft: rgba(201,162,39,0.35);
+    --alert: #b42318;
+    --sky: #7eb8ff;
+    --wood: #8b6914;
+    --wood-light: #c4a35a;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Hiragino Sans", "Noto Sans JP", -apple-system, sans-serif;
+    color: var(--ink);
+    line-height: 1.85;
+    background: #f4f5f7;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .page { position: relative; z-index: 1; }
+  .top-bar {
+    background: #172637;
+    text-align: center;
+    padding: 28px 20px 20px;
+    color: #fff;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.45);
+  }
+  .top-bar h1 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 4.5vw, 32px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+  .top-bar .tagline { margin: 0; font-size: 14px; opacity: 0.92; max-width: 36em; margin-inline: auto; }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 10px 16px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .nav a {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 7px 11px;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: #ffffff;
+  }
+  .nav a.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  main { max-width: 920px; margin: 0 auto; padding: 0 20px 24px; }
+  .portal-hero {
+    padding: 8px 0 28px;
+  }
+  .portal-hero > p {
+    text-align: center;
+    font-size: 17px;
+    color: var(--sub);
+    margin: 0 0 18px;
+  }
+  .brand-ladder {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 38em;
+    margin-inline: auto;
+  }
+  .brand-ladder li { margin: 0; padding: 2px 0; }
+  .brand-ladder li:first-child { font-weight: 700; color: var(--accent); }
+  .brand-ladder .step { color: var(--sub); padding-left: 0.5em; }
+  .portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 14px;
+  }
+  .portal-card {
+    background: var(--glass);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
+    padding: 18px 16px;
+    box-shadow: 0 8px 28px rgba(20,30,50,0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  .portal-card h2 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+  }
+  .portal-card .blurb {
+    font-size: 15px;
+    color: var(--sub);
+    margin: 0 0 12px;
+    flex: 1;
+  }
+  .portal-card ul {
+    margin: 0 0 14px;
+    padding-left: 1.1em;
+    font-size: 15px;
+  }
+  .portal-card li { margin: 4px 0; }
+  .portal-card a.cta {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: var(--accent);
+    color: #fff;
+  }
+  .portal-card a.cta.secondary {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    margin-top: 8px;
+  }
+  section {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(45,74,102,0.12);
+  }
+  section:last-of-type { border-bottom: none; }
+  section > h2 {
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    margin: 0 0 12px;
+    color: var(--accent);
+  }
+  h3 { font-size: 19px; margin: 0 0 8px; color: var(--ink); }
+  .lead { font-size: 17px; color: var(--sub); margin: 0 0 16px; }
+  .company-box, .glass-panel {
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+  }
+  .company-box dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: minmax(5.5em, 7em) minmax(0, 1fr);
+    row-gap: 12px;
+    column-gap: 12px;
+    font-size: 17px;
+    align-items: start;
+  }
+  .company-box dt { color: var(--sub); margin: 0; }
+  .company-box dd { margin: 0; min-width: 0; }
+  .company-box a { color: var(--accent); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+  .note { font-size: 15px; color: var(--sub); margin-top: 10px; }
+  .bank-block {
+    margin-top: 6px;
+    padding: 12px 14px;
+    background: rgba(246,247,249,0.9);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .company-building img {
+    width: 80px; height: 52px; object-fit: cover;
+    border-radius: 6px; border: 1px solid var(--glass-border); margin-top: 8px;
+  }
+  .people-row {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+  }
+  .people-row img {
+    width: 170px;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border);
+    display: block;
+  }
+  .people-meta { font-size: 15px; color: #222; line-height: 1.6; }
+  .people-meta p { margin: 0 0 10px; color: #222; }
+  .people-meta .note { color: #444; }
+  .patent-inline { margin: 8px 0 0; padding-left: 1.1em; font-size: 16px; }
+  .feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .feature-chips span {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(45,74,102,0.08);
+    border: 1px solid var(--glass-border);
+  }
+  .device-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .device-showcase figure {
+    margin: 0;
+    text-align: center;
+  }
+  .device-showcase img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 16px;
+    border: 2px solid rgba(201,162,39,0.35);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+    background: #0a0a0a;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .device-showcase figcaption {
+    font-size: 11px;
+    color: var(--sub);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+  .air-demo { margin: 0 auto 16px; max-width: 560px; }
+  .air-demo video {
+    width: 100%; height: auto; display: block;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: #0a0a0a;
+  }
+  .air-demo figcaption { font-size: 11px; color: var(--sub); margin-top: 6px; text-align: center; }
+  .shot-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .shot-pair figure { margin: 0; text-align: center; }
+  .shot-pair img {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: #111;
+  }
+  .icon-pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    margin-top: 8px;
+  }
+  .icon-pair figure { margin: 0; text-align: center; }
+  .icon-pair img {
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: #fafafa;
+    object-fit: contain;
+  }
+  .icon-pair .micon { width: 72px; height: 72px; }
+  .icon-pair .glass { width: 88px; height: auto; max-height: 120px; }
+  .music-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .music-tiles figure { margin: 0; text-align: center; }
+  .music-tiles img {
+    width: 100%;
+    max-height: 128px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+    background: #fafafa;
+  }
+  .music-tiles figcaption { font-size: 10px; color: var(--sub); margin-top: 5px; }
+  .robinson-hero {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: min(52vh, 360px);
+    margin: 16px 0;
+    border: 1px solid var(--glass-border);
+    background: linear-gradient(165deg, #87b8e8 0%, #c8dff5 35%, #eef6ff 70%);
+  }
+  .robinson-hero-cloud {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 28%;
+    transform: scale(1.04);
+    animation: robinson-cloud-drift 14s ease-in-out infinite alternate;
+  }
+  @keyframes robinson-cloud-drift {
+    from { transform: scale(1.04) translateY(0); }
+    to { transform: scale(1.06) translateY(-8px); }
+  }
+  .robinson-hero-float {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    width: min(58vw, 240px);
+    height: auto;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 20px 36px rgba(20,40,80,0.4));
+    z-index: 2;
+    animation: robinson-float-drift 8s ease-in-out infinite alternate;
+  }
+  @keyframes robinson-float-drift {
+    from { transform: translate(-50%, -50%) translateY(0); }
+    to { transform: translate(-50%, -50%) translateY(-10px); }
+  }
+  .robinson-hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(10,30,60,0.22) 55%, rgba(255,255,255,0.88) 100%);
+    pointer-events: none;
+  }
+  .robinson-hero-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    margin: 0;
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1a2838;
+    text-shadow: 0 1px 8px rgba(255,255,255,0.85);
+  }
+  .robinson-screens {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .theme-song-panel { margin-top: 22px; }
+  .theme-song-panel h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: var(--accent);
+  }
+  .theme-song-title {
+    margin: 0 0 4px;
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+  .theme-song-artist {
+    margin: 0 0 12px;
+    font-size: 14px;
+    color: var(--sub);
+  }
+  .theme-song-credits {
+    margin: 14px 0 0;
+    font-size: 11px;
+    line-height: 1.65;
+    color: var(--sub);
+  }
+  .apple-music-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #fa233b, #fb5c74);
+    padding: 10px 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(250,35,59,0.25);
+  }
+  .apple-music-link img { flex-shrink: 0; }
+  .portal-app-jump {
+    margin: 0 0 18px;
+    padding: 12px 16px;
+    text-align: center;
+    background: rgba(45,74,102,0.12);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  .portal-app-jump a { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .portal-app-jump a:hover { text-decoration: underline; }
+  .app-intro-panel { margin-bottom: 20px; }
+  .app-intro-panel h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    color: var(--accent);
+  }
+  .app-intro-panel ul { margin: 0; padding-left: 1.2em; font-size: 14px; line-height: 1.75; }
+  .app-intro-banner {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: 0 auto 14px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+  }
+  .robinson-screens img {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+  }
+  .pluglock-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  .pluglock-row img {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    border-radius: 16px;
+    border: 1px solid var(--gold-soft);
+    background: #0a0c12;
+    padding: 8px;
+  }
+  .ec-block {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 16px;
+    align-items: start;
+  }
+  .media-frame-dark {
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #0c1420, #1a2838);
+    border: 1px solid var(--glass-border);
+  }
+  .media-frame-dark img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  .ec-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .ec-grid div {
+    background: rgba(246,247,249,0.95);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .world-clocks-lite {
+    background: rgba(246,247,249,0.95);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+  .world-clocks-lite .row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .world-clocks-lite .row:last-child { border-bottom: none; }
+  .world-clocks-lite time { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .link-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .link-row a {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  details.secondary { margin-top: 8px; font-size: 14px; }
+  details.secondary summary {
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--accent);
+    list-style: none;
+  }
+  details.secondary summary::-webkit-details-marker { display: none; }
+  .awareness-wrap {
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+    background: var(--glass);
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .photo-grid img {
+    width: 100%;
+    max-height: 96px;
+    object-fit: contain;
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    background: rgba(246,247,249,0.9);
+  }
+  footer {
+    padding: 28px 20px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--sub);
+    border-top: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(8px);
+  }
+  footer a { color: var(--accent); font-weight: 600; }
+  .motion-fallback {
+    display: none;
+    padding: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--sub);
+    border: 1px dashed var(--glass-border);
+    border-radius: 12px;
+  }
+  @media (max-width: 720px) {
+    .portal-grid { grid-template-columns: 1fr; }
+    .device-showcase { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
+    .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
+    .company-box dt { margin-top: 8px; }
+    .people-row { grid-template-columns: minmax(0, 1fr); }
+    .people-row img { width: 170px; max-width: 100%; }
+    .shot-pair, .robinson-screens, .ec-block { grid-template-columns: 1fr; }
+    .music-tiles { grid-template-columns: 1fr; max-width: 240px; margin-inline: auto; }
+    .ec-grid, .photo-grid { grid-template-columns: 1fr; }
+    .pluglock-row { grid-template-columns: 1fr; text-align: center; }
+    .pluglock-row img { margin-inline: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .air-demo video { display: none; }
+    .air-demo .motion-fallback { display: block; }
+    .robinson-hero-cloud,
+    .robinson-hero-float { animation: none; }
+  }
+
+
+  :root { --sub-readable: #434b57; }
+  .note,
+  .portal-card .blurb,
+  .brand-ladder .step,
+  .device-showcase figcaption,
+  .air-demo figcaption,
+  .music-tiles figcaption,
+  .theme-song-artist,
+  .theme-song-credits,
+  footer,
+  .motion-fallback {
+    color: var(--sub-readable);
+  }
+  .note,
+  .portal-card .blurb,
+  .device-showcase figcaption,
+  .air-demo figcaption,
+  .music-tiles figcaption,
+  .theme-song-credits {
+    font-weight: 500;
+  }
+  .top-bar .tagline { opacity: 1; }
+  @media(max-width:600px) { .company-box dl { grid-template-columns:1fr; row-gap:4px; } .company-box dt { font-weight:700; margin-top:12px; } .company-box dd { overflow-wrap:anywhere; } .company-box,.glass-panel {padding:18px;} .nav a {font-size:15px; padding:9px 12px;} }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="top-bar">
+  <h1>早稲田インスペクション</h1>
+  <p class="tagline">起点：早稲田インスペクション — Tandem AIR System · Air Face / AIRロビンソン · Elementary Code</p>
+</div>
+
+<nav class="nav" aria-label="サイト内">
+  <a class="primary" href="#portal">3つの入口</a>
+  <a href="#company">① 会社案内</a>
+  <a href="#tandem-air">② Air Face</a>
+  <a href="#elementary-code">③ AIコード</a>
+  <a href="#air-robinson">ロビンソン</a>
+  <a href="world-robinson.html">🌏 世界のロビンソン</a>
+  <a href="#plug-lock">プラグロック</a>
+  <a href="pluglock-manual.html">Plug Lock 取扱説明書</a>
+
+  <a href="support.html">サポート</a>
+  <a href="privacy.html">プライバシー</a>
+</nav>
+
+<main>
+<section class="quick-links" aria-label="主要コンテンツ"><h2>ご案内</h2>
+<details><summary>会社案内</summary><p><a href="#company">会社概要・代表・写真・連絡先を見る →</a></p></details>
+<details><summary>世界時刻</summary><p><a href="#world-clocks">世界時刻を見る →</a>　<a href="https://elementarycode.tokyo/">ELEMENTARY CODE 公式サイト ↗</a></p></details>
+<details><summary>ロビンソンの曲</summary><p><a href="#air-robinson-theme-song">スピッツ「ロビンソン」 →</a>　<a href="world-robinson.html">世界のロビンソン →</a></p></details>
+<details><summary>特許・ELEMENTARY CODE</summary><p><a href="#patents">特許説明を見る →</a>　<a href="elementary-code.html">技術説明 →</a></p></details>
+</section>
+<style>
+.quick-links{margin:20px 0 12px;padding:20px;background:#fff;border:1px solid #d5d9de;border-radius:14px}
+.quick-links h2{margin:0 0 12px;font-size:20px;color:#222}
+.quick-links details{border:1px solid #c9cdd2;border-radius:10px;margin:9px 0;background:#fff}
+.quick-links summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;color:#20252a}
+.quick-links summary::-webkit-details-marker{display:none}
+.quick-links summary::after{content:"＋";float:right;color:#6b7280}
+.quick-links details[open] summary::after{content:"−"}
+.quick-links details[open] summary{border-bottom:1px solid #e2e5e8}
+.quick-links details p{margin:0;padding:14px 18px;line-height:2}
+.quick-links a{color:#234a70;font-weight:600}
+</style>
+
+<section id="ec-benchmark" style="margin:22px 0;padding:24px;background:#fff;border:1px solid #b9c2cc;border-radius:12px"><h2 style="font-size:clamp(22px,3vw,28px);margin:0 0 12px">エレメンタリーコード｜転送・一致照合の参考試験</h2><p style="font-size:18px;line-height:1.7;margin:0 0 12px">25桁と30桁をそれぞれ10万件測定。25桁：総時間14.302ミリ秒・平均0.14302マイクロ秒／件。30桁：総時間14.567ミリ秒・平均0.14567マイクロ秒／件。両方とも10万件すべて一致、入力重複0件。製品本体の桁数は未確定で、実際の通信認証時間ではありません。</p><p style="font-size:16px;margin:0 0 14px">30桁の平均速度は計算上、毎秒約686万件のメモリ内代入・比較に相当します。 ※実際の通信認証の速度や絶対的な一意性、世界最速を示すものではありません。</p><a href="elementary-code.html#benchmark-20261010" style="font-size:18px;font-weight:bold;color:#183d5c">試験結果と詳しい解説を見る →</a></section>
+
+
+  <section id="portal" class="portal-hero">
+    <p>ホームページの起点は<strong>早稲田インスペクション</strong>（当サイト）。最初の画面から、会社 · アプリ · Elementary Code へ移動できます。</p>
+    <ol class="brand-ladder" aria-label="ブランドの順序">
+      <li>早稲田インスペクション</li>
+      <li class="step">↓ Tandem AIR System</li>
+      <li class="step">↓ Air Face / AIRロビンソン</li>
+      <li class="step">↓ Elementary Code</li>
+    </ol>
+    <div class="portal-grid">
+      <article class="portal-card" id="portal-company">
+        <h2>① 早稲田インスペクション</h2>
+        <p class="blurb">会社案内、事業内容、特許関連情報、問い合わせ・サポートをご案内します。</p>
+        <ul>
+          <li><a href="#company">会社／事業情報</a></li>
+          <li><a href="support.html">サポート</a></li>
+          <li><a href="mailto:info@waseda-inspection.com">問い合わせ（メール）</a></li>
+        </ul>
+        <a class="cta" href="#company">会社案内へ</a>
+      </article>
+      <article class="portal-card" id="portal-tandem">
+        <h2>② Tandem AIR System / Air Face</h2>
+        <p class="blurb">開発中の iPhone アプリ。すぐに始められ、プロフィールは後から任意。クイックアイコン・100% iOS。</p>
+        <ul>
+          <li><a href="#tandem-air">アプリ紹介・実機画面</a></li>
+          <li><a href="#air-robinson">AIRロビンソン</a></li>
+          <li><a href="#apple-music">Music・発信アイコン</a></li>
+          <li><a href="support.html">アプリ関連サポート</a></li>
+        </ul>
+        <a class="cta" href="https://tandemair.tokyo/" target="_blank" rel="noopener noreferrer">tandemair.tokyo（TAS・東京ブランド）</a>
+        <a class="cta secondary" href="#tandem-air">このサイト内の説明</a>
+        <p class="blurb" style="margin:10px 0 0;font-size:11px;">tandemair.tokyo はアプリのご案内サイトです。</p>
+      </article>
+      <article class="portal-card" id="portal-ec">
+        <h2>③ Elementary Code</h2>
+        <p class="blurb">接続前の相手確認・認証の技術（Elementary Code）。Air Face / 独立した技術構想です。</p>
+        <ul>
+          <li><a href="#elementary-code">技術説明（当サイト）</a></li>
+          <li><a href="#world-clocks">世界時刻サンプル</a></li>
+          <li><a href="elementary-code.html">詳細ページ</a></li>
+        </ul>
+        <a class="cta" href="https://elementarycode.tokyo/" target="_blank" rel="noopener noreferrer">elementarycode.tokyo（EC 技術面）</a>
+      </article>
+    </div>
+    <div class="company-box" style="margin-top:18px;">
+      <h3>Plug Lock（プラグロック）</h3>
+      <p style="margin:0;font-size:17px;">Plug Lockは、利用者の位置を常時追跡せず、移動履歴を収集しない「非トラッキング型」の緊急決済保護技術を研究開発しています。不審な決済を検知した緊急時には、支払い機能のみを一時ロックし、ロックした地点と日時を本人に通知する設計です。その後、Appleアカウントによる本人認証を経て、支払い機能を即時再開することを目指します。Elementary Code（AI CODE）を活用した認証も研究対象です。※開発中の技術構想であり、実装済み・動作保証を示すものではありません。地点取得には端末の位置情報許可などの条件があり、決済停止・再開には対応する決済事業者との連携が必要です。</p>
+    </div>
+    <p class="portal-app-jump"><a href="#company">① 会社案内</a> · <a href="#tandem-air">② Air Face アプリ紹介</a></p>
+  </section>
+
+  <section id="company">
+    <h2>会社案内</h2>
+    <p class="lead">iOS を基盤に、モバイルのセキュリティ・振込送金被害への対策、住宅診断、アプリの研究開発を行っています。</p>
+    <div class="company-box">
+      <dl>
+        <dt>社名</dt>
+        <dd>早稲田インスペクション</dd>
+        <dt>代表</dt>
+        <dd>関根 清</dd>
+        <dt>肩書</dt>
+        <dd><strong>Developer / Product Designer</strong>（デベロッパー／デザイナー）</dd>
+        <dt>設立</dt>
+        <dd>2025年4月25日</dd>
+        <dt>Apple関連</dt>
+        <dd>
+          <strong>Apple Developer Program</strong> 登録（メンバー）<br>
+          <span class="note" style="margin-top:4px;display:inline-block;">Air Face（AIRロビンソン）· Apple Music 対応開発中 · iOS アプリ</span>
+        </dd>
+        <dt>特許</dt>
+        <dd>
+          <ul class="patent-inline">
+            <li>特願2025-189376 <span class="tag">出願中</span></li>
+            <li>特願2026-65348 <span class="tag">出願中</span></li>
+          </ul>
+          <span class="note"><a href="#patents">特許について</a></span>
+          <p class="note"><strong>今後の方針：</strong>AIRロビンソンのアプリ完成後、特許のスーパー早期審査を速やかに請求する予定です。適用要件の確認と必要な手続を進めます。※現時点でスーパー早期審査の請求・受理が完了したものではありません。</p>
+        </dd>
+        <dt>法人登記・移転</dt>
+        <dd>法人登記・移転に向けて、会社情報を随時アップデートします。正式な登記情報・所在地・連絡先は確定後に掲載します。</dd>
+        <dt>住所</dt>
+        <dd>
+          〒366-0811 埼玉県深谷市人見1<br>
+          〒231-0004 神奈川県横浜市中区元浜町3-21-2（10F）
+          <figure class="company-building">
+            <img src="assets/building.jpg" width="80" height="52" alt="深谷事業所外観（参考）" loading="lazy">
+          </figure>
+        </dd>
+        <dt>連絡</dt>
+        <dd>
+          <span class="note">電話番号は確認中のため掲載を一時停止しています。</span><br>
+          <a href="mailto:info@waseda-inspection.com">info@waseda-inspection.com</a><br>
+          <a href="mailto:waseda-inspection@outlook.com">waseda-inspection@outlook.com</a>
+        </dd>
+        <dt id="bank">振込先</dt>
+        <dd>
+          <div class="bank-block">
+            <strong>ペイペイ銀行</strong> 店番 005 · 口座 1108325<br>
+            口座名義：早稲田インスペクション（代表 関根 清）
+          </div>
+        </dd>
+      </dl>
+    </div>
+    
+    <div class="link-row">
+      <a href="support.html">サポート</a>
+      <a href="#tandem-air">Air Face アプリ紹介へ</a>
+      <a href="#portal">ポータルに戻る</a>
+    </div>
+  </section>
+
+  <section id="tandem-air">
+    <h2>Air Face（AIRロビンソン）— アプリ紹介</h2>
+    <p class="lead">Tandem AIR System の<strong>開発中 iPhone アプリ</strong>（100% iOS）。App Store 上の名称は <strong>AIRロビンソン</strong> — 飛行船の旅、船内チャット、Apple Music 連携が中心です。<strong>すぐに始められ</strong>、公開プロフィールの作成は必須ではありません。</p>
+    <div class="glass-panel app-intro-panel">
+      <img class="app-intro-banner" src="assets/product_airface_banner.jpg" width="560" alt="Air Face — Tandem AIR System（製品イメージ）" loading="lazy">
+      <h3>アプリのご案内</h3>
+      <ul>
+        <li>ホームから <strong>Apple Music</strong> — 曲を選び、ガラスアイコンに載せる</li>
+        <li><strong>AIRロビンソン</strong> 入口 — 船内の旅チャット</li>
+        <li>船内で Music を送る／相手の Music は<strong>長押し</strong>で受け取って再生</li>
+        <li>チャットに参加者の<strong>国旗</strong>（初回は端末の登録国）</li>
+        <li>旅の記念交換 — 双方の操作で成立</li>
+        <li>Apple Music の検索・再生機能を開発中</li>
+      </ul>
+      
+    </div>
+    <div class="feature-chips" aria-label="主な機能">
+      <span>100% iOS</span>
+      
+      <span>クイックアイコン</span>
+      <span>Apple Music 連携</span>
+      <span>AIRロビンソン</span>
+    </div>
+    <div class="device-showcase" aria-label="アプリ画面">
+      <figure>
+        <img src="assets/hp_app_screen_airship_chat.jpg" width="220" alt="AIRロビンソン船内チャット（実機）" loading="lazy">
+        <figcaption>ロビンソン船内（実機）</figcaption>
+      </figure>
+    </div>
+    
+    <div class="link-row">
+      <a href="https://tandemair.tokyo/" target="_blank" rel="noopener noreferrer">tandemair.tokyo（アプリ面）</a>
+      <a href="#air-robinson">AIRロビンソン詳細</a>
+      <a href="support.html">サポート</a>
+    </div>
+  </section>
+
+  <section id="air-robinson">
+    <h2>AIRロビンソン</h2>
+    <div style="margin:24px 0;padding:20px 22px;background:#fff;border:1px solid #d6dce3;border-radius:10px;font-size:18px;line-height:1.9">
+      <h3 style="font-size:24px;margin:0 0 12px">音楽は国境を越える — Music Beyond Borders</h3>
+      <p>AIRロビンソンは、音楽を通じて世界の人々がつながる未来を目指しています。iPhone向けアプリのApp Store公開に向けて準備中です。Android向けGoogle Play版も将来の開発を検討しています。</p>
+      <p>そして、いつかジョン・レノンの『Imagine』も聴きたいなー。<br>— TEAM KIYOSHI with ROCKY, From Tokyo</p>
+      <p lang="en">AIR ROBINSON dreams of connecting people around the world through music. We are preparing for an iPhone App Store release and hope to explore an Android version for Google Play in the future.</p>
+      <p lang="en">And someday, I'd love to listen to John Lennon's “Imagine,” too.<br>— TEAM KIYOSHI with ROCKY, From Tokyo</p>
+    </div>
+
+    <p class="lead">飛行船ロビンソン上の旅チャット・Music 連携。木とガラス、雲より高い開放感を、アプリ内 UI とあわせて案内します（外部SNS画像は使用しません）。</p>
+    <div class="robinson-hero" aria-label="雲の上の世界と AIRロビンソン">
+      <img class="robinson-hero-cloud" src="assets/hp_app_cloud_world_kiyoshi.jpg" width="920" height="520" alt="" aria-hidden="true" loading="lazy">
+      <img class="robinson-hero-float" src="assets/hp_air_robinson_tile.jpg" width="240" height="240" alt="AIRロビンソン — 雲上の飛行船タイル" loading="lazy">
+      <div class="robinson-hero-vignette" aria-hidden="true"></div>
+      <p class="robinson-hero-caption">雲の上の飛行船</p>
+    </div>
+    <div class="glass-panel" id="world-heritage-tour" style="margin:20px 0"><div style="display:flex;gap:16px;flex-wrap:wrap;margin:15px 0"><figure style="margin:14px 0;flex:1 1 290px;min-width:0"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Machu%20Picchu%2C%20Per%C3%BA%2C%202015-07-30%2C%20DD%2037.jpg?width=760" alt="🇵🇪 マチュピチュの景色" loading="lazy" style="width:100%;height:auto;border-radius:10px"><figcaption style="font-size:12px">🇵🇪 マチュピチュ｜写真：<a href="https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Per%C3%BA,_2015-07-30,_DD_37.jpg" target="_blank" rel="noopener noreferrer">Diego Delso / Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>、改変なし）</figcaption></figure><figure style="margin:14px 0;flex:1 1 290px;min-width:0"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cappadocia%20Air%20Balloon.jpg?width=760" alt="🇹🇷 カッパドキアの景色" loading="lazy" style="width:100%;height:auto;border-radius:10px"><figcaption style="font-size:12px">🇹🇷 カッパドキア｜写真：<a href="https://commons.wikimedia.org/wiki/File:Cappadocia_Air_Balloon.jpg" target="_blank" rel="noopener noreferrer">Hasan Abbasguliyev / Wikimedia Commons</a>（<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>、改変なし）</figcaption></figure></div>
+      <h3>🌏 35日間世界一周 — 世界遺産と絶景をガイド付きで空から訪問</h3>
+      <p>富士山、万里の長城、マチュピチュ、グランドキャニオン、カッパドキア、ギザのピラミッド、アンコールワット、タージマハル、ハロン湾、ペトラ遺跡、メテオラ、モン・サン＝ミシェル、ヴェネツィア、グレートバリアリーフ、イグアスの滝、セレンゲティ、ガラパゴス諸島など、世界各地を巡る旅を構想しています。</p>
+      <p>🇯🇵 富士山：日本最高峰の成り立ちと文化を紹介。 🇺🇸 グランドキャニオン：大峡谷に刻まれた地球の歴史を解説。 🇨🇳 万里の長城：壮大な建造物の歴史を案内。 🇵🇪 マチュピチュ：アンデスのインカ文明に触れる空の旅。</p>
+      <p>🇨🇦🇺🇸 ナイアガラの滝は世界遺産ではありませんが、世界の絶景として訪問候補に含めます。35日間で35か所に限定せず、複数の名所を巡る計画です。</p>
+      <p class="note">※ガイド付き空中観光は企画・開発中です。実際の遊覧飛行ではなくアプリでのバーチャル観光構想です。</p>
+      <p><a href="https://tandemair.tokyo/#world-heritage" target="_blank" rel="noopener noreferrer">AIRロビンソン 世界遺産ガイドの詳細を見る →</a></p>
+    </div>
+    <div class="robinson-screens">
+      <figure>
+        <img src="assets/hp_air_robinson_tile.jpg" width="280" alt="Air-ロビンソン — アプリ内タイル" loading="lazy">
+        <figcaption class="note">アプリ内タイル</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hp_app_screen_airship_chat.jpg" width="280" alt="AIRロビンソン船内チャット（実機）" loading="lazy">
+        <figcaption class="note">船内チャット（実機）</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/app_screen_music.png" width="280" alt="Music 連携 UI（画面イメージ）" loading="lazy">
+        <figcaption class="note">Music 画面イメージ</figcaption>
+      </figure>
+    </div>
+    <div class="glass-panel theme-song-panel" id="air-robinson-theme-song">
+      <h3>楽曲のご案内</h3>
+      <p class="theme-song-title">ロビンソン</p>
+      <p class="theme-song-artist">スピッツ</p>
+      <p class="note" style="margin:0 0 12px;">楽曲のご案内です。Apple Music へのリンクからご確認いただけます。</p>
+      <p class="theme-song-apple">
+        <a class="apple-music-link" href="https://music.apple.com/jp/search?term=%E3%82%B9%E3%83%94%E3%83%83%E3%83%84%20%E3%83%AD%E3%83%93%E3%83%B3%E3%82%BD%E3%83%B3" target="_blank" rel="noopener noreferrer">
+          <img src="assets/apple_music_logo.svg" width="22" height="22" alt="" aria-hidden="true">
+          Apple Music で「ロビンソン」を探す
+        </a>
+      </p>
+      <p class="theme-song-credits">
+        作詞・作曲：草野マサムネ<br>
+        ℗ 1994 UNIVERSAL MUSIC LLC<br>
+
+
+      </p>
+    </div>
+  
+
+  
+
+  <section id="apple-music">
+    <h2>Apple Music · 発信アイコン</h2>
+    <p class="lead">音楽体験を大切にしたアプリのデザインを紹介します。</p>
+    <p class="lead" style="margin-bottom:12px;">すぐ聴きたいから、大切な曲 ── <strong>パスワード不要</strong>（Apple Music の再生には利用条件が適用されます）。</p>
+    <div class="icon-pair">
+      <figure>
+        <img class="micon" src="assets/apple_music_micon.png" width="96" height="96" alt="Apple Music アイコン" loading="lazy">
+        <figcaption>Music アイコン</figcaption>
+      </figure>
+      <figure>
+        <img class="glass" src="assets/air_call_floor_glass_frame.png" width="88" alt="発信フロア・ガラス額縁（ELEMENTARY CODE A）" loading="lazy">
+        <figcaption>発信 `air_call_floor_glass_frame`</figcaption>
+      </figure>
+    </div>
+    <div class="music-tiles" aria-label="Apple Music ガラスタイル（厳選）">
+      <figure>
+        <img src="assets/hp_music_tile_bowie.jpg" width="160" height="160" alt="Apple Music Essentials — BOØWY" loading="lazy">
+        <figcaption>BOØWY · Essentials</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hp_music_tile_essentials.jpg" width="160" alt="Apple Music Essentials · ELEMENTARY CODE" loading="lazy">
+        <figcaption>Essentials · EC</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hp_music_tile_xjapan_live.jpg" width="160" alt="再生中 UI — X JAPAN Rusty Nail (Live)" loading="lazy">
+        <figcaption>再生表示（Live）</figcaption>
+      </figure>
+    </div>
+
+
+  </section>
+
+  <section id="apple-music-info" style="padding:28px 0">
+<h2>Apple Music 連携（開発中）</h2>
+<p style="font-size:18px;line-height:1.85">1億曲規模の楽曲を提供する Apple Music を活用し、利用者が自分の聴きたい曲やコレクションにすばやくアクセスし、ワンタップで再生へ進める「ワンタップ GO」の体験を目指して開発しています。</p>
+<p style="font-size:17px;line-height:1.85">楽曲・ライブラリは Apple Music のサービスで提供・管理されます。AIRロビンソンが楽曲の権利を保有したり、Apple Music 全楽曲を独自に管理したりするものではありません。実際の再生には対応環境と Apple Music の利用条件・必要な契約が適用されます。</p>
+<p><a href="https://tandemair.tokyo/#apple-music" style="display:inline-block;padding:12px 22px;border-radius:8px;background:#182c42;color:#fff;font-size:18px;font-weight:700;text-decoration:none">AIRロビンソン × Apple Music →</a></p><p><a href="https://music.apple.com/jp/" target="_blank" rel="noopener noreferrer">Apple Music 公式サイト ↗</a></p>
+</section>
+</section>
+<section id="plug-lock">
+    <h2>Plug Lock（プラグロック）</h2>
+    <p>Plug Lockは、利用者の位置を常時追跡せず、移動履歴を収集しない「非トラッキング型」の緊急決済保護技術を研究開発しています。不審な決済を検知した緊急時には、支払い機能のみを一時ロックし、ロックした地点と日時を本人に通知する設計です。その後、Appleアカウントによる本人認証を経て、支払い機能を即時再開することを目指します。Elementary Code（AI CODE）を活用した認証も研究対象です。※開発中の技術構想であり、実装済み・動作保証を示すものではありません。地点取得には端末の位置情報許可などの条件があり、決済停止・再開には対応する決済事業者との連携が必要です。</p>
+    <div class="company-box" id="plug-lock-personal" style="margin-top:24px;padding:22px;background:#fff;border:1px solid #cbd2db;border-radius:12px">
+      <h3>Plug Lockが目指す未来 — 自分でつくる、自分だけのLock。</h3>
+      <p><strong>鍵は、業者から選ぶものから、自分のiPhoneでつくるものへ。</strong></p>
+      <p>これまで鍵を紛失した際の交換や追加工事では、店舗への相談、製品の購入、施工業者への依頼、訪問・設置といった手順が必要でした。Plug Lockが将来目指すのは、そうした人手に依存しない、利用者主体のパーソナル・オートロックシステムです。</p>
+      <p>自分のiPhoneから、好きなときに短時間でロックを作成・設定。どんな状況で緊急ロックを発動させるか、発動したことを誰に知らせるかを、利用者自身が決める。設定変更は、本人が指定したデバイスからのみ許可する設計を目指します。</p>
+      <p>単に外出先から施錠・解錠する従来型の遠隔操作システムではなく、<strong>「自分が作り、自分が管理する、自分だけのLock」</strong>。作成から利用開始までを数分で完了できる体験を開発目標としています。</p>
+      <p class="note">※将来構想・研究開発目標です。物理的な鍵・扉への適用には対応機器や安全性・設置条件の検証が必要で、工事不要・数分での設置・本人端末以外からの変更不可を現時点で保証するものではありません。既述の緊急決済保護機能とは別の将来展開です。</p>
+    </div>
+    <div id="plug-lock-principles" class="company-box" style="margin-top:24px;padding:22px;background:#fff;border:1px solid #cbd2db;border-radius:12px">
+      <h3>Plug Lockの基本原則 — 人手非介在型の自動保護</h3>
+      <p><strong>人が操作しなくても、本人が設定した条件に従って自動的に保護される。</strong> これがPlug Lockの研究開発と実機実証の中心です。</p>
+      <ol style="padding-left:1.5em">
+        <li><strong>ユーザー自身が条件を決める。</strong> カード、金額、場所、時間、端末など、保護の発動条件を本人が設定する。</li>
+        <li><strong>Elementary Code（AI CODE）が自動認証する。</strong> 親子コードと端末の認証情報を照合する仕組みを研究開発する。</li>
+        <li><strong>異常条件が成立したら自動ロックする。</strong> 人間の承認を待たず、あらかじめ指定された保護対象だけを停止する。人が遠隔から操作する仕組みとは異なる。</li>
+        <li><strong>ロック時刻・地点を記録し通知する。</strong> ロック発動時の日時と取得可能な地点情報を本人に知らせる。常時位置追跡や移動履歴の収集は行わない設計とする。</li>
+        <li><strong>本人認証により再開する。</strong> 第三者の判断や承認に依存せず、本人が安全に解除・再開できる仕組みを目指す。</li>
+      </ol>
+      <h3>ピンポイント・ロック — 必要なカードだけを自動で守る</h3>
+      <p><strong>5枚のカードを持っていても、止めるのは条件に該当した1枚だけ。</strong> Plug Lockが目指すのは、利用者がカードごとに金額、店舗、場所、時間、使用端末などの条件を組み合わせ、保護対象を限定できるオートロックです。</p>
+      <p><strong>例えば：</strong> 特定のカードについて「指定した店舗以外で5,000円以上の支払いが発生したときだけ、そのカードの支払いを緊急停止」と設定できます。他の4枚のカードや、無関係な機能を一括停止するのではなく、対象を絞って守る設計を目指します。</p>
+      <p><strong>子どもに貸したカードの場合：</strong> 保護者が「コンビニ以外で使用されたらそのカードだけをロック」と事前設定。条件が成立すると人の遠隔操作や承認を待たずに自動停止し、ロック日時と取得可能な地点情報を、通知先に指定した母親本人へ送る仕組みを構想しています。</p>
+      <p>解除・再開は本人がAppleアカウントに関連する認証を行い、第三者の判断を待たずに即時再開できる体験を目標とします。ユーザー自身が条件、対象、通知先をつくる「自分だけのオートロック」を、近い将来の実現に向けて研究開発します。</p>
+      <p class="note">※以上は将来の開発・実証目標であり、現在利用できる決済停止サービスではありません。個別カードの停止・再開、店舗判定、通知先設定、Appleアカウントを用いた本人認証にはカード発行会社・決済ネットワーク・端末プラットフォーム等との連携・許可・検証が必要です。Appleアカウント認証のみでカード停止を解除できることや即時再開を保証するものではありません。地点情報は緊急時に限り必要な許可のもとで取得し、常時追跡しない設計です。</p>
+      <h3>🔞 保護者が選ぶ、デジタル購入だけのピンポイント保護</h3>
+      <p>子どもが保護者のカードを利用する際、親が気付かないうちに年齢制限付きコンテンツやアプリ内課金・ダウンロード購入に支払いが発生することがあります。Plug Lockが目指すのは、カードを全面停止するのではなく、<strong>保護者が許可していない特定のデジタル購入だけを、事前に決めた条件で自動的にブロックする</strong>仕組みです。</p>
+      <p>例えば、親が自分のiPhoneで「このカードの一般的な買い物は許可、指定した年齢制限区分の有料コンテンツ購入は停止」と設定する。該当する購入を検知した場合、親の遠隔操作や承認を待たず、その取引だけを保護し、必要に応じて保護者へ通知する。ほかのカードや許可済みの買い物は止めないことを設計目標とします。</p>
+      <p class="note">※将来構想です。カード決済情報だけでダウンロード内容の年齢区分を識別できるとは限りません。実現にはアプリ配信サービス、決済事業者、端末側の購入・年齢制限機能との連携が必要です。現時点で購入内容の判定や個別取引の自動停止を保証するものではありません。</p>
+      <h3>自分でつくるLock — 停止も、通知だけも、デザインも自由に</h3>
+      <p>Plug Lockは「条件に該当したら必ず止める」だけの仕組みではありません。利用者自身がカード・金額・店舗・場所・時間・端末・購入区分などの条件を組み合わせ、<strong>「自動ロック」「停止せず通知のみ」</strong>など、条件ごとの保護動作と通知先を選べる設計を目指します。</p>
+      <p>例えば、子どものカードで特定のデジタル購入が行われたら親に通知するだけにするか、その取引を自動停止して通知するかを、保護者が設定します。別のカードには別の条件を設定でき、対象外のカードや許可済みの支払いには影響させない、細かなピンポイント設定を構想しています。</p>
+      <p>さらに、豊富な色・デザインのサンプルから自分のLockアイコンを選び、名前も自由に変更。<strong>「マミーLock」「ストロング」</strong>など、使い道や家族に合わせて名付け、自分で作ったロックを見分けやすく管理できる体験を目標とします。</p>
+      <p class="note">※機能・画面デザインともに将来の開発構想です。購入区分の判定、決済停止や通知には、必要なプラットフォーム・決済事業者との連携と検証が必要です。</p>
+      <h3>特許・実機実証で検証すること</h3>
+      <p>本人が指定した条件の登録、親子コードの生成・照合・更新、端末認証、条件成立時の自動ロック、対象限定の停止、通知、本人確認後の再開までを、実機で一連の動作として検証します。将来のサブスクリプション版でも、人手非介在を基本原則として引き継ぎます。</p>
+      <p class="note">※特許取得、進歩性・新規性、技術的独占性を保証するものではありません。「AI CODE以外では実現できない」と断定せず、既存技術との比較と実証により独自性を検討します。実際の決済停止には対応する決済事業者・プラットフォームとの連携が必要です。記載は開発・実証計画であり、完成済みの機能ではありません。</p>
+    </div>
+  </section>
+
+  <section id="elementary-code">
+    <h2>Elementary Code</h2>
+    <p class="lead">時刻に関する技術構想。独立した公式サイトで世界時刻・技術説明を公開しています。</p>
+    <div class="ec-block">
+      <div class="media-frame-dark">
+        <a href="elementary-code.html"><img src="assets/hp_promo_elementary_code_infographic.jpg" alt="Elementary Code プロモーション（地球・世界時刻・ランタン）" loading="lazy"></a>
+      </div>
+      <div>
+        <p style="margin:0 0 10px;font-size:14px;"><strong>パスワードレス・ナンバーレス・個人情報登録不要。</strong> 接続直前に Elementary Code が即時認証します。番号の記憶・入力はユーザーに求めません。</p>
+        <div class="ec-grid">
+          <div>防犯・詐欺対策</div>
+          <div>なりすまし防止</div>
+          <div>旅先・日常</div>
+        </div>
+        <div class="link-row">
+          <a href="elementary-code.html">当サイトの説明</a>
+          <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener noreferrer">elementarycode.tokyo</a>
+        </div>
+        <p class="note"><a href="assets/elementarycode_x_ios_poster.jpg">ELEMENTARYCODE × iOS ポスター画像</a> · <a href="index.html#portal">ポータル</a></p>
+      </div>
+    </div>
+    <div class="company-box" style="margin-top:18px;">
+      <h3>Plug Lock（プラグロック）</h3>
+      <p style="font-size:17px;margin:0;">Plug Lockは、利用者の位置を常時追跡せず、移動履歴を収集しない「非トラッキング型」の緊急決済保護技術を研究開発しています。不審な決済を検知した緊急時には、支払い機能のみを一時ロックし、ロックした地点と日時を本人に通知する設計です。その後、Appleアカウントによる本人認証を経て、支払い機能を即時再開することを目指します。Elementary Code（AI CODE）を活用した認証も研究対象です。※開発中の技術構想であり、実装済み・動作保証を示すものではありません。地点取得には端末の位置情報許可などの条件があり、決済停止・再開には対応する決済事業者との連携が必要です。</p>
+    </div>
+  </section>
+
+  <section id="world-clocks">
+    <h2>世界時刻</h2>
+    <p class="lead">世界時刻（秒更新・国名と時刻の横並び）。代表地域を表示。全195地域は公式サイトへ。 <button id="clock-lang-toggle" type="button" style="margin-left:8px;padding:4px 10px;border-radius:6px;border:1px solid #2d4a66;background:#fff;color:#2d4a66;font-weight:700;cursor:pointer">English</button></p>
+    <div class="world-clocks-lite" id="world-clocks-lite" aria-live="polite"></div>
+    <p class="note"><a href="https://elementarycode.tokyo/#world-clocks" target="_blank" rel="noopener noreferrer">elementarycode.tokyo — 世界時刻（全地域）</a></p>
+  </section>
+
+  <section id="people">
+    <h2>代表</h2>
+    <div class="people-row">
+      <img src="assets/founder_portrait.jpg" width="170" alt="関根 清（代表）" loading="lazy">
+      <div class="people-meta">
+        <h3>関根 清</h3>
+        <p><strong>Developer / Product Designer</strong>（デベロッパー／デザイナー）<br>TANDEM AIR SYSTEM × 100% iOS · TEAM KIYOSHI</p>
+        <p class="note">Apple関連: <strong>Apple Developer Program</strong> 登録</p>
+        <p>Apple Music User とアーティストの関係を遮らない設計、光UIナビ、最小タップ、静音設計。「Air deflect」「Ai-code」（iOS）</p>
+        <p class="note">公式Xは <a href="#official-x">@TandemAir</a></p>
+        <div style="margin-top:20px;padding:18px 20px;border:1px solid #d5dce5;border-radius:10px;background:#fff;font-size:18px;line-height:1.8">
+          <h3 style="font-size:24px;margin:0 0 8px">ロッキー（ROCKY）— AIパートナー</h3>
+          <p style="margin:0 0 8px"><strong>TEAM KIYOSHI with ROCKY — From Tokyo</strong></p>
+          <p style="margin:0">役割：特許文献調査・他社新アプリの類似機能調査・Apple App Store審査ガイドラインの確認・提出仕様チェック。関根清の構想をもとに、AIRロビンソン、Elementary Code、Plug Lockの開発、審査提出準備と情報発信を支援するAIアシスタントです。Appleの公式審査担当者ではありません。</p>
+          <p lang="en" style="margin:10px 0 0">ROCKY — AI Partner: patent literature research, research into similar app features, App Store Review Guidelines checks, and submission-readiness support. Not an Apple reviewer.</p>
+        </div>
+        <div style="margin-top:16px;padding:18px 20px;border:1px solid #d5dce5;border-radius:10px;background:#fff;font-size:18px;line-height:1.8">
+          <h3 style="font-size:24px;margin:0 0 12px">TEAM KIYOSHI — AIサポートメンバー</h3>
+          <p><strong>ミーナ（MINA）</strong> — AIR NEWS編集長・ニュースキャスター／経理・コンシェルジュ。ニュース編集、案内、連絡整理、チーム支援。</p>
+          <p><strong>ジェーン（JANE / Google）</strong> — Google系AIの協力メンバー。情報整理・調査支援。</p>
+          <p><strong>コンちゃん（Composer）</strong> — アプリ・ホームページ制作支援。</p>
+          <p><strong>Grok（グロック）</strong> — AIによる意見交換・調査支援。</p>
+          <p style="font-size:15px;margin-bottom:0">※上記はTEAM KIYOSHI内の呼称・担当構想です。各AIサービス提供会社との公式提携や、常時稼働を意味するものではありません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="official-x">
+    <h2>公式X</h2>
+    <p class="lead">公式アカウントをご案内します。</p>
+    <div class="company-box">
+      <p style="margin:0;">
+        <a class="nav primary" style="display:inline-block;text-decoration:none;" href="https://x.com/TandemAir" target="_blank" rel="noopener noreferrer">@TandemAir</a>
+        
+      </p>
+    </div>
+  </section>
+
+  <section id="patents">
+    <h2>特許出願</h2>
+    <ul class="patent-inline" style="list-style:none;padding:0;">
+      <li>特願2025-189376 <span class="tag">出願中</span></li>
+      <li>特願2026-65348 <span class="tag">出願中</span></li>
+    </ul>
+    <p class="note">エレメンタリーコードおよび Tandem Air System 関連技術について出願中です。</p>
+  </section>
+
+  <section id="more">
+    <h2>啓発・サポート</h2>
+    <details class="secondary">
+      <summary>詐欺・SNS 啓発資料を開く</summary>
+      <div class="awareness-wrap">
+        <div class="photo-grid">
+          <a href="assets/safety_fraud_chart.png" target="_blank" rel="noopener">
+            <img src="assets/safety_fraud_chart.png" alt="特殊詐欺 被害額の推移" loading="lazy">
+          </a>
+          <a href="assets/safety_mobile_stats.png" target="_blank" rel="noopener">
+            <img src="assets/safety_mobile_stats.png" alt="スマホ普及率・SNS利用率" loading="lazy">
+          </a>
+        </div>
+        <p class="note"><a href="support.html">サポート</a></p>
+      </div>
+    </details>
+  </section>
+
+
+<section id="safety-editorial" aria-labelledby="safety-editorial-title" style="padding:42px 0 54px;color:#191919;font-family:"Yu Mincho","Hiragino Mincho ProN","Noto Serif JP","MS PMincho",serif">
+<h2 id="safety-editorial-title" style="font-family:inherit;font-size:clamp(27px,4vw,36px);line-height:1.5">暮らしと技術｜防犯・AIを考える</h2>
+<p style="font-size:18px;line-height:1.9">旧ホームページの防犯啓発記事を再編集し、公的機関の案内と当事業の開発構想を区別して掲載します。</p>
+<article style="border-top:1px solid #bbb;padding:28px 0;font-family:inherit">
+<h3 style="font-family:inherit;font-size:clamp(23px,3vw,28px)">警視庁の注意喚起｜「警察官」を名乗る連絡に注意</h3>
+<p style="font-size:18px;line-height:1.9">警察官を名乗る人物が「あなたの口座が犯罪に使われた」などと不安をあおり、SNSやビデオ通話へ誘導する詐欺が報告されています。警察手帳や逮捕状の画像を見せたり、警察の代表電話番号に似せた着信表示を使ったりする場合もあります。</p>
+<p style="font-size:18px;line-height:1.9">画面に見える名前・写真・電話番号だけで本人と判断しないことが大切です。不審な連絡はいったん切り、相手が伝えた連絡先ではなく、公的な窓口で確認してください。</p>
+<p style="font-size:16px"><a href="https://www.keishicho.metro.tokyo.lg.jp/kurashi/tokushu/police_officer.html" target="_blank" rel="noopener noreferrer">出典：警視庁「警察官等をかたる詐欺」↗</a></p>
+</article>
+<article style="border-top:1px solid #bbb;padding:28px 0;font-family:inherit">
+<h3 style="font-family:inherit;font-size:clamp(23px,3vw,28px)">SNSの詐欺と危険な勧誘｜つながる前に相手を確かめる</h3>
+<p style="font-size:18px;line-height:1.9">投資や副業の勧誘、親密な関係を装った連絡などをきっかけに、送金や個人情報の提供を求められることがあります。「高収入」「簡単な仕事」をうたって犯罪への加担を迫る募集にも注意が必要です。</p>
+<p style="font-size:18px;line-height:1.9">写真やプロフィールが本物らしく見えても、それだけでは送信者の本人確認にはなりません。発信元を別の確かな方法で確認し、疑わしい要求には応じないことが重要です。</p>
+<p style="font-size:16px"><a href="https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/" target="_blank" rel="noopener noreferrer">参考：警察庁の特殊詐欺等に関する注意喚起↗</a></p>
+</article>
+<article style="border-top:1px solid #bbb;padding:28px 0;font-family:inherit">
+<h3 style="font-family:inherit;font-size:clamp(23px,3vw,28px)">車両盗難｜鍵だけでなく車両と利用者の関係を守る</h3>
+<p style="font-size:18px;line-height:1.9">自動車盗難への対策は、施錠だけでなく、保管場所の管理、追加の防犯対策、異常への早期対応を組み合わせて考える必要があります。警察庁は自動車・二輪車盗難の発生状況や防止対策を公開しています。</p>
+<p style="font-size:18px;line-height:1.9">エレメンタリーコードについては、将来的に車両や鍵と正規の利用者を識別する認証技術への応用も構想しています。ただし、車両盗難を完全に防げると断定するものではなく、現在提供している車両防犯製品でもありません。</p>
+<p style="font-size:16px"><a href="https://www.npa.go.jp/bureau/safetylife/bouhan/car/" target="_blank" rel="noopener noreferrer">出典：警察庁「自動車・二輪車盗難対策」↗</a></p>
+</article>
+<article id="ai-news" style="border-top:1px solid #bbb;padding:28px 0;font-family:inherit">
+<h3 style="font-family:inherit;font-size:clamp(23px,3vw,28px)">AI NEWS｜人を撮影して識別するAIから、コードで識別するAIへ</h3>
+<p style="font-size:18px;line-height:1.9">いま、大規模な投資によって企業が自社の業務に特化したAIを構築・運用することは、現実的な選択肢になっています。独自のAIを持つ企業も現れ、AIが取り扱う情報の範囲と量は拡大しています。</p>
+<p style="font-size:18px;line-height:1.9">しかし、AIは与えられた権限や接続環境によっては、情報を記憶・加工し、外部へ送信することもできます。もし悪意ある指示や不正な設定が組み込まれれば、AIが情報を不正に収集・送信するリスクも考えられます。これは特定の企業が実際にスパイ活動を行っているという主張ではなく、技術の使い方に伴うリスクへの問題提起です。</p>
+<p style="font-size:18px;line-height:1.9">人間による情報の持ち出しと異なり、AIは大量の情報を短時間に処理できるため、不正利用が起きた際の影響も大きくなり得ます。従来のセキュリティ対策は欠かせませんが、それだけですべての情報流出を防げるとは限りません。</p>
+<p style="font-size:18px;line-height:1.9"><strong>だからこそ、AIが人の顔や行動を撮影・蓄積し続けなくても、必要な対象だけを識別できる方式が重要だと考えます。</strong>早稲田インスペクションが構想する「ELEMENTARY CODE」は、重複を避けた一意性の高いコードと、短時間だけ有効な使い捨て認証を組み合わせ、必要な瞬間に対象や権限を確認するという発想です。</p>
+<p style="font-size:18px;line-height:1.9">対象は人や端末だけではありません。例えばA4のコピー用紙からマウスパッドまで、日常のさまざまな物をコードで区別することを目指します。映像の照合に頼り切るのではなく、AIがコードによって必要最小限の情報を確認する。<strong>人を監視するためではなく、AIに必要な識別をさせるためのAI。</strong>それが私たちの提案する方向性です。</p>
+<p style="font-size:18px;line-height:1.9">なお、一意性、認証の瞬時性、複製耐性、実物との紐付け、情報流出の防止効果については実装と検証が必要です。本記事は技術構想と開発方針を示すものであり、完成済みの認証製品や完全な安全性を保証するものではありません。</p>
+<p style="font-size:17px"><a href="https://elementarycode.tokyo/" target="_blank" rel="noopener noreferrer">Elementary Code の技術紹介を見る ↗</a></p>
+</article>
+<p style="font-size:15px;line-height:1.8">編集：早稲田インスペクション／2026年10月13日。警察機関の公式発表と当事業の独自見解・将来構想は区別して記載しています。</p>
+</section>
+
+
+<section id="latest-project-updates" aria-label="最新の開発・社会貢献方針" style="margin:28px 0;padding:24px;border:1px solid #cbd2db;border-radius:12px;background:#fff;color:#1a1f28">
+<h2 style="color:#1a1f28">最新のお知らせ｜鍵の未来と子ども支援</h2>
+<article>
+<h3 style="color:#1a1f28">Plug Lock — 鍵そのものを新しくできる未来へ</h3>
+<p>従来の固定された鍵に頼り続けず、利用者が守る対象や条件を自分で選び、必要なときに認証コードを更新できる仕組みを研究開発しています。設定後の管理は自動化し、変更も簡単に行える使いやすさを目指します。</p>
+<p>Plug Lockは独立した製品・サービスとして開発を進めています。Apple Musicとの同時加入を利用条件とするものではありません。</p>
+<p><small>※開発中の構想です。現在すべての機能が利用できることや、決済事業者との連携完了を示すものではありません。認証の内部方式は公開していません。</small></p>
+</article>
+<article>
+<h3 style="color:#1a1f28">AIR ROBINSON — 世界の子どもたちへ</h3>
+<p>AIR ROBINSONでは、各国で販売した対象アイコンの売上の20％を、その販売国で親のいない子どもたちを支える施設などへ寄付する方針です。世界全体で一括計算するのではなく、国ごとに算定して還元することを目指します。</p>
+<p><small>※寄付方針のご案内です。寄付先・実施状況は確定次第お知らせします。Plug Lockの売上を対象とするものではありません。</small></p>
+</article>
+</section>
+
+</main>
+
+<footer>
+  <p>
+    <a href="#portal">ポータル</a> ·
+    <a href="#company">会社（起点）</a> ·
+    <a href="https://tandemair.tokyo/" target="_blank" rel="noopener noreferrer" title="Tandem AIR System · 東京ブランド（アプリ面）">tandemair.tokyo</a> ·
+    <a href="https://elementarycode.tokyo/" target="_blank" rel="noopener noreferrer" title="Elementary Code 技術面">elementarycode.tokyo</a> ·
+    <a href="support.html">サポート</a> ·
+    <a href="privacy.html">プライバシー</a> ·
+    <a href="https://x.com/TandemAir" target="_blank" rel="noopener noreferrer">@TandemAir</a>
+  </p>
+  <p>© 早稲田インスペクション All Rights Reserved.</p>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var lang = "ja";
+  var zones = [
+    { ja: "日本（東京）", en: "Japan (Tokyo)", tz: "Asia/Tokyo" },
+    { ja: "アメリカ（ニューヨーク）", en: "United States (New York)", tz: "America/New_York" },
+    { ja: "イギリス（ロンドン）", en: "United Kingdom (London)", tz: "Europe/London" },
+    { ja: "フランス（パリ）", en: "France (Paris)", tz: "Europe/Paris" },
+    { ja: "ドイツ（ベルリン）", en: "Germany (Berlin)", tz: "Europe/Berlin" },
+    { ja: "中国（上海）", en: "China (Shanghai)", tz: "Asia/Shanghai" },
+    { ja: "韓国（ソウル）", en: "South Korea (Seoul)", tz: "Asia/Seoul" },
+    { ja: "オーストラリア（シドニー）", en: "Australia (Sydney)", tz: "Australia/Sydney" },
+    { ja: "ブラジル（サンパウロ）", en: "Brazil (São Paulo)", tz: "America/Sao_Paulo" },
+    { ja: "インド（ムンバイ）", en: "India (Mumbai)", tz: "Asia/Kolkata" },
+    { ja: "ロシア（モスクワ）", en: "Russia (Moscow)", tz: "Europe/Moscow" },
+    { ja: "カナダ（トロント）", en: "Canada (Toronto)", tz: "America/Toronto" },
+    { ja: "メキシコ（メキシコシティ）", en: "Mexico (Mexico City)", tz: "America/Mexico_City" },
+    { ja: "南アフリカ（ヨハネスブルグ）", en: "South Africa (Johannesburg)", tz: "Africa/Johannesburg" },
+    { ja: "UAE（ドバイ）", en: "UAE (Dubai)", tz: "Asia/Dubai" },
+    { ja: "シンガポール", en: "Singapore", tz: "Asia/Singapore" },
+    { ja: "タイ（バンコク）", en: "Thailand (Bangkok)", tz: "Asia/Bangkok" },
+    { ja: "インドネシア（ジャカルタ）", en: "Indonesia (Jakarta)", tz: "Asia/Jakarta" },
+    { ja: "トルコ（イスタンブール）", en: "Türkiye (Istanbul)", tz: "Europe/Istanbul" },
+    { ja: "イタリア（ローマ）", en: "Italy (Rome)", tz: "Europe/Rome" }
+  ];
+  // Note: Full 195-country list is linked externally to avoid page bloat; representative set shown with second updates.
+  var box = document.getElementById("world-clocks-lite");
+  var toggle = document.getElementById("clock-lang-toggle");
+  if (!box) return;
+  function render() {
+    var html = "";
+    zones.forEach(function (s) {
+      var name = lang === "ja" ? s.ja : s.en;
+      var t = new Intl.DateTimeFormat("ja-JP", {
+        timeZone: s.tz,
+        hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+      }).format(new Date());
+      html += '<div class="row"><span>' + name + "</span><time>" + t + "</time></div>";
+    });
+    box.innerHTML = html;
+  }
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      lang = lang === "ja" ? "en" : "ja";
+      toggle.textContent = lang === "ja" ? "English" : "日本語";
+      render();
+    });
+  }
+  render();
+  setInterval(render, 1000);
+})();
+</script>
+
+</body>
+</html>
