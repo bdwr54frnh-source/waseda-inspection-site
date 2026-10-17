@@ -981,7 +981,7 @@
 
   <section id="world-clocks">
     <h2>世界時刻</h2>
-    <p class="lead">世界時刻（秒更新・国名と時刻の横並び）。代表地域を表示。全195地域は公式サイトへ。 <button id="clock-lang-toggle" type="button" style="margin-left:8px;padding:4px 10px;border-radius:6px;border:1px solid #2d4a66;background:#fff;color:#2d4a66;font-weight:700;cursor:pointer">English</button></p>
+    <p class="lead">世界時刻（HH:MM・国名と時刻の横並び）。代表地域を表示。全195地域は公式サイトへ。 <button id="clock-lang-toggle" type="button" style="margin-left:8px;padding:4px 10px;border-radius:6px;border:1px solid #2d4a66;background:#fff;color:#2d4a66;font-weight:700;cursor:pointer">English</button></p>
     <div class="world-clocks-lite" id="world-clocks-lite" aria-live="polite"></div>
     <p class="note"><a href="https://elementarycode.tokyo/#world-clocks" target="_blank" rel="noopener noreferrer">elementarycode.tokyo — 世界時刻（全地域）</a></p>
   </section>
@@ -1124,42 +1124,43 @@
 (function () {
   var lang = "ja";
   var zones = [
-    { ja: "日本（東京）", en: "Japan (Tokyo)", tz: "Asia/Tokyo" },
-    { ja: "アメリカ（ニューヨーク）", en: "United States (New York)", tz: "America/New_York" },
-    { ja: "イギリス（ロンドン）", en: "United Kingdom (London)", tz: "Europe/London" },
-    { ja: "フランス（パリ）", en: "France (Paris)", tz: "Europe/Paris" },
-    { ja: "ドイツ（ベルリン）", en: "Germany (Berlin)", tz: "Europe/Berlin" },
-    { ja: "中国（上海）", en: "China (Shanghai)", tz: "Asia/Shanghai" },
-    { ja: "韓国（ソウル）", en: "South Korea (Seoul)", tz: "Asia/Seoul" },
-    { ja: "オーストラリア（シドニー）", en: "Australia (Sydney)", tz: "Australia/Sydney" },
-    { ja: "ブラジル（サンパウロ）", en: "Brazil (São Paulo)", tz: "America/Sao_Paulo" },
-    { ja: "インド（ムンバイ）", en: "India (Mumbai)", tz: "Asia/Kolkata" },
-    { ja: "ロシア（モスクワ）", en: "Russia (Moscow)", tz: "Europe/Moscow" },
-    { ja: "カナダ（トロント）", en: "Canada (Toronto)", tz: "America/Toronto" },
-    { ja: "メキシコ（メキシコシティ）", en: "Mexico (Mexico City)", tz: "America/Mexico_City" },
-    { ja: "南アフリカ（ヨハネスブルグ）", en: "South Africa (Johannesburg)", tz: "Africa/Johannesburg" },
-    { ja: "UAE（ドバイ）", en: "UAE (Dubai)", tz: "Asia/Dubai" },
+    { ja: "日本", en: "Japan", tz: "Asia/Tokyo" },
+    { ja: "アメリカ", en: "United States", tz: "America/New_York" },
+    { ja: "イギリス", en: "United Kingdom", tz: "Europe/London" },
+    { ja: "フランス", en: "France", tz: "Europe/Paris" },
+    { ja: "ドイツ", en: "Germany", tz: "Europe/Berlin" },
+    { ja: "中国", en: "China", tz: "Asia/Shanghai" },
+    { ja: "韓国", en: "South Korea", tz: "Asia/Seoul" },
+    { ja: "オーストラリア", en: "Australia", tz: "Australia/Sydney" },
+    { ja: "ブラジル", en: "Brazil", tz: "America/Sao_Paulo" },
+    { ja: "インド", en: "India", tz: "Asia/Kolkata" },
+    { ja: "ロシア", en: "Russia", tz: "Europe/Moscow" },
+    { ja: "カナダ", en: "Canada", tz: "America/Toronto" },
+    { ja: "メキシコ", en: "Mexico", tz: "America/Mexico_City" },
+    { ja: "南アフリカ", en: "South Africa", tz: "Africa/Johannesburg" },
+    { ja: "UAE", en: "UAE", tz: "Asia/Dubai" },
     { ja: "シンガポール", en: "Singapore", tz: "Asia/Singapore" },
-    { ja: "タイ（バンコク）", en: "Thailand (Bangkok)", tz: "Asia/Bangkok" },
-    { ja: "インドネシア（ジャカルタ）", en: "Indonesia (Jakarta)", tz: "Asia/Jakarta" },
-    { ja: "トルコ（イスタンブール）", en: "Türkiye (Istanbul)", tz: "Europe/Istanbul" },
-    { ja: "イタリア（ローマ）", en: "Italy (Rome)", tz: "Europe/Rome" }
+    { ja: "タイ", en: "Thailand", tz: "Asia/Bangkok" },
+    { ja: "インドネシア", en: "Indonesia", tz: "Asia/Jakarta" },
+    { ja: "トルコ", en: "Türkiye", tz: "Europe/Istanbul" },
+    { ja: "イタリア", en: "Italy", tz: "Europe/Rome" }
   ];
-  // Note: Full 195-country list is linked externally to avoid page bloat; representative set shown with second updates.
   var box = document.getElementById("world-clocks-lite");
   var toggle = document.getElementById("clock-lang-toggle");
   if (!box) return;
   function render() {
-    var html = "";
+    var parts = [];
     zones.forEach(function (s) {
       var name = lang === "ja" ? s.ja : s.en;
       var t = new Intl.DateTimeFormat("ja-JP", {
         timeZone: s.tz,
-        hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
       }).format(new Date());
-      html += '<div class="row"><span>' + name + "</span><time>" + t + "</time></div>";
+      parts.push(name + " " + t);
     });
-    box.innerHTML = html;
+    box.innerHTML = '<div style="line-height:1.8;font-size:15px">' + parts.join(" ■ ") + "</div>";
   }
   if (toggle) {
     toggle.addEventListener("click", function () {
@@ -1169,7 +1170,7 @@
     });
   }
   render();
-  setInterval(render, 1000);
+  setInterval(render, 30000); // update every 30s (HH:MM precision)
 })();
 </script>
 
