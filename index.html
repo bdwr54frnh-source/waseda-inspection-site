@@ -573,6 +573,8 @@
     border-radius: 12px;
   }
   @media (max-width: 720px) {
+    /* Let the multi-row navigation scroll with the page on phones. */
+    nav.nav { position: static; top: auto; }
     .portal-grid { grid-template-columns: 1fr; }
     .device-showcase { grid-template-columns: 1fr; max-width: 260px; margin-inline: auto; }
     .company-box dl { grid-template-columns: 1fr; row-gap: 4px; }
