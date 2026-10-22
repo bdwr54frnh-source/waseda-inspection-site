@@ -21,12 +21,22 @@
 <div id="choices" hidden></div><p class="muted">候補は名前を入力したときだけ表示します。登録済み候補は公式性の自動確認済みではありません。</p>
 <button onclick="document.getElementById('addsite').hidden=false">＋ 知っている公式サイトを登録</button>
 <div id="addsite" hidden><label for="shop">会社・お店の名前</label><input id="shop" placeholder="名前"><label for="site">URL</label><input id="site" type="url" placeholder="https://"><button onclick="previewSubmission()">確認する</button><p id="msg" class="muted">登録サービスは未接続。入力した内容は送信されません。</p></div></div>
-<div id="step2" hidden><h2>② アイコンの柄を選ぶ</h2><p id="selected"></p><p>選んだ公式サイトを開き、好きなロゴ・文字・写真などをアイコン枠に合わせてスキャンします。</p><a id="visit" class="btn" target="_blank" rel="noopener noreferrer">選んだ公式サイトを開く ↗</a><p class="muted">専用スキャンはアプリ側に接続する予定です。Web画面では撮影・保存できません。</p><button onclick="showStep(1)">サイト選択に戻る</button> <button onclick="showStep(3)">次へ：確認</button></div>
+<div id="step2" hidden><h2>② アイコンの柄を選ぶ</h2>
+<div style="margin:14px auto 18px;max-width:370px;text-align:center">
+<div id="glass-preview" aria-label="ガラスアイコンの仕上がり見本" style="position:relative;width:min(68vw,260px);height:min(68vw,260px);max-width:260px;max-height:260px;aspect-ratio:1;margin:auto;border:9px ridge #cad5e3;border-radius:23%;overflow:hidden;background:linear-gradient(135deg,#ecf2fa,#b1c5d9 50%,#f7fbff);box-shadow:inset 0 0 24px #ffffffb0,0 8px 25px #22395433">
+<img id="glass-photo" alt="選択した写真の仕上がり見本" hidden style="width:100%;height:100%;object-fit:cover">
+<div style="position:absolute;inset:0;pointer-events:none;border-radius:18%;border:2px solid #ffffffa8;box-shadow:inset 9px 10px 22px #ffffff63,inset -7px -12px 20px #243b5730"></div></div>
+<p class="muted">ガラスアイコンのプレビュー（端末内で表示・送信なし）</p>
+<label for="glass-capture" class="btn" style="cursor:pointer;display:inline-block;">📷 カメラで撮る・写真を選ぶ</label>
+<input id="glass-capture" type="file" accept="image/*" capture="environment" style="position:absolute;width:1px;height:1px;opacity:0;" onchange="previewGlassPhoto(this)">
+<p class="muted">Webでは公式サイトの画面を直接スキャンできません。サイトの画像などは利用許諾を確認の上、自分で撮影・選択してください。ここで作れるのは見本のみです。</p>
+</div><p id="selected"></p><p>選んだ公式サイトを開き、好きなロゴ・文字・写真などをアイコン枠に合わせてスキャンします。</p><a id="visit" class="btn" target="_blank" rel="noopener noreferrer">選んだ公式サイトを開く ↗</a><p class="muted">専用スキャンはアプリ側に接続する予定です。Web画面では撮影・保存できません。</p><button onclick="showStep(1)">サイト選択に戻る</button> <button onclick="showStep(3)">次へ：確認</button></div>
 <div id="step3" hidden><h2>③ 確認して決定</h2><div class="message" id="result">現在、自動検査は未接続のため、公式確認済みの緑ランプは表示しません。</div><p>公式URLが確認できた場合は緑ランプ、確認できない・変更がある場合は黄色点滅で案内する仕様です。</p><button onclick="alert('ガラスアイコン保存はアプリ側の実装待ちです。まだ保存されません。')">決定（保存準備中）</button><button onclick="showStep(1)">戻る</button></div>
 </section>
 <section class="panel"><details><summary>使い方・共有登録・自動更新について</summary><p>① 名前かURLから公式サイトを選びます。② サイトのどこでも自分の好きな部分をスキャン枠に合わせます。③ ガラスアイコンを確認し決定します。</p><p>自分が知っているサイトは名前とURLで登録候補にできます。公式性を自動検査した後、確認できたものだけ共有掲載します。掲載後も定期的に確認し、URLが正式に変更された場合に参照先を更新する仕組みを開発します。</p><p class="muted">自動検査、登録受付、共有掲載、スキャン、ホルダー保存、着信通知、定期同期は未実装です。緑は登録情報の検査結果であり、連絡相手の安全を保証する表示ではありません。</p></details></section>
 <script>
 const sites=[['Apple','https://www.apple.com/jp/'],['Google','https://www.google.com/'],['Microsoft','https://www.microsoft.com/ja-jp/'],['LINE','https://www.line.me/ja/','ライン らいん'],['X（旧Twitter）','https://x.com/','エックス えっくす ツイッター ついったー twitter'],['Amazon','https://www.amazon.co.jp/'],['PayPay','https://paypay.ne.jp/']];
+function previewGlassPhoto(input){const file=input.files&&input.files[0];if(!file)return;if(!file.type.startsWith('image/'))return;const img=document.getElementById('glass-photo');if(img.dataset.objectUrl)URL.revokeObjectURL(img.dataset.objectUrl);const url=URL.createObjectURL(file);img.dataset.objectUrl=url;img.src=url;img.hidden=false;}
 function filterSites(){const q=document.getElementById('findsite').value.normalize('NFKC').trim().toLowerCase(),box=document.getElementById('choices');box.replaceChildren();box.hidden=!q;if(!q)return;sites.filter(x=>x.join(' ').toLowerCase().includes(q)).forEach(x=>{let b=document.createElement('button');b.style.display='block';b.style.width='100%';b.style.margin='8px 0';b.textContent=x[0]+' — '+new URL(x[1]).hostname;b.onclick=()=>pick(x);box.append(b)});if(!box.children.length){box.textContent='一致する候補はありません。名前とURLを登録候補として入力できます。'}}
 function pick(x){document.getElementById('selected').textContent=x[0]+'｜'+x[1];document.getElementById('visit').href=x[1];showStep(2)}
 function showStep(n){[1,2,3].forEach(i=>document.getElementById('step'+i).hidden=i!==n)}
