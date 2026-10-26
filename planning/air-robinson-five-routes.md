@@ -11,3 +11,9 @@ Status: concept / preview only. Not a finalized itinerary. Do not publish to pro
 Landing locations and exact heritage sites: provisional; require geographic and presentation review.
 
 Preview requirements: 21:9 desktop viewport, responsive iPhone viewport, scenic flight background, 140% globe scale option for long ocean/land passages. Future phase: public fantasy architecture submissions and approved user placement. No existing production pages, comic or clock should be changed.
+
+## Route 1 — Pacific circuit: selected virtual landing locations
+
+Japan (departure: Yokohama Port) → Honolulu (Hawaii) → San Francisco Bay → Vancouver waterfront → Bora Bora lagoon → Auckland waterfront → Yokohama Port (return).
+
+These are fixed *design targets for the virtual route*, not physical landing permissions. Fantasy-building submissions can reference each named virtual landing zone; exact placement coordinates and visibility approval will be defined before applications open. Keep real-world heritage views unobstructed and protect passenger sightlines.
