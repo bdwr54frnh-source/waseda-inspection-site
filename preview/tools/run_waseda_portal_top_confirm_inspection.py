@@ -44,7 +44,8 @@ def main() -> int:
                     "Chrome/120.0.0.0 Safari/537.36"
                 )
             page = browser.new_page(**kw)
-            page.goto(INDEX, wait_until="networkidle")
+            page.goto(INDEX, wait_until="domcontentloaded", timeout=60000)
+            page.wait_for_timeout(400)
             title = page.title()
             meta = page.locator('meta[name="portal-template-version"]').get_attribute(
                 "content"
