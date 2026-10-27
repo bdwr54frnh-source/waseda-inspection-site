@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>【確認用】Windows · 公開サイトが旧版に見えるとき</title>
+  <style>
+    body {
+      font-family: "Segoe UI", "Yu Gothic", sans-serif;
+      line-height: 1.75;
+      max-width: 40em;
+      margin: 24px auto;
+      padding: 0 16px;
+      color: #1a1f28;
+    }
+    h1 { font-size: 1.15rem; }
+    .ok { color: #0d6832; font-weight: 600; }
+    .ng { color: #b42318; font-weight: 600; }
+    code { font-size: 0.92em; background: #f0f2f5; padding: 2px 6px; border-radius: 4px; }
+    .banner {
+      background: #3d1a1a;
+      color: #ffd4d4;
+      padding: 8px 12px;
+      font-size: 12px;
+      margin: -24px -16px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <p class="banner">非公開 · main 未反映 · PR #6 マージ後の Windows 切り分け</p>
+  <h1>Windows で「リニューアル中」旧トップが出るとき</h1>
+  <p><strong>事実（2026-10-27）:</strong> <code>https://waseda-inspection.com/</code> の GitHub Pages 正本は
+    <span class="ok">「早稲田インスペクション｜公式ポータル」</span>（main と SHA 一致）。</p>
+  <ol>
+    <li>アドレスバーが <code>https://</code> か（<code>http://</code> だけ不可）</li>
+    <li>cmd で <code>nslookup waseda-inspection.com</code> → <code>185.199.108〜111</code> 付近（GitHub Pages）</li>
+    <li><span class="ng">163.44.185.173</span> が出る → 旧ロリポップ Web のキャッシュ／DNS。PC 再起動・ DNS フラッシュ（<code>ipconfig /flushdns</code>）</li>
+    <li>ページのソースで <code>portal-template-version</code> = <code>portal-2026-10-27-confirm</code> があるか</li>
+    <li>タイトルが <span class="ng">Tandem AIR System｜リニューアル中</span> なら <strong>別サーバー</strong> を見ています</li>
+  </ol>
+  <p>正本トップ: <a href="https://waseda-inspection.com/">https://waseda-inspection.com/</a></p>
+</body>
+</html>

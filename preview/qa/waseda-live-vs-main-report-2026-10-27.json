@@ -1,0 +1,30 @@
+{
+  "report_date": "2026-10-27",
+  "pr6_merged": true,
+  "main_head": "022b3491e687 (Merge pull request #6)",
+  "comparison": {
+    "local_index_sha256": "ee6f5e28ac5c6ac6de96f16ad62dbe0eb0d33391a0f7bc82038e223029ded5f4",
+    "live_https_sha256": "ee6f5e28ac5c6ac6de96f16ad62dbe0eb0d33391a0f7bc82038e223029ded5f4",
+    "github_main_raw_sha256": "ee6f5e28ac5c6ac6de96f16ad62dbe0eb0d33391a0f7bc82038e223029ded5f4",
+    "bytes": 39198,
+    "match": true,
+    "live_title": "早稲田インスペクション｜公式ポータル",
+    "live_portal_template_version": "portal-2026-10-27-confirm"
+  },
+  "github_pages": {
+    "server": "GitHub.com",
+    "last_modified_utc_sample": "2026-10-27T03:14:58Z",
+    "cache_control": "max-age=600",
+    "workflow": ".github/workflows/deploy-pages.yml (main push + workflow_dispatch)",
+    "cname": "waseda-inspection.com"
+  },
+  "dns": {
+    "waseda-inspection.com_A": ["185.199.108.153", "185.199.109.153", "185.199.110.153", "185.199.111.153"],
+    "www_CNAME": "bdwr54frnh-source.github.io",
+    "lolipop_legacy_ip": "163.44.185.173",
+    "lolipop_host_header_title": "Tandem AIR System｜リニューアル中"
+  },
+  "windows_old_page_cause": "公開HTMLとmainは一致。Windowsで旧版は DNS/hosts が 163.44.185.173、http 直打ち、ブラウザキャッシュ以外のプロキシ等を疑う",
+  "branch_for_followup": "confirm/hp-windows-live-parity-2026-10-27",
+  "main_merge_policy": "社長承認まで merge 禁止"
+}
