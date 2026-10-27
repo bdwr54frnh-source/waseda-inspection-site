@@ -1,0 +1,40 @@
+{
+  "repo": "bdwr54frnh-source/waseda-inspection-site",
+  "investigated_at": "2026-10-27",
+  "symptom": "Windows でトップが旧版（リニューアル中）のまま · Ctrl+Shift+R でも変わらない",
+  "findings": [
+    {
+      "id": "pages_deploy_gap",
+      "severity": "high",
+      "fact": "2026-10-27 まで .github/workflows/deploy-pages.yml が欠落し、main 更新が CDN に反映されない期間があった",
+      "fix": "main b66ec8b で workflow 復元済（本番 main 未マージの confirm ブランチは別途）"
+    },
+    {
+      "id": "lolipop_stale_host",
+      "severity": "high",
+      "fact": "旧 Web サーバー 163.44.185.173 は Host: waseda-inspection.com で「Tandem AIR System｜リニューアル中」を返す（約119バイト）",
+      "note": "DNS が GitHub Pages（185.199.x）を向いていても、古い IP 直打ち・社内 hosts・キャッシュ DNS だと旧版"
+    },
+    {
+      "id": "https_current_ok",
+      "severity": "info",
+      "fact": "https://waseda-inspection.com/ は GitHub Pages · index 38866 bytes · last-modified 2026-10-27 頃",
+      "template_marker": "portal-template-version meta（confirm ブランチで追加）"
+    },
+    {
+      "id": "cache_control",
+      "severity": "medium",
+      "fact": "GitHub Pages cache-control max-age=600（10分）。ハードリロードでも別オリジン（旧 IP）だと無効"
+    }
+  ],
+  "windows_checklist": [
+    "アドレスバーが https://waseda-inspection.com/ か（http 不可）",
+    "表示 → ページのソースで portal-template-version または 公式ポータル タイトル",
+    "cmd: nslookup waseda-inspection.com → 185.199.108–111.x であること",
+    "163.44.185.173 が出る場合は DNS / hosts を修正"
+  ],
+  "email": {
+    "deprecated_public": "info@waseda-inspection.com（ロリポップ MX 解約・移行未完了）",
+    "active": "waseda-inspection@outlook.com（support.html / privacy.html と一致）"
+  }
+}
