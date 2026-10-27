@@ -1,0 +1,13 @@
+{
+  "version": 5,
+  "comment": "第3コマ台詞（過去指示どおり）。build_comic_confirm_2026_10_26.py",
+  "panel3_dialogue_text": "毎秒1000個を作り出し、\nその中から、注文された鍵を\n送信するんだ。\n認証も、毎秒1000回確認。",
+  "panel3_correct_speech": {
+    "box": [678, 208, 898, 368],
+    "max_font": 11
+  },
+  "panel3_rocky_speech": {
+    "box": [532, 182, 698, 248],
+    "max_font": 9
+  }
+}

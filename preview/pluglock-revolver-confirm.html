@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>【確認用】Plug Lock · REVOLVER 有料版</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: #0e1218;
+      color: #e8ecf2;
+    }
+    .preview-banner {
+      margin: 0;
+      padding: 6px 10px;
+      font-size: 11px;
+      background: #3d1a1a;
+      color: #ffd4d4;
+      text-align: center;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 16px 14px 32px; }
+    h2 { font-size: 18px; margin: 0 0 12px; color: #7eb8ff; }
+    .glass-panel {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(20,28,40,0.85);
+    }
+    .pluglock-row {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .pluglock-row img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      border-radius: 16px;
+      border: 1px solid rgba(212,175,55,0.35);
+      background: #0a0c12;
+      padding: 8px;
+    }
+    .note { font-size: 12px; color: #8a96a8; line-height: 1.55; margin-top: 12px; }
+    @media (max-width: 520px) {
+      .pluglock-row { grid-template-columns: 1fr; text-align: center; }
+      .pluglock-row img { margin-inline: auto; }
+    }
+  </style>
+</head>
+<body>
+  <p class="preview-banner">非公開 · 確認用のみ（本番 waseda-inspection.com へは未公開）</p>
+  <main>
+    <section id="plug-lock">
+      <h2>開発中：プラグロック</h2>
+      <div class="glass-panel pluglock-row">
+        <img src="../assets/hp_pluglock_app_icon.jpg" width="96" height="96" alt="プラグロック — プラグと鍵（ガラス額）" loading="lazy">
+        <div>
+          <p style="margin:0 0 10px;font-size:14px;"><strong>Plug Lock</strong> — 認証・ロックの共通基盤。接続前認証はもともとある機能で、<strong>他社 SNS を2つ追加したとき</strong>も、各外部アプリ（通話・メール等）へ移る直前に認証を挟めます。</p>
+          <p style="margin:0 0 8px;font-size:13px;"><strong>無料版（スイッチ ON・初期 OFF）</strong></p>
+          <ul style="margin:0 0 10px;padding-left:1.2em;font-size:13px;line-height:1.65;">
+            <li>メール等への接続前に認証</li>
+            <li>他社サービスの通話へ移る前にも Plug Lock 認証</li>
+          </ul>
+          <p style="margin:0 0 8px;font-size:13px;"><strong>REVOLVER 有料版</strong></p>
+          <ul style="margin:0 0 8px;padding-left:1.2em;font-size:13px;line-height:1.65;">
+            <li>管理カード10枚まで：月額1,100円</li>
+            <li>管理カード20枚まで：月額1,980円</li>
+            <li>30枚以上：法人向け、料金未定</li>
+          </ul>
+          <p style="margin:0 0 8px;font-size:13px;line-height:1.65;"><strong>機能</strong></p>
+          <ul style="margin:0 0 10px;padding-left:1.2em;font-size:13px;line-height:1.65;">
+            <li>カード別の金額・時間・曜日・用途によるピンポイント制限</li>
+            <li>設定した制限とは別に、iOSとの連携による異変検知と緊急支払い停止（<strong>開発中</strong>）</li>
+            <li>緊急停止時は停止地点のみ本人に通知（<strong>開発中</strong>）</li>
+            <li>Apple Account による認証後、通常利用を再開（<strong>開発中</strong>）</li>
+          </ul>
+          <p class="note">親プラグロック（サーバー鍵）→ Music → ガラス保存・送信 → ロビンソン。Air Face に通話がない版では「通話前」ではなく接続前として案内します。正本はアプリ内 Policy。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

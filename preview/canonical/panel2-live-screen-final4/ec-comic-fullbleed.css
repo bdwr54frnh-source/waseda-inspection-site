@@ -1,0 +1,125 @@
+/**
+ * ELEMENTARY CODE 8コマ（1024×678 · LIVE正常時レイアウト復帰）
+ * 第2コマ: MacBook 液晶 clip-path + 固定時刻行のみ紺マスク
+ * 第3コマ: Keynote 完成画像を枠内 HTML 重ねのみ（1〜2・4〜8 PNG 不変）
+ * ec-live-clock.js 変更禁止
+ */
+.ec-comic-fullbleed {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ec-comic-fullbleed .comic-8-wrap {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+
+.ec-comic-fullbleed .comic-8-wrap > img.comic-8-base {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+/* 第3コマ Keynote（512,137)―(768,339) · 4列上段 · はみ出し禁止 */
+.ec-comic-fullbleed .comic-panel3-keynote {
+  position: absolute;
+  left: 50%;
+  top: 20.2065%;
+  width: 25%;
+  height: 29.7935%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+}
+
+.ec-comic-fullbleed .comic-panel3-keynote > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+/* MacBook 青画面 · TL/TR/BR/BL（1024×678 実測 · screen-final4） */
+.ec-comic-fullbleed .comic-panel2-screen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  clip-path: polygon(
+    35.84% 33.48%,
+    52.55% 32.55%,
+    52.05% 40.85%,
+    36.13% 35.84%
+  );
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+}
+
+.ec-comic-fullbleed .comic-panel2-static-mask {
+  position: absolute;
+  left: 46.2%;
+  top: 35.1%;
+  width: 12.65%;
+  height: 3.75%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgb(4, 23, 56);
+  transform: rotate(-2.35deg);
+  transform-origin: center center;
+  z-index: 1;
+}
+
+.ec-comic-fullbleed #comic-panel2-clock {
+  position: absolute;
+  left: 46.2%;
+  top: 35.1%;
+  transform: translate(-50%, -50%) rotate(-2.35deg);
+  transform-origin: center center;
+  z-index: 2;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  font: 700 clamp(11px, 1.12vw, 17px) / 1 Arial, Helvetica, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+  pointer-events: none;
+  overflow: visible;
+  color: #fff;
+}
+
+.ec-comic-fullbleed #comic-panel2-clock .ec-comic-digital-main,
+.ec-comic-fullbleed #comic-panel2-clock .ec-comic-digital-frac {
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.ec-comic-fullbleed #comic-panel2-clock .ec-comic-digital-main {
+  color: #fff;
+}
+
+.ec-comic-fullbleed #comic-panel2-clock .ec-comic-digital-frac {
+  color: #f5c842;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>【確認用】WORLD TIME 折り返し</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: #f4f6fa;
+      color: #111;
+    }
+    .preview-banner {
+      margin: 0;
+      padding: 6px 10px;
+      font-size: 11px;
+      background: #3d1a1a;
+      color: #ffd4d4;
+      text-align: center;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 14px 14px 28px; }
+    h1 { font-size: 17px; margin: 0 0 8px; }
+    .note { font-size: 12px; color: #5a6b82; line-height: 1.55; margin: 0 0 12px; }
+    .panel {
+      border: 1px solid #ccd3df;
+      background: #fff;
+      padding: 12px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+    }
+    .panel h2 { font-size: 13px; margin: 0 0 8px; color: #334; }
+    .world-clocks-stream {
+      font-size: 12px;
+      line-height: 1.65;
+      font-variant-numeric: tabular-nums;
+      border: 1px solid #ccd3df;
+      padding: 12px;
+    }
+    .world-clocks-stream .wt-line { display: block; margin: 0; }
+    .world-clocks-stream .wt-entry,
+    .world-clocks-stream .wt-dots { white-space: nowrap; }
+    .demo-narrow { max-width: 168px; }
+    .demo-wide { max-width: 100%; }
+    .valid { font-size: 11px; color: #0a6b2c; }
+    .invalid { font-size: 11px; color: #a30; }
+  </style>
+  <script src="js/ec-world-time-wrap.js" defer></script>
+</head>
+<body>
+  <p class="preview-banner">非公開 · 確認用のみ（本番 elementarycode.tokyo へは未公開）</p>
+  <main>
+    <h1>WORLD TIME 折り返し（確定仕様）</h1>
+    <p class="note">▪は各国8個 · 国名＋時刻は分割しない · 行末▪は最大4 · 次行は5個目から。時刻は <code>Intl</code>（既存と同型）。</p>
+
+    <section class="panel">
+      <h2>社長例（Japan / France · 狭幅で 4+4 折り返し）</h2>
+      <div id="demo-narrow" class="world-clocks-stream demo-narrow" aria-live="polite"></div>
+      <p id="demo-narrow-valid" class="valid"></p>
+    </section>
+
+    <section class="panel">
+      <h2>195地域（先頭12 · PC/iPhone 幅）</h2>
+      <div id="demo-full" class="world-clocks-stream demo-wide" aria-live="polite"></div>
+      <p id="demo-full-valid" class="valid"></p>
+    </section>
+  </main>
+  <script>
+    function formatWorldTime(timeZone) {
+      try {
+        return new Intl.DateTimeFormat("en-GB", {
+          timeZone: timeZone,
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).format(new Date());
+      } catch (e) {
+        return "--:--";
+      }
+    }
+
+    function boot() {
+      if (!window.ECWorldTimeWrap) return;
+      var sample = [
+        { name: "Japan", tz: "Asia/Tokyo" },
+        { name: "France", tz: "Europe/Paris" },
+      ];
+      var narrow = document.getElementById("demo-narrow");
+      var layoutN = ECWorldTimeWrap.paintWorldTimeStream(narrow, sample, formatWorldTime);
+      document.getElementById("demo-narrow-valid").textContent =
+        layoutN.valid ? "▪ 検証 OK（各国8個）" : "▪ 検証 NG";
+
+      fetch("data/world-clocks-195.json")
+        .then(function (res) { return res.json(); })
+        .then(function (rows) {
+          var full = document.getElementById("demo-full");
+          var layoutF = ECWorldTimeWrap.paintWorldTimeStream(
+            full,
+            rows.slice(0, 12),
+            formatWorldTime
+          );
+          document.getElementById("demo-full-valid").textContent =
+            layoutF.valid ? "▪ 検証 OK（各国8個）" : "▪ 検証 NG";
+          setInterval(function () {
+            ECWorldTimeWrap.updateStreamTimes(full, rows.slice(0, 12), formatWorldTime);
+            ECWorldTimeWrap.updateStreamTimes(narrow, sample, formatWorldTime);
+          }, 30000);
+        })
+        .catch(function () {
+          document.getElementById("demo-full-valid").textContent = "JSON 読込失敗";
+        });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", boot);
+    } else {
+      boot();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "url": "http://127.0.0.1:8766/elementary-comic-live-confirm.html?v=world-clocks-3-2026-10-27&ecConfirmLive=1",
+  "tick_wait_ms": 2000,
+  "checks": [
+    {
+      "label": "100pct",
+      "ticks": {
+        "world-clock-tokyo": {
+          "t0": "01:41:21.99",
+          "t1": "01:41:24.19",
+          "tick_ok": true
+        },
+        "world-clock-london": {
+          "t0": "16:41:21.99",
+          "t1": "16:41:24.19",
+          "tick_ok": true
+        },
+        "world-clock-ny": {
+          "t0": "12:41:21.99",
+          "t1": "12:41:24.19",
+          "tick_ok": true
+        }
+      },
+      "all_cities_tick_ok": true,
+      "no_comic_overlay": true,
+      "shots": [
+        "world-clocks-3-100pct-t0.png",
+        "world-clocks-3-100pct-t1.png"
+      ]
+    },
+    {
+      "label": "75pct",
+      "ticks": {
+        "world-clock-tokyo": {
+          "t0": "01:41:25.07",
+          "t1": "01:41:27.23",
+          "tick_ok": true
+        },
+        "world-clock-london": {
+          "t0": "16:41:25.07",
+          "t1": "16:41:27.23",
+          "tick_ok": true
+        },
+        "world-clock-ny": {
+          "t0": "12:41:25.07",
+          "t1": "12:41:27.23",
+          "tick_ok": true
+        }
+      },
+      "all_cities_tick_ok": true,
+      "no_comic_overlay": true,
+      "shots": [
+        "world-clocks-3-75pct-t0.png",
+        "world-clocks-3-75pct-t1.png"
+      ]
+    },
+    {
+      "label": "iphone390",
+      "ticks": {
+        "world-clock-tokyo": {
+          "t0": "01:41:28.07",
+          "t1": "01:41:30.12",
+          "tick_ok": true
+        },
+        "world-clock-london": {
+          "t0": "16:41:28.07",
+          "t1": "16:41:30.12",
+          "tick_ok": true
+        },
+        "world-clock-ny": {
+          "t0": "12:41:28.07",
+          "t1": "12:41:30.12",
+          "tick_ok": true
+        }
+      },
+      "all_cities_tick_ok": true,
+      "no_comic_overlay": true,
+      "shots": [
+        "world-clocks-3-iphone390-t0.png",
+        "world-clocks-3-iphone390-t1.png"
+      ]
+    }
+  ]
+}

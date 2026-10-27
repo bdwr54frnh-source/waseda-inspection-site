@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>【確認用】ロビンソンからの眺め · 21:9 ワイド</title>
+  <link rel="stylesheet" href="css/air-robinson-wide-view.css?v=ar-wide-2026-10-27">
+</head>
+<body class="ar-wide-body">
+  <p class="preview-banner">非公開 · AIR ROBINSON 構想プレビュー · 本番 HP 未反映 · ログイン不要（完成まで無料閲覧想定）</p>
+  <div class="ar-wrap">
+    <p class="ar-back"><a href="air-robinson-home-entry-confirm.html">← 確認用ホーム（アイコン入口）</a></p>
+    <h1>ロビンソンからの眺め</h1>
+    <p class="ar-lead">AIR ROBINSON 世界一周 · 5ルート構想 — 現在計画中のルートです。こんな景色を巡る予定です。</p>
+    <p class="ar-badge" id="concept-badge">予定・構想段階</p>
+    <p class="ar-free-note">AIR ROBINSON 完成までは景色の閲覧のみ無料（確認用 · サブスク・ログインなし）。</p>
+
+    <div class="ar-wide-stage-outer">
+      <div class="ar-wide-stage" id="ar-wide-stage" aria-label="ロビンソンからの眺め · 21比9">
+        <div class="ar-wide-scene">
+          <img id="ar-scenery" src="../assets/hp_app_cloud_world_kiyoshi.jpg" alt="" decoding="async">
+        </div>
+        <div class="ar-hud" aria-live="polite">
+          <span id="hud-route">—</span>
+          <span id="hud-alt">高度 — m</span>
+          <span id="hud-pitch">視線 —°</span>
+          <span id="hud-status">構想</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ar-controls">
+      <label>高度（確認用スライダー · 滑らかに視線連動）
+        <input type="range" id="alt-slider" min="80" max="920" value="200" step="1">
+      </label>
+      <button type="button" id="btn-heritage-low">世界遺産付近 · 低空演出</button>
+      <button type="button" id="btn-cruise">巡航高度へ</button>
+    </div>
+
+    <ul class="ar-route-list" id="route-list" aria-label="5ルート構想"></ul>
+    <p class="ar-credit" id="route-credit"></p>
+  </div>
+
+  <script src="js/air-robinson-view-pitch.js?v=ar-wide-2026-10-27"></script>
+  <script>
+    (function () {
+      var scenery = document.getElementById("ar-scenery");
+      var slider = document.getElementById("alt-slider");
+      var list = document.getElementById("route-list");
+      var credit = document.getElementById("route-credit");
+      var hudRoute = document.getElementById("hud-route");
+      var hudAlt = document.getElementById("hud-alt");
+      var hudPitch = document.getElementById("hud-pitch");
+      var Pitch = window.AirRobinsonViewPitch;
+      var routes = [];
+      var activeId = null;
+      var animId = null;
+
+      function setAltitude(m, animate) {
+        var alt = Math.round(m);
+        slider.value = String(alt);
+        Pitch.applyPitchToElement(scenery, alt, { animate: animate !== false });
+        hudAlt.textContent = "高度 " + alt + " m AGL";
+        hudPitch.textContent = "視線 " + (scenery.dataset.pitchDeg || "—") + "°";
+      }
+
+      function selectRoute(route, animateAlt) {
+        activeId = route.id;
+        scenery.src = route.image;
+        scenery.alt = route.titleJA + "（構想イメージ · 未確定）";
+        hudRoute.textContent = route.titleJA;
+        credit.textContent = route.imageCreditJA || "";
+        list.querySelectorAll("button").forEach(function (btn) {
+          btn.setAttribute("aria-current", btn.dataset.routeId === route.id ? "true" : "false");
+        });
+        var target = route.demoAltitudeMeters;
+        if (animateAlt === "heritage") target = route.heritageLowFlyMeters;
+        if (animateAlt === "cruise") target = 720;
+        smoothToAltitude(target);
+      }
+
+      function smoothToAltitude(target) {
+        if (animId) cancelAnimationFrame(animId);
+        var start = Number(slider.value);
+        var delta = target - start;
+        if (Math.abs(delta) < 2) {
+          setAltitude(target, true);
+          return;
+        }
+        var t0 = performance.now();
+        var dur = 900;
+        function frame(now) {
+          var u = Math.min(1, (now - t0) / dur);
+          var eased = u * u * (3 - 2 * u);
+          setAltitude(start + delta * eased, true);
+          if (u < 1) animId = requestAnimationFrame(frame);
+        }
+        animId = requestAnimationFrame(frame);
+      }
+
+      fetch("data/air-robinson-routes-concept.json")
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          routes = data.routes || [];
+          document.getElementById("concept-badge").textContent = data.statusLabelJA || "構想";
+          routes.forEach(function (route, idx) {
+            var li = document.createElement("li");
+            var btn = document.createElement("button");
+            btn.type = "button";
+            btn.dataset.routeId = route.id;
+            btn.innerHTML =
+              '<span class="title">' + route.titleJA + "</span>" +
+              '<span class="hint">' + route.heritageHintJA + "</span>";
+            btn.addEventListener("click", function () { selectRoute(route, "normal"); });
+            li.appendChild(btn);
+            list.appendChild(li);
+            if (idx === 0) selectRoute(route, false);
+          });
+        })
+        .catch(function () {
+          credit.textContent = "ルートデータを読み込めませんでした。";
+        });
+
+      slider.addEventListener("input", function () {
+        setAltitude(Number(slider.value), true);
+      });
+
+      document.getElementById("btn-heritage-low").addEventListener("click", function () {
+        var route = routes.find(function (r) { return r.id === activeId; });
+        if (route) smoothToAltitude(route.heritageLowFlyMeters);
+      });
+
+      document.getElementById("btn-cruise").addEventListener("click", function () {
+        smoothToAltitude(720);
+      });
+
+      var q = new URLSearchParams(location.search);
+      if (q.get("open") === "1") {
+        document.getElementById("ar-wide-stage").scrollIntoView({ behavior: "smooth" });
+      }
+    })();
+  </script>
+</body>
+</html>

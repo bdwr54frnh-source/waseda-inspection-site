@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>【確認用】世界時刻 LIVE（東京・ロンドン・サンフランシスコ）</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      background: #060a14;
+      color: #e8ecf2;
+    }
+    .preview-banner {
+      margin: 0;
+      padding: 6px 10px;
+      font-size: 11px;
+      background: #3d1a1a;
+      color: #ffd4d4;
+      text-align: center;
+    }
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px 14px 28px;
+    }
+    h1 {
+      font-size: clamp(15px, 3.5vw, 18px);
+      margin: 0 0 8px;
+      color: #d4e4ff;
+    }
+    .note {
+      font-size: 12px;
+      color: #b4c2d6;
+      line-height: 1.55;
+      margin: 0 0 14px;
+    }
+    .note a { color: #9ec5ff; }
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      color: #d4e4ff;
+    }
+    .world-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-variant-numeric: tabular-nums;
+    }
+    @media (min-width: 520px) {
+      .world-strip {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 8px 14px;
+      }
+    }
+    .world-entry {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px 10px;
+      padding: 8px 10px;
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .world-entry .city {
+      font-size: 12px;
+      font-weight: 600;
+      color: #9aadc8;
+    }
+    .world-entry time {
+      font: 700 clamp(14px, 3.6vw, 18px) / 1.2 ui-monospace, Menlo, monospace;
+      letter-spacing: -0.04em;
+      color: #e8ecf2;
+    }
+    .world-entry time .ec-comic-digital-frac {
+      color: #e8c547;
+    }
+    .sep {
+      display: none;
+      color: #6b8ab8;
+    }
+    @media (min-width: 520px) {
+      .sep { display: inline; }
+    }
+  </style>
+</head>
+<body>
+  <p class="preview-banner">非公開 · 確認用のみ · 8コマ漫画とは別ページ</p>
+  <main>
+    <h1>世界時刻（LIVE · 3都市）</h1>
+    <p class="note">
+      漫画ページ:
+      <a href="elementary-comic-live-confirm.html?v=comic-final-static-2026-10-27">elementary-comic-live-confirm.html</a>
+      · <code>ec-live-clock.js</code> 未変更 · 100分の1秒表示。
+    </p>
+    <section class="card" aria-label="世界時刻">
+      <h2>世界時刻</h2>
+      <div class="world-strip" aria-live="polite">
+        <div class="world-entry">
+          <span class="city">東京</span>
+          <time id="world-clock-tokyo" data-ec-comic-digital data-ec-tz="Asia/Tokyo">--:--:--.--</time>
+        </div>
+        <span class="sep" aria-hidden="true">■</span>
+        <div class="world-entry">
+          <span class="city">ロンドン</span>
+          <time id="world-clock-london" data-ec-comic-digital data-ec-tz="Europe/London">--:--:--.--</time>
+        </div>
+        <span class="sep" aria-hidden="true">■</span>
+        <div class="world-entry">
+          <span class="city">サンフランシスコ</span>
+          <time id="world-clock-sf" data-ec-comic-digital data-ec-tz="America/Los_Angeles">--:--:--.--</time>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/ec-live-clock.js?v=panel2-live-pass2" defer></script>
+</body>
+</html>

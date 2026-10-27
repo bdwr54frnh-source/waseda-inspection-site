@@ -1,0 +1,39 @@
+{
+  "before": {
+    "clock_text_1": "20:48:58.70",
+    "clock_text_2": "20:48:58.84",
+    "live_ticks": true,
+    "clock_rel": {
+      "x": 0.435291,
+      "y": 0.372573,
+      "width": 0.053418,
+      "height": 0.020193
+    },
+    "mask_rel": {
+      "x": 0.461544,
+      "y": 0.378769,
+      "width": 0.127401,
+      "height": 0.045302
+    }
+  },
+  "after": {
+    "clock_text_1": "20:49:00.41",
+    "clock_text_2": "20:49:00.54",
+    "live_ticks": true,
+    "clock_rel": {
+      "x": 0.435291,
+      "y": 0.372573,
+      "width": 0.053418,
+      "height": 0.020193
+    },
+    "mask_rel": {
+      "x": 0.461544,
+      "y": 0.378769,
+      "width": 0.127401,
+      "height": 0.045302
+    }
+  },
+  "layout_match": true,
+  "live_ticks_before": true,
+  "live_ticks_after": true
+}

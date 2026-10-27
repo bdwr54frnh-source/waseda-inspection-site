@@ -1,0 +1,28 @@
+{
+  "home_url": "http://127.0.0.1:8767/preview/air-robinson-home-entry-confirm.html?v=ar-wide-2026-10-27",
+  "wide_url": "http://127.0.0.1:8767/preview/air-robinson-wide-view-confirm.html?v=ar-wide-2026-10-27",
+  "checks": [
+    {
+      "label": "pc219",
+      "icon_on_home": true,
+      "aspect_ratio_21_9": true,
+      "pitch_low_under_250": 40,
+      "pitch_high_reduced": 3.4,
+      "pitch_low_near_40": true,
+      "pitch_high_below_15": true,
+      "five_routes": true,
+      "no_comic": true
+    },
+    {
+      "label": "iphone390",
+      "icon_on_home": true,
+      "aspect_ratio_21_9": true,
+      "pitch_low_under_250": 40,
+      "pitch_high_reduced": 3.4,
+      "pitch_low_near_40": true,
+      "pitch_high_below_15": true,
+      "five_routes": true,
+      "no_comic": true
+    }
+  ]
+}

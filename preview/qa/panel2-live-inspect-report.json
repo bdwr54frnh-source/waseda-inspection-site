@@ -1,0 +1,51 @@
+{
+  "url": "http://127.0.0.1:8766/elementary-comic-live-confirm.html?v=panel2-live-mirror-2026-10-27&ecConfirmLive=1",
+  "tick_wait_ms": 2000,
+  "checks": [
+    {
+      "zoom": "100pct",
+      "env": {
+        "confirm": true,
+        "isLive": true,
+        "host": "127.0.0.1"
+      },
+      "comic_t0": "01:03:19.69",
+      "comic_t1": "01:03:21.80",
+      "inspector_t0": "01:03:19.69",
+      "inspector_t1": "01:03:21.80",
+      "tick_ok": true,
+      "mirror_ok": true,
+      "shots": [
+        "panel2-live-inspect-100pct-t0.png",
+        "panel2-live-inspect-100pct-t1.png"
+      ]
+    },
+    {
+      "zoom": "75pct",
+      "env": {
+        "confirm": true,
+        "isLive": true,
+        "host": "127.0.0.1"
+      },
+      "comic_t0": "01:03:22.40",
+      "comic_t1": "01:03:24.46",
+      "inspector_t0": "01:03:22.40",
+      "inspector_t1": "01:03:24.46",
+      "tick_ok": true,
+      "mirror_ok": true,
+      "shots": [
+        "panel2-live-inspect-75pct-t0.png",
+        "panel2-live-inspect-75pct-t1.png"
+      ]
+    },
+    {
+      "zoom": "iphone390",
+      "comic_t0": "01:03:25.07",
+      "comic_t1": "01:03:27.07",
+      "inspector_t0": "01:03:25.07",
+      "inspector_t1": "01:03:27.07",
+      "tick_ok": true,
+      "mirror_ok": true
+    }
+  ]
+}

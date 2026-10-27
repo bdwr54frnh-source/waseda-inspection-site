@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>【確認用】ELEMENTARY CODE LIVE時計 · ナビ背景 · 8コマ第2PC</title>
+  <link rel="stylesheet" href="preview.css">
+  <link rel="stylesheet" href="css/ec-comic-fullbleed.css?v=p3-overlay-4col-final4b">
+  <style>
+    body { margin: 0; background: #050810; color: #e8ecf2; }
+    .preview-banner { background: #3d1a1a; color: #ffd4d4; }
+    main { max-width: 960px; margin: 0 auto; padding: 16px 16px 48px; }
+    .nav-far {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 16px 0 24px;
+      border: 1px solid rgba(255,255,255,0.12);
+      min-height: 220px;
+      background: #0a1020 center / cover no-repeat;
+    }
+    .nav-far img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: scale(0.92);
+      transform-origin: center 42%;
+      opacity: 0.95;
+    }
+    .nav-far-caption {
+      position: absolute;
+      left: 12px;
+      bottom: 10px;
+      font-size: 12px;
+      background: rgba(0,0,0,0.55);
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+    .comic-8-wrap {
+      margin: 0 0 24px;
+      overflow: hidden;
+    }
+    .comic-missing {
+      padding: 24px 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #b8c8e0;
+    }
+    .status-demo {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 12px;
+    }
+    .clock-wrap {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .clock {
+      width: 72px;
+      height: 72px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      position: relative;
+      flex: 0 0 72px;
+    }
+    .clock .hub {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 4px;
+      height: 4px;
+      margin: -2px 0 0 -2px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      z-index: 2;
+    }
+    .clock .hand {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1px;
+      background: rgba(255,255,255,0.85);
+      transform-origin: 50% 0;
+      transform: rotate(180deg);
+    }
+    .clock .hand-hour { height: 18px; margin-left: -0.5px; }
+    .clock .hand-minute { height: 26px; margin-left: -0.5px; opacity: 0.75; }
+    .ec-live-digital {
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+    .note { font-size: 13px; color: #9aadc8; line-height: 1.55; }
+  </style>
+</head>
+<body>
+  <p class="preview-banner">非公開 · 確認用のみ（本番 elementarycode.tokyo へは未公開）</p>
+  <nav class="preview-nav">
+    <a href="index.html">入口</a>
+    <a href="ec-top.html">EC</a>
+    <a href="elementary-live-confirm.html" aria-current="page">LIVE時計</a>
+  </nav>
+  <main>
+    <h1>ELEMENTARY CODE · LIVE時計（東京）</h1>
+    <p class="note">ナビ背景は正本インフォグラフィックを<strong>遠景</strong>として表示。8コマは吹き出し修正版 PNG ＋ 第2コマ PC 上に LIVE 時計のみ重ねます。</p>
+
+    <section class="nav-far" aria-label="地球ナビ背景（遠景）">
+      <img src="../assets/hp_promo_elementary_code_infographic.jpg" alt="Elementary Code ナビ（遠景表示）">
+      <p class="nav-far-caption">ナビ背景 · 遠くから見た縮尺（確認用）</p>
+    </section>
+
+    <section aria-labelledby="comic-heading">
+      <h2 id="comic-heading">8コマ漫画（抜粋）· 第2コマ LIVE</h2>
+      <p class="note" style="margin:0 0 10px;">漫画（ロッキー作 8コマ） → <a href="elementary-comic-live-confirm.html" style="color:#9ec5ff;">elementary-comic-live-confirm.html</a></p>
+      <div class="ec-comic-fullbleed comic-8-wrap" id="comic-8-wrap">
+        <p class="comic-missing" id="comic-missing">確認用 <code>elementary_code_8panel_confirm_bubbles.png</code> を読み込めません。</p>
+        <img id="comic-8-img" class="comic-8-base" src="assets/elementary_code_rocky_8panel.png?v=p3-overlay-live-base2" alt="ELEMENTARY CODE 8コマ漫画（ロッキー作 · 確認用）" hidden>
+        <div class="comic-panel3-keynote" id="comic-panel3-keynote" hidden aria-hidden="true">
+          <img src="assets/elementary_code_panel3_keynote.png?v=p3-overlay-live-base2" width="256" height="202" alt="">
+        </div>
+        <div class="comic-panel2-screen" id="comic-panel2-screen" hidden aria-hidden="true">
+          <div class="comic-panel2-static-mask" aria-hidden="true"></div>
+          <time
+            id="comic-panel2-clock"
+            data-ec-comic-digital
+            data-ec-tz="Asia/Tokyo"
+            aria-live="polite"
+            aria-label="東京時刻 LIVE（100分の1秒）">--:--:--.--</time>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-demo" aria-labelledby="status-heading">
+      <h2 id="status-heading">elementarycode.tokyo 同等 · Status 時計</h2>
+      <div class="clock-wrap">
+        <div class="clock" id="status-clock" aria-hidden="true">
+          <span class="hand hand-hour"></span>
+          <span class="hand hand-minute"></span>
+          <span class="hub"></span>
+        </div>
+        <p class="note">逆回転 · Asia/Tokyo · 1秒更新（確認環境のみ LIVE）</p>
+      </div>
+    </section>
+
+    <p class="note" style="margin-top:20px;">
+      ローカル確認: <code>python3 -m http.server 8766</code> を <code>waseda-inspection/preview</code> で実行 →
+      <a href="http://127.0.0.1:8766/elementary-live-confirm.html" style="color:#9ec5ff;">elementary-live-confirm.html</a><br>
+      EC サイト確認: <code>elementarycode-tokyo</code> で <code>?ecConfirmLive=1</code>
+    </p>
+  </main>
+  <script src="js/ec-live-clock.js" defer></script>
+  <script>
+    (function () {
+      var img = document.getElementById("comic-8-img");
+      var missing = document.getElementById("comic-missing");
+      var screen = document.getElementById("comic-panel2-screen");
+      var panel3 = document.getElementById("comic-panel3-keynote");
+      if (!img) return;
+      img.addEventListener("load", function () {
+        img.hidden = false;
+        if (missing) missing.hidden = true;
+        if (panel3) panel3.hidden = false;
+        if (screen) screen.hidden = false;
+      });
+      img.addEventListener("error", function () {
+        img.hidden = true;
+        if (panel3) panel3.hidden = true;
+        if (screen) screen.hidden = true;
+      });
+      if (img.complete && img.naturalWidth > 0) img.dispatchEvent(new Event("load"));
+      else if (img.complete) img.dispatchEvent(new Event("error"));
+    })();
+  </script>
+</body>
+</html>

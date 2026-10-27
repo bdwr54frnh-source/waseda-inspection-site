@@ -1,0 +1,42 @@
+{
+  "url": "http://127.0.0.1:8767/index.html?v=home-world-clocks-sf-2026-10-27#world-clocks",
+  "tick_ms": 2000,
+  "checks": [
+    {
+      "label": "pc920",
+      "tick_ok": true,
+      "order_live_before_poster": true,
+      "poster_unchanged_path": true,
+      "no_poster_in_ec_section": true,
+      "no_comic_on_hp": true,
+      "cities_t0": {
+        "world-clock-tokyo": "01:48:33.78",
+        "world-clock-london": "16:48:33.78",
+        "world-clock-sf": "09:48:33.78"
+      },
+      "cities_t1": {
+        "world-clock-tokyo": "01:48:36.35",
+        "world-clock-london": "16:48:36.35",
+        "world-clock-sf": "09:48:36.35"
+      }
+    },
+    {
+      "label": "iphone390",
+      "tick_ok": true,
+      "order_live_before_poster": true,
+      "poster_unchanged_path": true,
+      "no_poster_in_ec_section": true,
+      "no_comic_on_hp": true,
+      "cities_t0": {
+        "world-clock-tokyo": "01:48:39.04",
+        "world-clock-london": "16:48:39.04",
+        "world-clock-sf": "09:48:39.04"
+      },
+      "cities_t1": {
+        "world-clock-tokyo": "01:48:41.24",
+        "world-clock-london": "16:48:41.24",
+        "world-clock-sf": "09:48:41.24"
+      }
+    }
+  ]
+}

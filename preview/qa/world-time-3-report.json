@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8766/world-time-3cities-live-confirm.html?v=world-time-3-2026-10-27&ecConfirmLive=1",
+  "tick_ms": 2000,
+  "checks": [
+    {
+      "label": "100pct",
+      "tick_ok": true,
+      "no_comic_on_page": true,
+      "cities_t0": {
+        "world-clock-tokyo": "01:48:43.87",
+        "world-clock-london": "16:48:43.87",
+        "world-clock-sf": "09:48:43.87"
+      },
+      "cities_t1": {
+        "world-clock-tokyo": "01:48:45.95",
+        "world-clock-london": "16:48:45.95",
+        "world-clock-sf": "09:48:45.95"
+      }
+    },
+    {
+      "label": "iphone390",
+      "tick_ok": true,
+      "no_comic_on_page": true,
+      "cities_t0": {
+        "world-clock-tokyo": "01:48:46.58",
+        "world-clock-london": "16:48:46.58",
+        "world-clock-sf": "09:48:46.58"
+      },
+      "cities_t1": {
+        "world-clock-tokyo": "01:48:48.63",
+        "world-clock-london": "16:48:48.63",
+        "world-clock-sf": "09:48:48.63"
+      }
+    }
+  ]
+}

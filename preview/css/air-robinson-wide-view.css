@@ -1,0 +1,192 @@
+/**
+ * AIR ROBINSON 無料ワイドビュー（確認用）
+ * PC: 21:9 · iPhone: 幅いっぱい
+ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body.ar-wide-body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Noto Sans JP", -apple-system, sans-serif;
+  background: #f4f5f7;
+  color: #1a1f28;
+  line-height: 1.55;
+}
+
+.preview-banner {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 11px;
+  background: #3d1a1a;
+  color: #ffd4d4;
+  text-align: center;
+}
+
+.ar-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 12px 14px 28px;
+}
+
+.ar-wrap h1 {
+  font-size: clamp(16px, 3.8vw, 20px);
+  margin: 0 0 6px;
+  color: #2d4a66;
+}
+
+.ar-lead {
+  font-size: 13px;
+  color: #5a6472;
+  margin: 0 0 12px;
+}
+
+.ar-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #fff3cd;
+  color: #7a5b00;
+  border: 1px solid #e6c86e;
+  margin-bottom: 10px;
+}
+
+.ar-free-note {
+  font-size: 12px;
+  color: #434b57;
+  margin: 0 0 14px;
+}
+
+.ar-wide-stage-outer {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 12px;
+}
+
+.ar-wide-stage {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 21 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 74, 102, 0.22);
+  background: #0a1018;
+  box-shadow: 0 10px 28px rgba(20, 30, 50, 0.12);
+}
+
+@media (min-width: 900px) {
+  .ar-wide-stage {
+    max-width: min(100%, calc(72vh * 21 / 9));
+  }
+}
+
+.ar-wide-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform-origin: 50% 55%;
+}
+
+.ar-wide-scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform-origin: 50% 55%;
+  will-change: transform;
+}
+
+.ar-hud {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  align-items: center;
+  font-size: 11px;
+  color: #eef2f8;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+}
+
+.ar-hud span {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ar-route-list {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.ar-route-list button {
+  text-align: left;
+  width: 100%;
+  border: 1px solid rgba(45, 74, 102, 0.22);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 10px 12px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.ar-route-list button[aria-current="true"] {
+  border-color: #2d4a66;
+  box-shadow: 0 0 0 1px #2d4a66;
+}
+
+.ar-route-list .title {
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+}
+
+.ar-route-list .hint {
+  font-size: 11px;
+  color: #5a6472;
+  margin-top: 4px;
+  display: block;
+}
+
+.ar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.ar-controls label {
+  flex: 1 1 200px;
+}
+
+.ar-controls input[type="range"] {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.ar-credit {
+  font-size: 11px;
+  color: #5a6472;
+  margin: 0;
+}
+
+.ar-back {
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.ar-back a {
+  color: #2d4a66;
+  font-weight: 700;
+}

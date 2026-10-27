@@ -1,0 +1,18 @@
+{
+  "comic_url": "http://127.0.0.1:8766/elementary-comic-live-confirm.html?v=comic-final-static-2026-10-27",
+  "png_matches_readonly": true,
+  "checks": [
+    {
+      "label": "100pct",
+      "no_overlay_no_world_on_comic": true
+    },
+    {
+      "label": "75pct",
+      "no_overlay_no_world_on_comic": true
+    },
+    {
+      "label": "iphone390",
+      "no_overlay_no_world_on_comic": true
+    }
+  ]
+}

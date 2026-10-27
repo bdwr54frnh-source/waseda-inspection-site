@@ -1,0 +1,19 @@
+{
+  "id": "panel2-live-screen-final4",
+  "label_ja": "第2コマLIVE時計・最良確認版（screen-final4）",
+  "confirm_url": "http://127.0.0.1:8766/elementary-comic-live-confirm.html?v=panel2-live-canonical",
+  "css_query": "css/ec-comic-fullbleed.css?v=panel2-live-canonical-frozen",
+  "reference_qa_zoom": "qa-reference/elementary-comic-panel2-live-zoom.png",
+  "reference_note": "社長・けんちゃん合意の拡大スクショ（LIVEがMac液晶内に収まった版）",
+  "png_note": "Keynote正本1024x678・第3コマ焼き込み前。第3コマセリフは別PNG/別作業。",
+  "change_forbidden": [
+    "canonical/panel2-live-screen-final4/*",
+    "js/ec-live-clock.js",
+    "css/ec-comic-fullbleed.css panel2 selectors"
+  ],
+  "sha256": {
+    "ec-live-clock.js": "a4b2e6079f576e762b22187bfbea0095cd822d1b54066f110a4fa4dd27e4dc75",
+    "ec-comic-fullbleed.css": "f86d64be7efdb7d3533ab1b68247cae920989640615cc011183d765e89f0aedf",
+    "elementary_code_rocky_8panel.png": "d91c9f306d745b67564c39e3dc8cda92e8a5715202b04781d343fc67882da19c"
+  }
+}

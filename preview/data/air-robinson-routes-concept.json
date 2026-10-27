@@ -1,0 +1,57 @@
+{
+  "status": "concept",
+  "statusLabelJA": "予定・構想段階（着陸地点・運航日程は未確定）",
+  "pitchPolicy": {
+    "obliqueDownDegreesBelow250m": 40,
+    "boundaryMetersAGL": 250,
+    "cruiseReferenceMetersAGL": 920,
+    "smoothStep": true
+  },
+  "routes": [
+    {
+      "id": "route-pacific",
+      "titleJA": "ルート1 — 太平洋・雲上（構想）",
+      "heritageHintJA": "出発帯のイメージ。世界遺産候補の通過を想定（未確定）。",
+      "image": "../assets/hp_app_cloud_world_kiyoshi.jpg",
+      "imageCreditJA": "正本 `hp_app_cloud_world_kiyoshi.jpg`（既存素材）",
+      "demoAltitudeMeters": 320,
+      "heritageLowFlyMeters": 200
+    },
+    {
+      "id": "route-andes",
+      "titleJA": "ルート2 — アンデス（構想）",
+      "heritageHintJA": "マチュピチュ付近の低空イメージ（着陸・日程は未確定）。",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Machu%20Picchu%2C%20Per%C3%BA%2C%202015-07-30%2C%20DD%2037.jpg?width=1200",
+      "imageCreditJA": "Diego Delso / Wikimedia Commons（CC BY-SA 4.0 · 改変なし）",
+      "demoAltitudeMeters": 160,
+      "heritageLowFlyMeters": 140
+    },
+    {
+      "id": "route-anatolia",
+      "titleJA": "ルート3 — 小アジア（構想）",
+      "heritageHintJA": "カッパドキア付近の景観イメージ（未確定）。",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cappadocia%20Air%20Balloon.jpg?width=1200",
+      "imageCreditJA": "Hasan Abbasguliyev / Wikimedia Commons（CC BY-SA 4.0 · 改変なし）",
+      "demoAltitudeMeters": 180,
+      "heritageLowFlyMeters": 150
+    },
+    {
+      "id": "route-mediterranean",
+      "titleJA": "ルート4 — 地中海（構想）",
+      "heritageHintJA": "古代遺跡上空の通過イメージ（場所・高度は未確定）。",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg?width=1200",
+      "imageCreditJA": "Wikimedia Commons（CC BY-SA · 改変なし）",
+      "demoAltitudeMeters": 210,
+      "heritageLowFlyMeters": 170
+    },
+    {
+      "id": "route-eastasia",
+      "titleJA": "ルート5 — 東アジア（構想）",
+      "heritageHintJA": "長い旅路の寄港イメージ（既存タイル・未確定）。",
+      "image": "../assets/hp_air_robinson_tile.jpg",
+      "imageCreditJA": "正本 `hp_air_robinson_tile.jpg`（アプリ内タイル · 構想用）",
+      "demoAltitudeMeters": 480,
+      "heritageLowFlyMeters": 190
+    }
+  ]
+}

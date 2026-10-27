@@ -1,0 +1,18 @@
+{
+  "id": "president-pass-2026-10-26",
+  "label_ja": "社長指定合格版（右側ブラウザ・LIVE時計正常）",
+  "president_photo": "qa-reference/president-pass-photo.jpg",
+  "confirm_url": "http://127.0.0.1:8766/elementary-comic-live-confirm.html?v=panel2-live-pass4-2026-10-26",
+  "css_query": "css/ec-comic-fullbleed.css?v=president-pass-2026-10-26",
+  "panel3_dialogue": "data/comic-panel3-dialogue.json",
+  "panel2_live": "変更禁止（位置・大きさ・ec-live-clock.js 動作）",
+  "sha256": {
+    "ec-live-clock.js": "a4b2e6079f576e762b22187bfbea0095cd822d1b54066f110a4fa4dd27e4dc75",
+    "ec-comic-fullbleed.css": "305debf04d65cbe7509697252293d97bc7e094b3682873f01e245bdf5ef4630b",
+    "elementary-comic-live-confirm.html": "aa9c8f1fc7a8a875d60ccac1d3498ae152b671b3a66fe971b45e6647b4c4fab1",
+    "elementary_code_rocky_8panel.png": "b7f42e7ff2eb04be01d74cdfc675cefbc420bf78912407098d17e9bf95f7baa9",
+    "elementary_code_panel3_keynote.png": "c105f6d64b0afc5bb9e78c16d3a7bf1b7c0c57d8f2201da300ce853078e80713"
+  },
+  "panel3_note": "第3コマセリフは panel3_keynote.png を HTML 重ね（枠内のみ）。第2コマ LIVE は変更禁止。",
+  "panel2_fix": "合格写真準拠: mask 46.2%+clip-path+Mac液晶ポリゴン内のみPNG消去"
+}

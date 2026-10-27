@@ -1,0 +1,28 @@
+{
+  "url": "http://127.0.0.1:8766/elementary-comic-live-confirm.html?v=8komamanga-001-2026-10-27",
+  "png_matches_master": true,
+  "size_px": [
+    1024,
+    678
+  ],
+  "checks": [
+    {
+      "label": "pc1024",
+      "panel3_overlay_count": 0,
+      "panel2_live_dom_count": 0,
+      "natural_size": [
+        1024,
+        678
+      ]
+    },
+    {
+      "label": "iphone390",
+      "panel3_overlay_count": 0,
+      "panel2_live_dom_count": 0,
+      "natural_size": [
+        1024,
+        678
+      ]
+    }
+  ]
+}

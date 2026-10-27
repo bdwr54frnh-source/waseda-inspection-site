@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>【確認用】ELEMENTARY CODE 漫画（ロッキー作 8コマ）</title>
+  <link rel="stylesheet" href="css/ec-comic-fullbleed.css?v=panel2-live-pass4-2026-10-26">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #eef2f8;
+      color: #1a2433;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+    }
+    .preview-banner {
+      margin: 0;
+      padding: 6px 10px;
+      font-size: 11px;
+      line-height: 1.35;
+      background: #3d1a1a;
+      color: #ffd4d4;
+      text-align: center;
+    }
+    .meta {
+      padding: 10px 14px 24px;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      font-size: clamp(11px, 2.6vw, 13px);
+      line-height: 1.55;
+      color: #5a6b82;
+    }
+  </style>
+</head>
+<body>
+  <p class="preview-banner">非公開 · 確認用のみ（本番 elementarycode.tokyo へは未公開）</p>
+
+  <div class="ec-comic-fullbleed comic-stage">
+    <div class="comic-8-wrap" aria-label="ELEMENTARY CODE 8コマ（ロッキー作 · 第2コマ LIVE）">
+      <img
+        id="comic-rocky-8"
+        class="comic-8-base"
+        src="assets/elementary_code_rocky_8panel.png?v=panel2-mac-poly10"
+        width="1024"
+        height="678"
+        alt="ELEMENTARY CODE 8コマ漫画（ロッキー作 · 確認用）">
+      <div class="comic-panel2-screen" aria-hidden="true">
+        <div class="comic-panel2-static-mask" aria-hidden="true"></div>
+        <time
+          id="comic-panel2-clock"
+          data-ec-comic-digital
+          data-ec-tz="Asia/Tokyo"
+          aria-live="polite"
+          aria-label="東京時刻 LIVE（100分の1秒）">--:--:--.--</time>
+      </div>
+    </div>
+  </div>
+
+  <p class="meta">
+    確認URLは <strong>127.0.0.1:8766</strong>（ファイル直開き不可）· CSS <code>panel2-live-pass4-2026-10-26</code> · PNG <code>panel2-mac-poly10</code> · 合格写真どおりマスク＋46.2% · <code>ec-live-clock.js</code> 未変更 · 正本 <code>canonical/president-pass-2026-10-26/</code>。
+  </p>
+
+  <script src="js/ec-live-clock.js?v=panel2-live-pass2" defer></script>
+</body>
+</html>

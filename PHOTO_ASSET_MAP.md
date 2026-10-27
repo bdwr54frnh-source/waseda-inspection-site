@@ -11,11 +11,12 @@
 - FTP は **assets 配下を再帰的に全部**アップ（代表顔・edited/source は除外）
 - 枠付きガラスは **clean / serial 正本のみ**（会社案内 Apple 行 72px）
 
-**代表写真（2026-10-03 指示）**
-- `assets/founder_portrait.jpg` — `#people` のみ · 108px 程度 · ヒーロー禁止
+**代表写真（2026-10-03 指示 · 2026-10-27 本番正本）**
+- `assets/team-kiyoshi-approved-20261020.jpg` — `#people` のみ · 最大 270px · ヒーロー禁止
+- `assets/founder_portrait.jpg` — 旧小サイズ（保管用 · HP では使わない）
 
 **AIR デモ動画**
-- `assets/air_shutter_demo_5s.mp4` — 約5秒 · 音声なし autoplay · 正本一覧 `assets/HP_CURATED_ASSETS.md`
+- `assets/air_shutter_demo_5s.mp4` — **HP 非掲載**（画質不足 · 社長判断で公開停止）· 素材保管のみ
 
 **厳選スクショ（manifest 全件ロードは廃止）**
 - `assets/app_screen_basement.png` · `assets/product_airface_banner.jpg` · `assets/air_call_floor_glass_frame.png`

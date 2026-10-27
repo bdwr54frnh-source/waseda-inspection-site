@@ -1,0 +1,42 @@
+{
+  "url": "http://127.0.0.1:8766/elementary-comic-live-confirm.html?v=panel2-static-engine-2026-10-27&ecConfirmLive=1",
+  "mode": "static_comic_hidden_engine",
+  "tick_wait_ms": 2000,
+  "checks": [
+    {
+      "zoom": "100pct",
+      "engine_t0": "01:13:25.22",
+      "engine_t1": "01:13:27.43",
+      "tick_ok": true,
+      "no_comic_overlay": true,
+      "clock_hidden": true,
+      "shots": [
+        "panel2-static-engine-100pct-t0.png",
+        "panel2-static-engine-100pct-t1.png"
+      ]
+    },
+    {
+      "zoom": "75pct",
+      "engine_t0": "01:13:28.14",
+      "engine_t1": "01:13:30.32",
+      "tick_ok": true,
+      "no_comic_overlay": true,
+      "clock_hidden": true,
+      "shots": [
+        "panel2-static-engine-75pct-t0.png",
+        "panel2-static-engine-75pct-t1.png"
+      ]
+    },
+    {
+      "zoom": "iphone390",
+      "engine_t0": "01:13:31.04",
+      "engine_t1": "01:13:33.15",
+      "tick_ok": true,
+      "no_comic_overlay": true,
+      "clock_hidden": true,
+      "shots": [
+        "panel2-static-engine-iphone390.png"
+      ]
+    }
+  ]
+}
